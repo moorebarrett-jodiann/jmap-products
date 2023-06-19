@@ -1,86 +1,86 @@
 @charset "utf-8";
-
-.container-manual {
-    width: min(100% - 30px, 1080px);
-    margin-inline: auto;
-}
-
-
-/* -------------------------------- */
-/* Header                           */
-/* -------------------------------- */
-
+@import "./index.css";
 
 header {
     width: 100%;
-    height: 66px;
-    overflow: hidden;
-    background-color: transparent;
-    z-index: 333;
-    padding: 8px 0px;
-    margin-inline: auto;
-    border: none;
-    /* background-color: #acbabc; */
+    padding: 10px 0px;
 }
 
-.flexbox {
-    display: flex;
+header .flexbox {
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
 }
 
-.title {
-    width: 30%;
-    height: 46px;
-}
-
-.fa-candy-bar {
-    color: var(--app-orange);
-}
-
-
-.title h1{
+header .title h1 {
     font-size: 22px;
     font-weight: 500;
-    color: var(--app-orange);
+    color: var(--app-theme);
     line-height: 50px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
 
-nav {
-    width: 70%;
-    text-align: right;
+@media only screen and (min-width: 923px) { 
+
+    .burger-menu {
+        visibility: hidden;
+        display: none
+    }
+    
+    .burger-menu i {
+        visibility: hidden;
+        display: none
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+    justify-content: center;
+    }
+    
+    nav ul li {
+        visibility: visible;
+    }
+
+    nav ul li + li {
+        margin-left: 30px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--app-theme-blue);
+        position: relative;
+        transition: var(--app-transition);
+    }
+
+    nav ul li a:hover {
+        color: var(--app-theme-blue-2);
+    }
 }
 
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
-    line-height: 50px;
-    cursor: default;
-}
-
-nav ul li a {
-    font-size: 18px;
-    color: var(--text-color);
-    font-weight: 400;
-    text-decoration: none;
-    letter-spacing: 0.2px;
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: var(--app-orange);
-}
-
-nav ul li + li {
-    margin-left: 30px;
-}
-
-.hamburger-menu {
-    display: none;
+@media only screen and (max-width: 922px) {
+    nav {
+        visibility: hidden;
+        display: none;
+    }
+    
+    .burger-menu {
+        visibility: visible;
+        display: inline;
+        color: var(--app-theme-blue);
+        font-size: 20px;
+        transition: var(--app-transition);
+    }
+    
+    .burger-menu:hover {
+        color: var(--app-theme-blue-2);
+        cursor: pointer;
+    }
 }
 
 

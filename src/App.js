@@ -12,11 +12,11 @@ function App() {
 		<>
 		<Header/>
 		<main>
-			<Footer
-			    url = {companyLogo}
-			    developer = {developer}
-			/>
 		</main>
+		<Footer
+			url = {companyLogo}
+			developer = {developer}
+		/>
 		</>
 	);
 }
