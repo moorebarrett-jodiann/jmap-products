@@ -1,35 +1,35 @@
-@charset "UTF-8";
+@layer bootstrap, defaults, components, overrides;
 
-:root {
-    --app-theme-light: #f8f5f1;
-    --app-theme-light-2: #D8C4B6;
-    --app-theme-blue: #4F709C;
-    --app-theme-blue-2: #213555;
+@import '../../node_modules/bootstrap/' layer(bootstrap);
 
-    --app-light-text-color: #f4f6f8;
-    --app-dark-text-color: #1c1c1c;
-    
-    /*transitions and settings*/
-    --app-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-    --app-btn-padding: 8px 15px;
-    --app-border-radius: 10px;
-    --app-family-roboto: 'Roboto', sans-serif;
-    --app-family-inter: 'Inter', sans-serif;
-}
+@layer defaults {    
+    :root {
+        --app-theme-light: #f8f5f1;
+        --app-theme-light-2: #D8C4B6;
+        --app-theme-blue: #4F709C;
+        --app-theme-blue-2: #213555;
 
-/* = = = = = = = = = = = = = = = = = */
-/* BASIC STYLES                      */
-/* = = = = = = = = = = = = = = = = = */
+        --app-light-text-color: #f4f6f8;
+        --app-dark-text-color: #1c1c1c;
 
-body {
-    background-color: var(--app-theme-light);
-}
+        /*transitions and settings*/
+        --app-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        --app-btn-padding: 8px 15px;
+        --app-border-radius: 10px;
+        --app-family-roboto: 'Roboto', sans-serif;
+        --app-family-inter: 'Inter', sans-serif;
+    }
+  
+    body {
+      background-color: var(--app-theme-light);
+    }
 
-.main-container {
-    width: min(100% - 30px, 1080px);
-    margin-inline: auto;
-}
+    .main-container {
+      width: min(100% - 30px, 1080px);
+      margin-inline: auto;
+    }
 
-.flexbox {
-    display: flex;
+    .flexbox {
+      display: flex;
+    }
 }
