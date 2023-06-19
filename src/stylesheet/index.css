@@ -2,6 +2,8 @@
 
 @import '../../node_modules/bootstrap/' layer(bootstrap);
 
+@import './header-footer.css' layer(defaults);
+
 @layer defaults {    
     :root {
         --app-theme-light: #f8f5f1;
