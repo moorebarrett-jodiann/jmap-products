@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+/* = = = = = = = = = = = = = = = = = */
+/* BASIC STYLES                      */
+/* = = = = = = = = = = = = = = = = = */
+* {
+    color: #F1F2F9;
+}
+
+main {
+    height: 100vh;
+    background-color: #191F28;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+h2, h3, h4, h5, h6 { 
+    font-weight: 600;
+}
