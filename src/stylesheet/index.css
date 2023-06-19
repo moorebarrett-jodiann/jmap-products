@@ -16,8 +16,16 @@
         --app-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
         --app-btn-padding: 8px 15px;
         --app-border-radius: 10px;
-        --app-family-roboto: 'Roboto', sans-serif;
-        --app-family-inter: 'Inter', sans-serif;
+        --app-family-highlight: 'Roboto', sans-serif;
+        --app-family-primary: 'Inter', sans-serif;
+    }
+
+    p {
+        font-family: var(--app-family-primary);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--app-family-highlight);
     }
   
     body {
