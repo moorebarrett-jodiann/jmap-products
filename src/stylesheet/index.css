@@ -1,37 +1,35 @@
-@charset 'UTF-8';
-
 @layer bootstrap, defaults, components, overrides;
 
 @import '../../node_modules/bootstrap/' layer(bootstrap);
 
+@layer defaults {    
+    :root {
+        --app-theme-light: #f8f5f1;
+        --app-theme-light-2: #D8C4B6;
+        --app-theme-blue: #4F709C;
+        --app-theme-blue-2: #213555;
 
+        --app-light-text-color: #f4f6f8;
+        --app-dark-text-color: #1c1c1c;
 
-
-@layer defaults {
-    
-    /* = = = = = = = = = = = = = = = = = */
-    /* BASIC STYLES                      */
-    /* = = = = = = = = = = = = = = = = = */
-    * {
-        color: #F1F2F9;
+        /*transitions and settings*/
+        --app-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        --app-btn-padding: 8px 15px;
+        --app-border-radius: 10px;
+        --app-family-roboto: 'Roboto', sans-serif;
+        --app-family-inter: 'Inter', sans-serif;
+    }
+  
+    body {
+      background-color: var(--app-theme-light);
     }
 
-    main {
-        height: 100vh;
-        background-color: #191F28;
+    .main-container {
+      width: min(100% - 30px, 1080px);
+      margin-inline: auto;
     }
 
-    p {
-        font-family: 'Inter', sans-serif;
-        font-weight: 300;
-    }
-
-    h1 {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500;
-    }
-
-    h2, h3, h4, h5, h6 { 
-        font-weight: 600;
+    .flexbox {
+      display: flex;
     }
 }
