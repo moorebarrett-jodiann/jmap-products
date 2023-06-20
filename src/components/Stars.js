@@ -28,4 +28,4 @@ function Stars(props) {
 	);
 }
 
-export default Stars
+export default Stars;
