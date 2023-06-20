@@ -48,6 +48,7 @@ const registerWithEmailAndPassword = async ( email, password) => {
 
 const logInWithGoogle = async () => {
   try {
+    console.log("Google");
     await signInWithPopup(auth, googleProvider);
   } catch (error) {
     console.error(error);
