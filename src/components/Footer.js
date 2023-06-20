@@ -5,11 +5,12 @@ function Footer(props) {
     return (
         <footer>
             <div className="main-container footer">
-                <div className="logo">
-                    <img src={props.url} alt="companyLogo"/>
+                <div className="title flexbox">
+                    <img src={props.url} alt="logo"/>
+                    <h1>Jmap</h1>
                 </div>
                 <div className="social-icons">
-                    <p className="copyright">Designed by {props.developer} &copy; {year} All rights reserved</p>
+                    <p className="copyright">Designed by JMAP &copy; {year} All rights reserved</p>
                 </div>
             </div>
         </footer>

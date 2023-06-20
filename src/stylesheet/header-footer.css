@@ -1,21 +1,30 @@
 header {
     width: 100%;
     padding: 10px 0px;
+    height: 70px;
 }
 
-header .flexbox {
+header .main-container {
     justify-content: space-between;
-    align-items: center;
-    justify-items: center;
 }
 
-header .title h1 {
-    font-size: 22px;
+.title {
+    align-items: center;
+    justify-content: center;
+}
+
+.title img {
+    width: 50px;
+    margin-right: 5px;
+}
+
+.title h1 {
+    font-size: 30px;
     font-weight: 500;
-    color: var(--app-theme);
-    line-height: 50px;
-    text-transform: uppercase;
+    color: var(--app-theme-orange);
+    font-family: var(--app-family-highlight);
     letter-spacing: 0.3px;
+    margin: 0;
 }
 
 @media only screen and (min-width: 923px) { 
@@ -34,7 +43,7 @@ header .title h1 {
         list-style: none;
         display: flex;
         align-items: center;
-    justify-content: center;
+        height: 100%;
     }
     
     nav ul li {
@@ -87,140 +96,19 @@ header .title h1 {
 
 footer {
     width: 100%;
-    height: 210px;
-    overflow: hidden;
-    border: none;
-    margin-top: 60px;
-    padding: 10px;
-    background-color: #1a1c27;
-    bottom: 0; 
-}
-
-.footer {
-    display: flex;
-    flex-direction: column;
-}
-
-img{
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.logo {
-    border: none;
-    border-radius: 5px;
-    width: 100px;
-    height: 100px;
-    margin-inline: auto;
-}
-
-.social-icons {
-    height: 100px;
     padding: 10px 0px;
+    background-color: var(--app-theme-blue-2);
 }
   
-.social-icons ul {
-    list-style: none;
-    width: 100%;
-    text-align: center;
+footer .title {
+    margin: 20px 0px;
 }
-  
-.social-icons ul li {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    overflow: hidden;
-    margin-left: 5px;
-}
-  
-.social-icons ul li a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    font-size: 28px;
-    color: #d7d8d8;
-    border: 1px solid rgb(255 255 255 / 0.15);
-    border-radius: 5px;
-    transition: all 0.35s ease-in-out;
-}
-    
-.fa-brands:hover  {
-    color: var(--app-orange-hover);
-}
-  
+
 p.copyright {
+    width: 100%;
     font-size: 14px;
-    color:  #adadad;
+    color:  var(--app-theme-light-2);
     opacity: 0.4;
     font-weight: 400; 
     text-align: center;
-    margin-top: 15px;
-}
-
-
-/* -------------------------------- */
-/* Media Queries                    */
-/* -------------------------------- */
-@media screen and (max-width: 980px) {
-    .hamburger-menu {
-        display: block;
-    }
-
-    nav ul li, .contact {
-        display: none;
-    }
-
-    #menu-toggle {
-        opacity: 0;
-    }
-
-    #menu-toggle:checked + .menu-btn > span {
-        transform: rotate(45deg);
-    }
-
-    #menu-toggle:checked + .menu-btn > span::before {
-        top: 0;
-        transform: rotate(0deg);
-    }
-
-    #menu-toggle:checked + .menu-btn > span::after {
-        top: 0;
-        transform: rotate(90deg);
-    }
-
-    #menu-toggle:checked ~ .menu-box {
-        left: 54.5% !important;
-    }
-
-    .menu-btn {
-        position: absolute;
-        top: 31px;
-        left: 89%;
-        width: 24px;
-        height: 20px;
-        cursor: pointer;
-        z-index: 1;
-    }
-
-    .menu-btn > span,
-    .menu-btn > span::before,
-    .menu-btn > span::after {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: var(--text-color);
-        transition-duration: .25s;
-    }
-
-    .menu-btn > span::before {
-        content: '';
-        top: -8px;
-    }
-
-    .menu-btn > span::after {
-        content: '';
-        top: 8px;
-    }    
 }
