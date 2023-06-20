@@ -1,8 +1,10 @@
+import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useCallback, useState } from "react";
 
 function Details() {
+    const [alertIsShown, setAlertIsShown] = useState(false);
 
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState([])
@@ -31,8 +33,22 @@ function Details() {
         getProductDetails();
         window.scrollTo(0,0);
     },[getProductDetails])
+
+    const addItem = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setAlertIsShown(true);
+
+        setTimeout(() => {
+            setAlertIsShown(false);
+        }, 2000);
+    };
     
     return (
+    <>
+    <AddToCartAlert 
+        isShown={alertIsShown}
+    />
     <section className="details-page">
         <div className="main-container">
             <div className="product-details">
@@ -54,7 +70,7 @@ function Details() {
                     <p className='product-price'>$ {selectedProduct.price}</p>
                     <div className='buttons'>
                         <button className="product-buy">Buy Now</button>
-                        <button className="product-add-to-cart">Add to cart</button>
+                        <button onClick={addItem} className="product-add-to-cart">Add to cart</button>
                     </div>
                     <div className='product-delivery'>
                         <p>
@@ -66,6 +82,7 @@ function Details() {
             </div>
         </div>
     </section>
+    </>
   )
 }
 

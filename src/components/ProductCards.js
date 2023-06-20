@@ -1,3 +1,5 @@
+import { useState } from "react";
+import AddToCartAlert from "./AddToCartAlert";
 import Stars from "./Stars";
 
 function formatPrice(price) {
@@ -10,8 +12,23 @@ function formatPrice(price) {
 }
 
 function ProductCards(props) {
+    const [alertIsShown, setAlertIsShown] = useState(false);
+
+    const addItem = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setAlertIsShown(true);
+
+        setTimeout(() => {
+            setAlertIsShown(false);
+        }, 2000);
+    };
+
     return (
         <>
+            <AddToCartAlert 
+                isShown={alertIsShown}
+            />
             {props.items.map(item => (
                 <div className="product-card" key={item.id} onClick={() => props.onClick(item)}>
                     <div className="favourite"><i class="fa-solid fa-heart"></i></div>
@@ -31,7 +48,7 @@ function ProductCards(props) {
                             <Stars rating={item.rating.rate} />
                             <p className="count">({item.rating.count})</p>
                         </div>
-                        <button className="add-to-cart">Add to Cart</button>
+                        <button onClick={addItem} className="add-to-cart">Add to Cart</button>
                     </div>      
                 </div>
             ))}

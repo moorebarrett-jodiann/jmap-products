@@ -173,6 +173,8 @@
     width: var(--app-btn-width);
     height: var(--app-btn-height);
     transition: var(--app-transition);
+    position: relative;
+    z-index: 5;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;

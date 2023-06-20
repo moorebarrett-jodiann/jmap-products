@@ -6,6 +6,7 @@ import LoginModal from './components/LoginModal';
 import Details from './pages/Details';
 import Product from './pages/Product';
 import DiscountBanner from './components/DiscountBanner';
+import Cart from './pages/Cart';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -22,10 +23,11 @@ function App() {
         <Routes >
           <Route path="/" element={<Product />} />
           <Route path="/product/:id" element={<Details />} />
+          <Route path="/my-cart" element={<Cart />} />
         </Routes>
       </main>
       <Footer
-          url={logo}
+        url={logo}
       />
 		</>
 	);
