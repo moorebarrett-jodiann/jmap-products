@@ -9,4 +9,4 @@ function AddToCartAlert(prop) {
   )
 }
 
-export default AddToCartAlert
+export default AddToCartAlert;
