@@ -9,6 +9,7 @@ header .main-container {
 }
 
 header .title {
+    text-decoration: none;
     align-items: center;
     justify-content: center;
 }
@@ -22,6 +23,17 @@ header .title img {
     margin-right: 5px;
 }
 
+header .welcome p {
+    font-size: 14px;
+    color: var(--app-theme-orange);
+    margin: 0;
+}
+
+header .welcome p span {
+    color: var(--app-theme-orange-hover);
+    font-weight: 600;
+}
+
 header .title h1 {
     font-size: 30px;
     font-weight: 500;
@@ -29,6 +41,19 @@ header .title h1 {
     font-family: var(--app-family-highlight);
     letter-spacing: 0.3px;
     margin: 0;
+}
+
+header button {
+    border-radius: var(--app-border-radius) !important;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    width: 90px;
+    transition: var(--app-transition);
+}
+
+header button:hover {
+    background-color: var(--app-theme-orange-hover) !important;
 }
 
 @media only screen and (min-width: 923px) { 
@@ -58,18 +83,22 @@ header .title h1 {
         margin-left: 30px;
     }
 
+    nav ul li:last-child {
+        margin-left: 0;
+    }
+
     nav ul li a {
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
         text-decoration: none;
-        color: var(--app-theme-blue);
+        color: var(--app-theme-blue) !important;
         position: relative;
         transition: var(--app-transition);
     }
 
     nav ul li a:hover {
-        color: var(--app-theme-blue-2);
+        color: var(--app-theme-blue-2) !important;
     }
 }
 

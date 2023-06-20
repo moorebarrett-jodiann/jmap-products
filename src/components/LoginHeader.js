@@ -13,8 +13,8 @@ function LoginHeader() {
         <OpenLoginButton classes="btn" value="Login" />
         : 
         <div className="d-flex h-100 align-items-center">
-          <div className="text-muted mx-4">
-            Welcome {user.email} 
+          <div className="welcome text-muted mx-4">
+            <p>Welcome <span>{user.email}</span></p>
           </div>
           <button onClick={logout}>Logout</button>
         </div>

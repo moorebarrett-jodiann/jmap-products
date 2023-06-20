@@ -4,10 +4,10 @@ function Header(props) {
     return(
         <header>
             <div className="main-container flexbox">
-                <div className="title flexbox">
-                    <a href="/"><img src={props.url} alt="logo"/></a>
+                <a href="/" className="title flexbox">
+                    <img src={props.url} alt="logo"/>
                     <h1>JMAP</h1>
-                </div>
+                </a>
                 <nav>
                     <ul>
                         <li><a href='/'>Products</a></li>
