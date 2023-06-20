@@ -1,5 +1,3 @@
-import '../stylesheet/cart.css';
-
 function Cart() {
   return (
     <section className="main-container cart-container">

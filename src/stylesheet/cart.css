@@ -1,5 +1,3 @@
-@import './index.css';
-
 .cart-container {
     display: flex;
     flex-direction: column;
