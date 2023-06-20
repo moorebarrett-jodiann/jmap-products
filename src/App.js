@@ -22,9 +22,9 @@ function App() {
             <Route path="/product/:id" element={<Details />} />
           </Routes>
         </main>
-      <Footer
-          url={logo}
-      />
+        <Footer
+            url={logo}
+        />
 		</>
 	);
 }
