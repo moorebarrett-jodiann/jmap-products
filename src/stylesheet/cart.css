@@ -1,0 +1,140 @@
+@import './index.css';
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.membership-container {
+    padding: var(--app-btn-padding);
+    border: 2px solid #DDD;
+}
+
+.heading-link {
+    text-decoration: none;
+}
+
+a {
+    color: var(--app-dark-text-color);
+    transition: var(--app-transition);
+}
+
+a:hover {
+    color: var(--app-theme-blue);
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+input[type=submit], button {
+    padding: var(--app-btn-padding);
+    border: none;
+    border-radius: none;
+    font-weight: 600;
+    color: #FFF;
+    background-color: var(--app-theme-orange);
+}
+
+.blue {
+    color: var(--app-theme-blue);
+}
+
+.columns-container {
+    display: flex;
+    gap: 40px; 
+}
+
+.first-col-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.item-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-card {
+    background-color: #FFF;
+}
+
+.item-card-info {
+    display: flex;
+    gap: 30px;
+}
+
+.item-card-info figure img {
+    height: 200px;
+}
+
+.item-card-info div {
+    display: flex;
+    gap: 20px;
+}
+
+.item-card-info article div a {
+    text-decoration: none;
+    color: var(--app-theme-blue);
+}
+
+.item-card {
+    padding: var(--app-btn-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 40px;
+    border: 2px solid #DDD;
+}
+
+.shipping-features-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.shipping-features-container article i {
+    font-size: 60px;
+}
+
+.shipping-features-container article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px
+}
+
+.second-col-container {
+    padding: var(--app-btn-padding);
+    border: 2px solid #DDD;
+}
+
+.second-col-container form {
+    display: flex;
+}
+
+.order-summary-container article, 
+.estimated-total-container article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.place-order-btn {
+    width: 100%;
+}
+
+.payment-options-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.payment-options-container i {
+    font-size: 50px;
+}
