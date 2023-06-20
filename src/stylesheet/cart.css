@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 100px;
+    padding: 40px 0;
 }
 
 .membership-container {
@@ -15,13 +16,26 @@
     text-decoration: none;
 }
 
-a {
+.dead-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a, .dead-link {
     color: var(--app-dark-text-color);
     transition: var(--app-transition);
 }
 
-a:hover {
-    color: var(--app-theme-blue);
+a:hover, .dead-link:hover {
+    color: var(--app-theme-orange);
+}
+
+input[type=text] {
+    padding-left: 8px;
+    border: 2px solid #DDD;
+    border-right: none;
+    border-top-left-radius: var(--app-border-radius);
+    border-bottom-left-radius: var(--app-border-radius); 
 }
 
 input[type=text]:focus {
@@ -31,7 +45,8 @@ input[type=text]:focus {
 input[type=submit], button {
     padding: var(--app-btn-padding);
     border: none;
-    border-radius: none;
+    border-top-right-radius: var(--app-border-radius);
+    border-bottom-right-radius: var(--app-border-radius);
     font-weight: 600;
     color: #FFF;
     background-color: var(--app-theme-orange);
@@ -58,13 +73,15 @@ input[type=submit], button {
     gap: 15px;
 }
 
-.item-card {
-    background-color: #FFF;
-}
-
 .item-card-info {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
+}
+
+.item-card-info figure {
+    padding: 5px;
 }
 
 .item-card-info figure img {
@@ -76,18 +93,14 @@ input[type=submit], button {
     gap: 20px;
 }
 
-.item-card-info article div a {
-    text-decoration: none;
-    color: var(--app-theme-blue);
-}
-
 .item-card {
     padding: var(--app-btn-padding);
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     gap: 40px;
-    border: 2px solid #DDD;
+    border: 2px solid #EEE;
+    background-color: #FFF;
 }
 
 .shipping-features-container {
@@ -109,8 +122,9 @@ input[type=submit], button {
 }
 
 .second-col-container {
-    padding: var(--app-btn-padding);
+    padding: 30px;
     border: 2px solid #DDD;
+    border-radius: var(--app-border-radius);
 }
 
 .second-col-container form {
@@ -125,6 +139,12 @@ input[type=submit], button {
 
 .place-order-btn {
     width: 100%;
+    border-radius: var(--app-border-radius);
+    transition: var(--app-transition);
+}
+
+.place-order-btn:hover {
+    background-color: var(--app-theme-orange-hover);
 }
 
 .payment-options-container {
@@ -135,6 +155,6 @@ input[type=submit], button {
     gap: 20px;
 }
 
-.payment-options-container i {
-    font-size: 50px;
+.payment-options-container img {
+    width: 70px;
 }
