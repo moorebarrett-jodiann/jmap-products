@@ -1,8 +1,11 @@
+import OpenLoginButton from "./OpenLoginButton";
 
 
 function LoginHeader() {
   return (
-    <div>LoginHeader</div>
+    <div>
+      <OpenLoginButton classes="btn" value="Login" />
+    </div>
   )
 }
 
