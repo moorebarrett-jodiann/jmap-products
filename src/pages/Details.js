@@ -5,16 +5,13 @@ import { useEffect, useCallback, useState } from "react";
 function Details() {
 
     const { id } = useParams();
-    //const navigate = useNavigate();
-    const productId = 6;
-
     const [selectedProduct, setSelectedProduct] = useState([])
     const [productRatingObj, setProductRatingObj] = useState({});
     let rating = Math.trunc(productRatingObj.rate);
 
     const getProductDetails = useCallback(async () => {
 
-        const url = `https://fakestoreapi.com/products/${productId}`;
+        const url = `https://fakestoreapi.com/products/${id}`;
     
         axios
         .get(url)

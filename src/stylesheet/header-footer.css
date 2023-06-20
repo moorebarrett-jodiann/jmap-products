@@ -95,6 +95,7 @@ header .main-container {
 /* -------------------------------- */
 
 footer {
+    height: 190px;
     width: 100%;
     padding: 10px 0px;
     background-color: var(--app-theme-blue-2);

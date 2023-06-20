@@ -26,7 +26,7 @@ function Product() {
     // Navigate to detail page if a card is clicked
     const handleClick = (item) => {
         // Use navigate function for redirection
-        navigate(`/${item.id}`); 
+        navigate(`/product/${item.id}`); 
     };
 
     return (

@@ -1,7 +1,9 @@
 .details-page {
     width: 100%;
-    height: calc(100vh - 210px);
-    padding: 10px 0px;
+    height: calc(100vh - 70px - 150px);
+    display: grid;
+    padding: 40px 0px;
+    place-items: center;
 }
 
 .product-details {
@@ -13,7 +15,7 @@
     justify-content: space-between;
 }
 
-figure {
+.product-details figure {
     display: grid;
     place-items: center;
     width: 450px;
@@ -24,60 +26,60 @@ figure {
     padding: 30px;
 }
 
-img {
+.product-details img {
     max-width: 100%;
     min-width: 100%;
     object-fit: contain;
 }
 
-.product-info {
+.product-details .product-info {
     width: 600px;
     height: auto;
     padding: 20px;
 }
 
-.product-title {
+.product-details .product-title {
     font-size: 2.8rem;
 }
 
-.product-description {
+.product-details .product-description {
     padding: 4px 0px;
     height: auto;
     margin-top: 15px;
 }
 
-.product-stars {
+.product-details .product-stars {
     margin-top: 20px;
     padding: 3px 0px;
 }
 
-.fa-star {
+.product-details .fa-star {
     font-size: 19px;
 }
 
-.yellow-star {
+.product-details .yellow-star {
     color: #c99016;
 }
 
-.divider {
+.product-details .divider {
     border-width: 0.02rem;
     height:0.02rem;
     border: 1px solid rgb(145, 144, 144, 0.2);
 }
 
-.product-price {
+.product-details .product-price {
     margin-top: 25px;
     font-size: 25px;
     font-weight: 500;
 }
 
-.buttons {
+.product-details .buttons {
     margin-top: 30px;
     padding: 8px 0px;
     height: 65px;
 }
 
-button {
+.product-details button {
     margin: 0px 0px 0px auto;
     width: 150px;
     height: 48px;
@@ -90,15 +92,15 @@ button {
     border: 1px solid transparent
 }
 
-button + button {
+.product-details button + button {
     margin-left: 10px;
 }
 
-button:hover {
+.product-details button:hover {
     background-color: var(--app-theme-blue-2);
 }
 
-.product-add-to-cart {
+.product-details .product-add-to-cart {
     background-color: var(--app-theme-light) ;
     border: 1px solid var(--app-theme-blue);
     color: var(--app-theme-blue)
@@ -109,7 +111,7 @@ button:hover {
     color: #fff;
 }
 
-.product-delivery {
+.product-details .product-delivery {
     margin-top: 25px;
     width: 380px;
     height: 55px;
