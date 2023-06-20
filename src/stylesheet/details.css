@@ -61,10 +61,10 @@
 }
 
 .product-details .product-rating-count {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 19px;
-    margin-left: 8px;
-    padding: 2px;
+    padding: 3px;
+    opacity: 0.5;
 }
 
 .product-details .product-price {

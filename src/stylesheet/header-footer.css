@@ -13,6 +13,10 @@ header .title {
     justify-content: center;
 }
 
+header .title:hover {
+    cursor: pointer;
+}
+
 header .title img {
     width: 50px;
     margin-right: 5px;

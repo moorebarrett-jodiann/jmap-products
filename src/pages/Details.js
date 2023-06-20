@@ -53,7 +53,7 @@ function Details() {
                         <h2 className="product-title">{selectedProduct.title}</h2>
                         <div className='product-stars'>
                             <Stars rating={selectedProduct.rating.rate} />
-                            <div className='product-rating-count'>({selectedProduct.rating.count})</div>
+                            <div className='product-rating-count'>({selectedProduct.rating.count}) customer reviews</div>
                         </div>
                         <p className='product-price'>$ {selectedProduct.price}</p>
                         <div className='buttons'>

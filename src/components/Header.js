@@ -5,7 +5,7 @@ function Header(props) {
         <header>
             <div className="main-container flexbox">
                 <div className="title flexbox">
-                    <img src={props.url} alt="logo"/>
+                    <a href="/"><img src={props.url} alt="logo"/></a>
                     <h1>JMAP</h1>
                 </div>
                 <nav>
