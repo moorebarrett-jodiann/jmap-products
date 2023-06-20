@@ -2,6 +2,7 @@ import './stylesheet/index.css';
 import companyLogo from './images/companyLogo.png';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Details from './pages/Details';
 import Product from './pages/Product';
 import DiscountBanner from './components/DiscountBanner';
 import { Routes, Route } from 'react-router-dom';
@@ -11,18 +12,19 @@ function App() {
 
 	return (
 		<>
-			<DiscountBanner />
-			<Header
-				url={logo}
-			/>
-			<main>
-				<Routes >
-					<Route path="/" element={<Product />} />
-				</Routes>
-			</main>
-			<Footer
-				url={companyLogo}
-			/>
+      <DiscountBanner />
+        <Header
+          url={logo}
+        />
+        <main>
+          <Routes >
+            <Route path="/" element={<Product />} />
+            <Route path="/product/:id" element={<Details />} />
+          </Routes>
+        </main>
+      <Footer
+          url={logo}
+      />
 		</>
 	);
 }

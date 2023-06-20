@@ -3,6 +3,7 @@
 @import '../../node_modules/bootstrap/' layer(bootstrap);
 
 @import './header-footer.css' layer(defaults);
+@import './details.css' layer(defaults);
 @import './banner.css' layer(components);
 @import './product.css' layer(components);
 @import './discount-wrapper.css' layer(components);
