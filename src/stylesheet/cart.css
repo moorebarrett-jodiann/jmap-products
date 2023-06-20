@@ -34,7 +34,7 @@ input[type=submit], button {
     border-radius: none;
     font-weight: 600;
     color: #FFF;
-    background-color: var(--app-theme-blue-2);
+    background-color: var(--app-theme-orange);
 }
 
 .blue {
@@ -56,6 +56,10 @@ input[type=submit], button {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.item-card {
+    background-color: #FFF;
 }
 
 .item-card-info {
