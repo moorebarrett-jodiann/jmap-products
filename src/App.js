@@ -2,8 +2,8 @@ import './stylesheet/index.css';
 import companyLogo from './images/companyLogo.png';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LoginModal from './components/LoginModal';
 
-import LoginForm from './components/LoginForm';
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
 			url = {companyLogo}
 			developer = {developer}
 		/>
+		<LoginModal />
 		</>
 	);
 }
