@@ -172,6 +172,8 @@
     color: var(--app-light-text-color);
     width: 115px;
     transition: var(--app-transition);
+    position: relative;
+    z-index: 5;
 }
 
 .product-grid .product-card .info-wrapper .add-to-cart:hover {
