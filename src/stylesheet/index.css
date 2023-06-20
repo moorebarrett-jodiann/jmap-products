@@ -3,13 +3,20 @@
 @import '../../node_modules/bootstrap/' layer(bootstrap);
 
 @import './header-footer.css' layer(defaults);
+@import './banner.css' layer(components);
+@import './product.css' layer(components);
+@import './discount-wrapper.css' layer(components);
 
 @layer defaults {    
     :root {
+        --app-theme-grey: #e7e6e4;
         --app-theme-light: #f8f5f1;
         --app-theme-light-2: #D8C4B6;
+        --app-theme-light-blue: #99b0cf;
         --app-theme-blue: #4F709C;
         --app-theme-blue-2: #213555;
+        --app-theme-orange: #db9806;
+        --app-theme-orange-hover: #d19108;
 
         --app-light-text-color: #f4f6f8;
         --app-dark-text-color: #1c1c1c;
