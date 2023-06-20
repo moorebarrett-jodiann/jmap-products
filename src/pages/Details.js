@@ -1,9 +1,11 @@
+import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Stars from '../components/Stars';
 
 function Details() {
+    const [alertIsShown, setAlertIsShown] = useState(false);
 
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
@@ -23,11 +25,24 @@ function Details() {
         window.scrollTo(0,0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+  
+    const addItem = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setAlertIsShown(true);
+
+        setTimeout(() => {
+            setAlertIsShown(false);
+        }, 2000);
+    };
     
     return (
     <>
         {selectedProduct? (
         <>
+            <AddToCartAlert 
+                isShown={alertIsShown}
+            />
             <section className="details-page">
             <div className="main-container">
                 <div className="product-details">
