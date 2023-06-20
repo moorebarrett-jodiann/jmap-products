@@ -144,24 +144,10 @@
     align-items:start;
 }
 
-.product-grid .product-card .reviews .stars {
-    margin-right: 10px;
-}
-
-.product-grid .product-card .reviews .stars svg {
-    font-size: 15px;
-    color: var(--app-theme-orange);
-}
-
-.product-grid .product-card .reviews svg {
-    font-size: 15px;
-    color: var(--app-theme-orange);
-}
-
 .product-grid .product-card .reviews .count {
     font-size: 15px;
     align-items: start;
-    line-height: 20px;
+    line-height: 23px;
     opacity: 0.5;
 }
 

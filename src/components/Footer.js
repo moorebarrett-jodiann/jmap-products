@@ -5,7 +5,7 @@ function Footer(props) {
     return (
         <footer>
             <div className="main-container footer">
-                <div className="title flexbox">
+                <div className="title">
                     <img src={props.url} alt="logo"/>
                     <h1>JMAP Products</h1>
                 </div>

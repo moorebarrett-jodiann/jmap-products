@@ -6,6 +6,55 @@
     font-size: 12px;
 }
 
+@media only screen and (min-width: 1080px) {   
+    .discount-wrapper {
+        display: block;
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 1079px) {
+    .discount-wrapper {
+        display: block;
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .discount-wrapper {
+        display: block;
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 922px) {
+    .discount-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .discount-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 562px) {
+    .discount-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 416px) {
+    .discount-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
 .discount-wrapper .flexbox {
     justify-content: space-between;
     justify-items: center;
