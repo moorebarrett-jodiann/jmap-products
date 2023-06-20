@@ -1,4 +1,29 @@
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import ProductCards from "../components/ProductCards";
+
 function Cart() {
+  const API_URL = 'https://fakestoreapi.com/products?limit=4';
+  const [randomProducts, setRandomProducts] = useState([]);
+  const navigate = useNavigate();
+  
+  const handleClick = (item) => {
+    navigate(`/product/${item.id}`); 
+  };
+
+  useEffect(() => {
+    axios
+        .get(API_URL)
+        .then(result => {
+            setRandomProducts(result.data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    
+  }, []);  
+
   return (
     <section className="main-container cart-container">
         <div className="columns-container">
@@ -89,8 +114,11 @@ function Cart() {
                         <h4>You may also like</h4>
                     </article>
 
-                    <div>
-                        {/* A carousel of other items */}
+                    <div className="product-grid">
+                        <ProductCards 
+                            items={randomProducts}
+                            onClick={handleClick}
+                        />
                     </div>
                 </div>
             </div>

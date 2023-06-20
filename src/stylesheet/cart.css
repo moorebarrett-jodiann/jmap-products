@@ -101,6 +101,10 @@ input[type=submit], button {
     background-color: #FFF;
 }
 
+.random-items-container {
+    display: flex
+}
+
 .shipping-features-container {
     display: flex;
     justify-content: center;
