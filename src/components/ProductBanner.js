@@ -17,6 +17,7 @@ function ProductBanner() {
         const interval = setInterval(changeBanner, 4000);
         // Clean up the interval on component unmount
         return () => clearInterval(interval); 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
