@@ -2,7 +2,7 @@ import './stylesheet/index.css';
 import companyLogo from './images/companyLogo.png';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
+import Cart from './pages/Cart';
 
 function App() {
   
@@ -12,7 +12,7 @@ function App() {
 		<>
 		<Header/>
 		<main>
-			
+			<Cart/>
 		</main>
 		<Footer
 			url = {companyLogo}
