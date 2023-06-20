@@ -31,7 +31,7 @@ function ProductCards(props) {
                             <Stars rating={item.rating.rate} />
                             <p className="count">({item.rating.count})</p>
                         </div>
-                        <div className="add-to-cart">Add to Cart</div>
+                        <button className="add-to-cart">Add to Cart</button>
                     </div>      
                 </div>
             ))}
