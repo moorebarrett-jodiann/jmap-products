@@ -46,7 +46,7 @@ const registerWithEmailAndPassword = async ( email, password) => {
   }
 }
 
-const signInWithGoogle = async () => {
+const logInWithGoogle = async () => {
   try {
     await signInWithPopup(auth, googleProvider);
   } catch (error) {
@@ -60,7 +60,7 @@ const logout = () => {
 
 export {
   auth,
-  signInWithGoogle,
+  logInWithGoogle,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   logout,
