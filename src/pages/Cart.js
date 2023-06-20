@@ -7,7 +7,7 @@ function Cart() {
             <div className="first-col-container">
                 <div className="membership-container rounded">
                     <article>
-                        <a href="" className="heading-link"><h2>Free Shipping for Members</h2></a>
+                        <a href="" className="heading-link"><h4>Free Shipping for Members</h4></a>
                         <p>
                             Become a member today and get discounts,
                             free shipping and so much more!
@@ -16,7 +16,7 @@ function Cart() {
                 </div>
 
                 <article>
-                    <h2>Your item(s)</h2>
+                    <h4>Your item(s)</h4>
                 </article>
 
                 {/* ITEMS CONTAINER */}
@@ -26,20 +26,20 @@ function Cart() {
                         <div className="item-card-info">
                             <figure>
                                 <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
-                                alt="Product image goes here"/>
+                                alt="Product img goes here"/>
                             </figure>
 
                             <article>
-                                <h2>Product Title</h2>
+                                <h4>Product Title</h4>
                                 <p>Product Rating</p>
                                 <p>Product Quantity</p>
                                 <div>
-                                    <a href="">
-                                    <i className="fa-solid fa-heart"></i> Add to Favorites 
-                                    </a>
-                                    <a href="">
+                                    <p className="dead-link">
+                                        <i className="fa-solid fa-heart"></i> Add to Favorites 
+                                    </p>
+                                    <p className="dead-link">
                                         <i className="fa-solid fa-trash-can"></i> Remove 
-                                    </a>
+                                    </p>
                                 </div>
                             </article>
                         </div>
@@ -52,21 +52,21 @@ function Cart() {
                     <div className="item-card rounded">
                         <div className="item-card-info">
                             <figure>
-                                <img src=	"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" 
-                                alt="Product image goes here"/>
+                                <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" 
+                                alt="Product img goes here"/>
                             </figure>
 
                             <article>
-                                <h2>Product Title</h2>
+                                <h4>Product Title</h4>
                                 <p>Product Rating</p>
                                 <p>Product Quantity</p>
                                 <div>
-                                    <a href="">
+                                    <p className="dead-link">
                                         <i className="fa-solid fa-heart"></i> Add to Favorites 
-                                    </a>
-                                    <a href="">
+                                    </p>
+                                    <p className="dead-link">
                                         <i className="fa-solid fa-trash-can"></i> Remove 
-                                    </a>
+                                    </p>
                                 </div>
                             </article>
                         </div>
@@ -82,13 +82,13 @@ function Cart() {
                         If this order contains a gift,
                         you'll be able to add a message and 
                         a special gift box during 
-                        checkout. <a href="" className="blue">Learn more</a>
+                        checkout. <span className="blue dead-link">Learn more</span>
                     </p>
                 </article>
 
                 <div>
                     <article>
-                        <h2>You may also like</h2>
+                        <h4>You may also like</h4>
                     </article>
 
                     <div>
@@ -102,7 +102,7 @@ function Cart() {
                 <div>
                     <article>
                         <h2>
-                        <i class="fa-solid fa-cart-shopping"></i> Order Summary
+                        <i className="fa-solid fa-cart-shopping"></i> Order Summary
                         </h2>
                     </article>
                 </div>
@@ -158,9 +158,20 @@ function Cart() {
                 </div>
 
                 <div className="payment-options-container">
-                    <i className="fa-brands fa-cc-visa"></i>
-                    <i className="fa-brands fa-cc-paypal"></i>
-                    <i className="fa-brands fa-cc-mastercard"></i>
+                    <figure>
+                        <img src="./images/visaLogo.png" 
+                        alt="Visa Logo"/>
+                    </figure>
+
+                    <figure>
+                        <img src="./images/mastercardLogo.png" 
+                        alt="Mastercard Logo"/>
+                    </figure>
+
+                    <figure>
+                        <img src="./images/paypalLogo.png" 
+                        alt="Paypal Logo"/>
+                    </figure>
                 </div>
             </div>
         </div>
