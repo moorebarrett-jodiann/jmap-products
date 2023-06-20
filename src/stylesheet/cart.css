@@ -85,7 +85,7 @@ input[type=submit], button {
     padding: var(--app-btn-padding);
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     gap: 40px;
     border: 2px solid #DDD;
 }
