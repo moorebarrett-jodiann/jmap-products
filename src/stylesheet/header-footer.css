@@ -8,17 +8,17 @@ header .main-container {
     justify-content: space-between;
 }
 
-.title {
+header .title {
     align-items: center;
     justify-content: center;
 }
 
-.title img {
+header .title img {
     width: 50px;
     margin-right: 5px;
 }
 
-.title h1 {
+header .title h1 {
     font-size: 30px;
     font-weight: 500;
     color: var(--app-theme-orange);
@@ -81,8 +81,9 @@ header .main-container {
         color: var(--app-theme-blue);
         font-size: 20px;
         transition: var(--app-transition);
+        margin: auto 0;
     }
-    
+
     .burger-menu:hover {
         color: var(--app-theme-blue-2);
         cursor: pointer;
@@ -95,14 +96,30 @@ header .main-container {
 /* -------------------------------- */
 
 footer {
-    height: 190px;
+    height: 150px;
     width: 100%;
-    padding: 10px 0px;
+    padding: 5px 0px;
     background-color: var(--app-theme-blue-2);
 }
   
 footer .title {
-    margin: 20px 0px;
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+footer .title img {
+    width: 50px;
+    margin-bottom: 5px;
+}
+
+footer .title h1 {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--app-theme-orange);
+    font-family: var(--app-family-highlight);
+    letter-spacing: 0.3px;
+    margin: 0;
 }
 
 p.copyright {
