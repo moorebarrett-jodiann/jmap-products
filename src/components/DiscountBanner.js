@@ -3,7 +3,7 @@ function DiscountBanner() {
         <div className="discount-wrapper">
             <section className="main-container flexbox">
                 <div className="phone-number flexbox">
-                    <i class="fa-solid fa-phone"></i>
+                    <i className="fa-solid fa-phone"></i>
                     <p>+001234567890</p>
                 </div>
                 <div className="discount flexbox">
@@ -11,8 +11,8 @@ function DiscountBanner() {
                     <p>Shop Now</p>
                 </div>
                 <div className="settings flexbox">
-                    <div className="lang">Eng <i class="fa-solid fa-angle-down"></i></div>
-                    <div className="location">Location <i class="fa-solid fa-angle-down"></i></div>
+                    <div className="lang">Eng <i className="fa-solid fa-angle-down"></i></div>
+                    <div className="location">Location <i className="fa-solid fa-angle-down"></i></div>
                 </div>
             </section>
         </div>
