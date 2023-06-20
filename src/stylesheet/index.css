@@ -34,6 +34,7 @@
 
     main {
       min-width: 380px;
+      min-height: calc(100vh - 70px - 150px);
     }
 
     p {
@@ -64,5 +65,11 @@
     .stars svg {
         font-size: 15px;
         color: var(--app-theme-orange);
+    }
+
+    .error-container {
+      height: 100%;
+      display: grid;
+      place-items: center;
     }
 }

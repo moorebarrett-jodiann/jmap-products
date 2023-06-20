@@ -6,7 +6,7 @@ import Stars from '../components/Stars';
 
 function Details() {
     const [alertIsShown, setAlertIsShown] = useState(false);
-
+    const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
 
@@ -19,7 +19,7 @@ function Details() {
           setSelectedProduct(res.data);
         })
         .catch((error) => {
-            console.log(error.message);
+            setMessage('No details found ...');
         }); 
 
         window.scrollTo(0,0);
@@ -74,7 +74,11 @@ function Details() {
                 </div>
             </div>
         </section>
-        </>) : (<></>)
+        </>) : (
+            <div className="error-container">
+                <p className="loading">{message}</p>
+            </div>
+        )
         }
     </>
   )

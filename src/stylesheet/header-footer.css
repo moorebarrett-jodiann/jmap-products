@@ -58,6 +58,10 @@ header .title h1 {
         margin-left: 30px;
     }
 
+    nav ul li:last-child {
+        margin-left: 0;
+    }
+
     nav ul li a {
         font-size: 16px;
         font-weight: 600;
