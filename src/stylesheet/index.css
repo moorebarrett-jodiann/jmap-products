@@ -3,11 +3,17 @@
 @import '../../node_modules/bootstrap/' layer(bootstrap);
 
 @import './header-footer.css' layer(defaults);
+@import './banner.css' layer(components);
+@import './product.css' layer(components);
+@import './discount-wrapper.css' layer(components);
+@import './details.css' layer(defaults);
 
 @layer defaults {    
     :root {
+        --app-theme-grey: #e7e6e4;
         --app-theme-light: #f8f5f1;
         --app-theme-light-2: #D8C4B6;
+        --app-theme-light-blue: #99b0cf;
         --app-theme-blue: #4F709C;
         --app-theme-blue-2: #213555;
         --app-theme-orange: #db9806;
@@ -19,7 +25,7 @@
         /*transitions and settings*/
         --app-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
         --app-btn-padding: 8px 15px;
-        --app-border-radius: 10px;
+        --app-border-radius: 5px;
         --app-family-highlight: 'Roboto', sans-serif;
         --app-family-primary: 'Inter', sans-serif;
     }

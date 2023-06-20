@@ -1,0 +1,49 @@
+.discount-wrapper {
+    width: 100%;
+    background-color: var(--app-theme-blue-2);
+    color: var(--app-light-text-color);
+    padding: 10px 0px;
+    font-size: 12px;
+}
+
+.discount-wrapper .flexbox {
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+.discount-wrapper .phone-number p {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.discount-wrapper .discount p {
+    margin: 0;
+}
+
+.discount-wrapper .discount p:first-child {
+    padding-right: 10px;
+    border-right: 1px solid var(--app-light-text-color);
+}
+
+.discount-wrapper .discount p:last-child {
+    padding-left: 10px;
+}
+
+.discount-wrapper .settings {
+    height: 100%;
+}
+
+.discount-wrapper .settings > div {
+    width: 80px;
+    text-align: center;
+    height: 100%;
+}
+
+.discount-wrapper .settings > div:hover {
+    cursor: pointer;
+}
+
+.discount-wrapper .settings > div i {
+    margin-left: 5px;
+}
