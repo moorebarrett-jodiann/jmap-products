@@ -35,6 +35,7 @@
     main {
       min-width: 380px;
       min-height: calc(100vh - 70px - 150px);
+      padding: 10px 0px;
     }
 
     p {
