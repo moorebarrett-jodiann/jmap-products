@@ -23,6 +23,10 @@ header .title img {
     margin-right: 5px;
 }
 
+header .welcome {
+    margin-left: 0 !important;
+}
+
 header .welcome p {
     font-size: 14px;
     color: var(--app-theme-orange);
@@ -83,7 +87,7 @@ header button:hover {
         margin-left: 30px;
     }
 
-    nav ul li:last-child {
+    nav ul li:last-child:not(:hidden) {
         margin-left: 0;
     }
 

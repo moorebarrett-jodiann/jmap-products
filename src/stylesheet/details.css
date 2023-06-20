@@ -87,10 +87,9 @@
     font-size:15px;
     font-weight: 600;
     text-transform: uppercase;
+    border: 1px solid transparent;
     border-radius: var(--app-border-radius);
-    background-color: var(--app-theme-orange);
     transition: all 0.35s ease-in-out;
-    border: 1px solid transparent
 }
 
 .product-details button + button {
@@ -101,13 +100,19 @@
     background-color: var(--app-theme-orange-hover);
 }
 
-.product-details .product-add-to-cart {
-    background-color: transparent ;
+.product-details button.product-buy {
     border: 1px solid var(--app-theme-orange);
+    background-color: var(--app-theme-orange);
+    color: var(--app-light-text-color);
+}
+
+.product-details button.product-add-to-cart {
+    border: 1px solid var(--app-theme-orange);
+    background-color: transparent;
     color: var(--app-theme-orange)
 }
 
-.product-add-to-cart:hover {
+.product-details .product-add-to-cart:hover {
     background-color: var(--app-theme-orange);
     color: #fff;
 }
