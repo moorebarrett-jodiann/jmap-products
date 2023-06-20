@@ -3,7 +3,15 @@
 // npm install firebase (per project)
 // npm install -g firebase-tools (only once on global computer)
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { 
+  getAuth, 
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut, 
+
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQbvm8Zh2ujjLaYHSKz19Y0saaY9fOSM4",
@@ -17,5 +25,44 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const googleProvider = new GoogleAuthProvider();
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+// auth functions
+
+const logInWithEmailAndPassword = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const registerWithEmailAndPassword = async ( email, password) => {
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const logInWithGoogle = async () => {
+  try {
+    console.log("Google");
+    await signInWithPopup(auth, googleProvider);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const logout = () => {
+  signOut(auth);
+}
+
+export {
+  auth,
+  logInWithGoogle,
+  logInWithEmailAndPassword,
+  registerWithEmailAndPassword,
+  logout,
+ };
