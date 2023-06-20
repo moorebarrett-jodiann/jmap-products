@@ -10,6 +10,20 @@ function LoginForm() {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
+  const handleLogin = () => {
+    logInWithEmailAndPassword(emailInput, passwordInput);
+  }
+
+  const handleRegister = () => {
+    registerWithEmailAndPassword(emailInput, passwordInput);
+  }
+
+  const handleGoogleLogin = () => {
+    logInWithGoogle();
+
+  }
+
+
   return (
     <div className="container p-2">
       <form>
@@ -40,19 +54,19 @@ function LoginForm() {
             type="button"
             value="Sign In"
             className="btn btn-warning mb-3"
-            onClick={() => {logInWithEmailAndPassword(emailInput, passwordInput)}}
+            onClick={handleLogin}
           />
           <input
             type="button"
             value="Register"
             className="btn btn-link"
-            onClick={() => {registerWithEmailAndPassword(emailInput, passwordInput)}}
+            onClick={handleRegister}
           />
           <input
             type="button"
             value="Login with Google"
             className="btn btn-link"
-            onClick={() => logInWithGoogle()}
+            onClick={handleGoogleLogin}
           />
         </div>
 
