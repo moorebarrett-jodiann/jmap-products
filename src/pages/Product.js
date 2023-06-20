@@ -37,7 +37,7 @@ function Product() {
                     <ProductBanner />
                     <div className="product-wrapper">
                         <div className="heading">
-                            <h2>We have a product for you!</h2>
+                            <h2>Browse our collections</h2>
                         </div>
                         <div className="product-grid">
                             <ProductCards

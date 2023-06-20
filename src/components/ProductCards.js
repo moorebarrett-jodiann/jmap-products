@@ -14,6 +14,7 @@ function ProductCards(props) {
         <>
             {props.items.map(item => (
                 <div className="product-card" key={item.id} onClick={() => props.onClick(item)}>
+                    <div className="favourite"><i class="fa-solid fa-heart"></i></div>
                     <figure className="image-wrapper">
                         <img src={item.image} alt={item.title} />
                     </figure>
@@ -26,11 +27,11 @@ function ProductCards(props) {
                                 <span className="cents">{formatPrice(item.price).cents}</span>
                             </p>
                         </div>
-                        <div className="flexbox reviews">
+                        <div className="reviews flexbox">
                             <Stars rating={item.rating.rate} />
                             <p className="count">({item.rating.count})</p>
                         </div>
-                        <button>Add to Cart</button>
+                        <div className="add-to-cart">Add to Cart</div>
                     </div>      
                 </div>
             ))}

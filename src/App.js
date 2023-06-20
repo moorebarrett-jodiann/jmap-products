@@ -3,6 +3,7 @@ import companyLogo from './images/companyLogo.png';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Product from './pages/Product';
+import DiscountBanner from './components/DiscountBanner';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 
 	return (
 		<>
+			<DiscountBanner />
 			<Header
 				url={logo}
 			/>
