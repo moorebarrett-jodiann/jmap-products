@@ -8,6 +8,7 @@
 @import './discount-wrapper.css' layer(components);
 @import './details.css' layer(defaults);
 @import './not-found.css' layer(default);
+@import './cart.css' layer(components);
 
 @layer defaults {    
     :root {
@@ -35,6 +36,8 @@
 
     main {
       min-width: 380px;
+      min-height: calc(100vh - 70px - 150px);
+      padding: 10px 0px;
     }
 
     p {
@@ -65,5 +68,11 @@
     .stars svg {
         font-size: 15px;
         color: var(--app-theme-orange);
+    }
+
+    .error-container {
+      height: 100%;
+      display: grid;
+      place-items: center;
     }
 }

@@ -1,5 +1,3 @@
-import '../stylesheet/cart.css';
-
 function Cart() {
   return (
     <section className="main-container cart-container">
@@ -16,7 +14,7 @@ function Cart() {
                 </div>
 
                 <article>
-                    <h2>Your item(s)</h2>
+                    <h4>Your item(s)</h4>
                 </article>
 
                 {/* ITEMS CONTAINER */}
@@ -30,16 +28,16 @@ function Cart() {
                             </figure>
 
                             <article>
-                                <h2>Product Title</h2>
+                                <h4>Product Title</h4>
                                 <p>Product Rating</p>
                                 <p>Product Quantity</p>
                                 <div>
                                     <a href="#!">
-                                    <i className="fa-solid fa-heart"></i> Add to Favorites 
+                                      <i className="fa-solid fa-heart"></i> Add to Favorites 
                                     </a>
-                                    <a href="#!">
+                                    <p className="dead-link">
                                         <i className="fa-solid fa-trash-can"></i> Remove 
-                                    </a>
+                                    </p>
                                 </div>
                             </article>
                         </div>
@@ -57,16 +55,19 @@ function Cart() {
                             </figure>
 
                             <article>
-                                <h2>Product Title</h2>
+                                <h4>Product Title</h4>
                                 <p>Product Rating</p>
                                 <p>Product Quantity</p>
                                 <div>
                                     <a href="#!">
                                         <i className="fa-solid fa-heart"></i> Add to Favorites 
                                     </a>
-                                    <a href="#!">
+                                    <p className="dead-link">
+                                        <i className="fa-solid fa-heart"></i> Add to Favorites 
+                                    </p>
+                                    <p className="dead-link">
                                         <i className="fa-solid fa-trash-can"></i> Remove 
-                                    </a>
+                                    </p>
                                 </div>
                             </article>
                         </div>
@@ -81,14 +82,14 @@ function Cart() {
                     <p>
                         If this order contains a gift,
                         you'll be able to add a message and 
-                        a special gift box during 
+                        a special gift box during
                         checkout. <a href="#!" className="blue">Learn more</a>
                     </p>
                 </article>
 
                 <div>
                     <article>
-                        <h2>You may also like</h2>
+                        <h4>You may also like</h4>
                     </article>
 
                     <div>
@@ -102,7 +103,7 @@ function Cart() {
                 <div>
                     <article>
                         <h2>
-                        <i class="fa-solid fa-cart-shopping"></i> Order Summary
+                        <i className="fa-solid fa-cart-shopping"></i> Order Summary
                         </h2>
                     </article>
                 </div>
@@ -158,9 +159,20 @@ function Cart() {
                 </div>
 
                 <div className="payment-options-container">
-                    <i className="fa-brands fa-cc-visa"></i>
-                    <i className="fa-brands fa-cc-paypal"></i>
-                    <i className="fa-brands fa-cc-mastercard"></i>
+                    <figure>
+                        <img src="./images/visaLogo.png" 
+                        alt="Visa Logo"/>
+                    </figure>
+
+                    <figure>
+                        <img src="./images/mastercardLogo.png" 
+                        alt="Mastercard Logo"/>
+                    </figure>
+
+                    <figure>
+                        <img src="./images/paypalLogo.png" 
+                        alt="Paypal Logo"/>
+                    </figure>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ import Stars from '../components/Stars';
 
 function Details() {
     const [alertIsShown, setAlertIsShown] = useState(false);
-
+    const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
     const navigate = useNavigate();
@@ -20,8 +20,8 @@ function Details() {
             res.data ? setSelectedProduct(res.data) : navigate('*')
         })
         .catch((error) => {
-            console.log(error.message);
             navigate('*');
+            setMessage('No details found ...');
         }); 
 
         window.scrollTo(0,0);
@@ -55,7 +55,7 @@ function Details() {
                         <h2 className="product-title">{selectedProduct.title}</h2>
                         <div className='product-stars'>
                             <Stars rating={selectedProduct.rating.rate} />
-                            <div className='product-rating-count'>({selectedProduct.rating.count})</div>
+                            <div className='product-rating-count'>({selectedProduct.rating.count}) customer reviews</div>
                         </div>
                         <p className='product-price'>$ {selectedProduct.price}</p>
                         <div className='buttons'>
@@ -76,7 +76,11 @@ function Details() {
                 </div>
             </div>
         </section>
-        </>) : (<></>)
+        </>) : (
+            <div className="error-container">
+                <p className="loading">{message}</p>
+            </div>
+        )
         }
     </>
   )
