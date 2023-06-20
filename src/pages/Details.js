@@ -1,6 +1,6 @@
 import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Stars from '../components/Stars';
 
@@ -9,6 +9,7 @@ function Details() {
     const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
+    const navigate = useNavigate();
 
     const url = `https://fakestoreapi.com/products/${id}`;    
     
@@ -16,9 +17,10 @@ function Details() {
         axios
         .get(url)
         .then((res) => {
-          setSelectedProduct(res.data);
+            res.data ? setSelectedProduct(res.data) : navigate('*')
         })
         .catch((error) => {
+            navigate('*');
             setMessage('No details found ...');
         }); 
 

@@ -7,6 +7,7 @@
 @import './product.css' layer(components);
 @import './discount-wrapper.css' layer(components);
 @import './details.css' layer(defaults);
+@import './not-found.css' layer(default);
 @import './cart.css' layer(components);
 
 @layer defaults {    

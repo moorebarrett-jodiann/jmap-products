@@ -1,0 +1,132 @@
+.not-found-page {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--app-theme-light);
+}
+
+.not-found-page .error-box {
+    padding: 5px 0px;
+    width: 50%;
+    height: 600px;
+}
+
+.not-found-page .error-image {
+    margin-inline: auto;
+    width: 360px;
+    height: 360px;
+}
+
+.not-found-page .error-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.not-found-page .not-found-text {
+    padding: 8px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.not-found-page .not-found-text h4 {
+    font-size: 2.8rem;
+}
+
+.not-found-page .not-found-text button {
+    margin-top: 20px;
+    width: 130px;
+    height: 46px;
+    color: #fff;
+    font-size:15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: var(--app-border-radius);
+    background-color: var(--app-theme-orange);
+    transition: all 0.35s ease-in-out;
+    border: 1px solid transparent
+}
+
+.not-found-page .not-found-text button:hover {
+    background-color: var(--app-theme-orange-hover);
+}
+
+/* -------------------------------- */
+/* Media Queries                   */
+/* -------------------------------- */
+@media only screen and (max-width: 850px) {
+    .not-found-page .error-box {
+        padding: 5px;
+        width: 100%;
+        height: 550px;
+    }
+
+    .not-found-page .error-image {
+        margin-inline: auto;
+        width: 340px;
+        height: 340px;
+    }
+    
+    .not-found-page .not-found-text h4 {
+        font-size: 2.5rem;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    .not-found-page .error-box {
+        padding: 5px;
+        width: 100%;
+        height: 550px;
+    }
+
+    .not-found-page .error-image {
+        margin-inline: auto;
+        width: 340px;
+        height: 340px;
+    }
+    
+    .not-found-page .not-found-text h4 {
+        font-size: 1.8rem;
+    }
+}
+
+
+@media only screen and (max-width: 390px) {
+    .not-found-page .error-box {
+        padding: 5px;
+        width: 100%;
+        height: 480px;
+    }
+
+    .not-found-page .error-image {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .not-found-page .not-found-text h4 {
+        font-size: 1.55rem;
+    }
+    
+}
+
+@media only screen and (max-width: 360px) {
+    .not-found-page .error-box {
+        display: grid;
+        place-items: center;
+        padding: 5px;
+        height: 480px;
+    }
+
+    .not-found-page .error-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    
+    .not-found-page .not-found-text h4 {
+        font-size: 1.55rem;
+    }
+    
+}
+
