@@ -1,24 +1,44 @@
 import LoginForm from "./LoginForm"
-import { useState } from "react"
-import Modal from 'bootstrap/js/dist/modal';
+import Modal from 'react-bootstrap/Modal';
+import NiceModal, { useModal } from '@ebay/nice-modal-react'
 
-const forms = ["Sign in", "Register"];
 
-function LoginModal() {
 
-  const [formType, setFormType] = useState(forms[0]);
 
-  const handleSwitchForm = () => {
-    if(formType === forms[0]) {
-      setFormType(forms[1]);
-    } else {
-      setFormType(forms[0]);
-    }
-  }
-
+export default NiceModal.create(() => {
+  const modal = useModal();
   return (
+    <Modal 
+      show={modal.visible}
+      onHide={() => {modal.hide()}}
+      centered
+      onShow={() => {}}
+    >
+
+      <LoginForm/>
+    </Modal>
+  )
+})
+
+// function LoginModal() {
+
+//   const [formType, setFormType] = useState(forms[0]);
+
+//   const handleSwitchForm = () => {
+//     if(formType === forms[0]) {
+//       setFormType(forms[1]);
+//     } else {
+//       setFormType(forms[0]);
+//     }
+//   }
+
   
-    <div className="modal fade" id="loginModal">
+// }
+
+
+/*
+  Old Modal
+  <div className="modal fade" id="loginModal">
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
@@ -29,8 +49,4 @@ function LoginModal() {
         </div>
       </div>
     </div>
-    
-  )
-}
-
-export default LoginModal
+*/
