@@ -3,9 +3,11 @@ import AddToCartAlert from "./AddToCartAlert";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import Stars from "./Stars";
-
+import OpenLoginButton from "./OpenLoginButton";
 
 function ProductCards(props) {
+    const [user, loading, error] = useAuthState(auth);
+  
     const formatPrice = (price) => {
         const dollars = Math.floor(price);
         const cents = (price - dollars).toFixed(2).slice(2);
@@ -14,8 +16,7 @@ function ProductCards(props) {
           cents
         };
     };
-
-    const [user, loading, error] = useAuthState(auth);
+  
     const [currentItemsInCart, setCurrentItemsInCart] = useState(
         JSON.parse(localStorage.getItem('Cart') || '[]'
     ));
@@ -78,10 +79,15 @@ function ProductCards(props) {
                             <Stars rating={item.rating.rate} />
                             <p className="count">({item.rating.count})</p>
                         </div>
-                        <button onClick={(event) => {
-                            addItem(event, item);                            
-                        }} 
-                        className="add-to-cart">Add to Cart</button>
+                        {
+                            user === null ?
+                            <OpenLoginButton value="Add to Cart" classes={"add-to-cart"} />
+                            :
+                            <button onClick={(event) => {
+                                addItem(event, item);                            
+                            }} 
+                            className="add-to-cart">Add to Cart</button>
+                        }
                     </div>      
                 </div>
             ))}

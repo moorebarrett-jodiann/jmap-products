@@ -1,21 +1,17 @@
 import LoginForm from "./LoginForm"
+import Modal from 'react-bootstrap/Modal';
+import NiceModal, { useModal } from '@ebay/nice-modal-react'
 
-
-function LoginModal() {
+export default NiceModal.create(() => {
+  const modal = useModal();
   return (
-  
-    <div className="modal fade" id="loginModal">
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h3>Sign in</h3>
-            <button className="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <LoginForm />
-        </div>
-      </div>
-    </div>
+    <Modal 
+      show={modal.visible}
+      onHide={() => {modal.hide()}}
+      centered
+      size="sm"
+    >
+      <LoginForm/>
+    </Modal>
   )
-}
-
-export default LoginModal
+})

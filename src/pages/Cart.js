@@ -5,6 +5,7 @@ import ProductCards from "../components/ProductCards";
 import ProductCheckoutCard from "../components/ProductCheckoutCard";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
+
 function Cart() {
     // Check if logged in
     
@@ -20,6 +21,11 @@ function Cart() {
     const handleClick = (item) => {
         navigate(`/product/${item.id}`); 
     };
+
+    const goToOrderConfirmedPage = () => {
+        navigate('/order-confirmed'); 
+    };
+
 
     // Getting 4 random products
     useEffect(() => {
@@ -164,7 +170,7 @@ function Cart() {
 
                         <div>
                             <p>Ready to order?</p>
-                            <button className="place-order-btn">Place Order</button>
+                            <button className="place-order-btn" onClick={() => goToOrderConfirmedPage()}>Place Order</button>
                         </div>
 
                         <div className="payment-options-container">

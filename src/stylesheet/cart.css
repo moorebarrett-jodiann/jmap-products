@@ -166,3 +166,63 @@ input[type=submit], button {
 .payment-options-container img {
     width: 70px;
 }
+
+/* Place Order */
+.order-placed-section {
+    height: calc(100vh - 70px - 200px);
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    padding: 40px 0px;
+}
+
+.order-placed-container {
+    display: grid;
+    place-items: center;
+    margin-inline: auto;
+    z-index: 999;
+    text-align: center;
+    width: 350px;
+    height: 450px;
+    padding: 25px 20px;
+    border-radius: var(--app-border-radius);
+    background-color: var(--app-theme-light);
+    background-image: linear-gradient(126deg, #e2deee, var(--app-theme-light), #e2deee);
+    transition: all 0.35s ease-in-out;
+}
+
+.order-placed-container .fa-circle-check {
+    font-size: 8rem;
+    color: rgb(0, 128, 0, 0.8);
+}
+
+.order-placed-container .order-placed-checkmark {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+}
+
+.order-placed-container .order-placed-text {
+    padding: 10px;
+    width: 100%;
+    height: 180px;
+}
+
+.order-placed-container .order-placed-success {
+    font-size: 1.5rem;
+    line-height: 30px;
+}
+
+.order-placed-container .order-id {
+    font-size: 0.8rem;
+    letter-spacing: 0.25px;
+}
+
+.order-placed-container button.continue-shopping {
+    border-radius: var(--app-border-radius);
+    font-weight: 400;
+}
+
+.order-placed-container button.continue-shopping:hover {
+    background-color: var(--app-theme-orange-hover);
+}

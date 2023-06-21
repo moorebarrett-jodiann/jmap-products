@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 
 
 function LoginHeader() {
-  const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('Cart')));
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     setItems(JSON.parse(localStorage.getItem('Cart')));
