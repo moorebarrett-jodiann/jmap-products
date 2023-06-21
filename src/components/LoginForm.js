@@ -24,7 +24,6 @@ function LoginForm() {
       if(res) {
         modal.remove()
       }
-      // close and clear form
     } catch(error) {
       console.error(error);
     }
@@ -72,7 +71,6 @@ function LoginForm() {
         <Modal.Title>
           {formType}
         </Modal.Title>
-
       </Modal.Header>
       <div className="container p-2">
         <form>
