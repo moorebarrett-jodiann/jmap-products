@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import LoginModal from './components/LoginModal';
 import Details from './pages/Details';
 import Product from './pages/Product';
+import About from './pages/About';
 import DiscountBanner from './components/DiscountBanner';
 import Cart from './pages/Cart';
 import { Routes, Route } from 'react-router-dom';
@@ -38,6 +39,7 @@ function App() {
 					<Route path="/" element={<Product />} />
 					<Route path="/product/:id" element={<Details />} />
 					<Route path="/my-cart" element={<Cart />} />
+					<Route path="/about-us" element={<About />} />
 					<Route path="/*" element={<NotFound hideHeader={hideHeader} showHeader={showHeader} />} />
 				</Routes>
 			</main>
