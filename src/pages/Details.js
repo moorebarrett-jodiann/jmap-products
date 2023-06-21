@@ -2,6 +2,7 @@ import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Stars from '../components/Stars';
 
 function Details() {
@@ -42,6 +43,11 @@ function Details() {
     <>
         {selectedProduct? (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <title>{selectedProduct.title}</title>
+                </Helmet>
+            </HelmetProvider>
             <AddToCartAlert 
                 isShown={alertIsShown}
             />

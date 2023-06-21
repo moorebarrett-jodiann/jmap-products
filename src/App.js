@@ -38,7 +38,7 @@ function App() {
 					<Route path="/" element={<Product />} />
 					<Route path="/product/:id" element={<Details />} />
 					<Route path="/my-cart" element={<Cart />} />
-					<Route path="*" element={<NotFound hideHeader={hideHeader} showHeader={showHeader} />} />
+					<Route path="/*" element={<NotFound hideHeader={hideHeader} showHeader={showHeader} />} />
 				</Routes>
 			</main>
 			{show&&<Footer

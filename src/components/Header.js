@@ -4,14 +4,14 @@ function Header(props) {
     return(
         <header>
             <div className="main-container flexbox">
-                <a href="/" className="title flexbox">
+                <a href="/jmap-products" className="title flexbox">
                     <img src={props.url} alt="logo"/>
                     <h1>JMAP</h1>
                 </a>
                 <nav>
                     <ul>
-                        <li><a href='/'>Products</a></li>
-                        <li><a href='/'>About Us</a></li>
+                        <li><a href='/jmap-products'>Products</a></li>
+                        <li><a href='/about-us'>About Us</a></li>
                         <li><LoginHeader/></li>
                     </ul>
                 </nav>
@@ -19,7 +19,6 @@ function Header(props) {
             </div>
         </header>
     );
-
 }
 
 

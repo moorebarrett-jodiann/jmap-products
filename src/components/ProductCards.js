@@ -31,7 +31,7 @@ function ProductCards(props) {
             />
             {props.items.map(item => (
                 <div className="product-card" key={item.id} onClick={() => props.onClick(item)}>
-                    <div className="favourite"><i class="fa-solid fa-heart"></i></div>
+                    <div className="favourite"><i className="fa-solid fa-heart"></i></div>
                     <figure className="image-wrapper">
                         <img src={item.image} alt={item.title} />
                     </figure>
