@@ -28,7 +28,7 @@ function ManageProducts(props) {
                     className={`electronics ${props.sortingOption === "electronics" ? "active" : ""}`}
                     onClick={() => handleSortOptionChange("electronics")}
                     >
-                    Electionics
+                    Electronics
                 </button>
             </div>
         </div>

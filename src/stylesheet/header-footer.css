@@ -2,6 +2,7 @@ header {
     width: 100%;
     padding: 10px 0px;
     height: 70px;
+    min-width: 380px;
 }
 
 header .main-container {
@@ -81,14 +82,14 @@ header button:hover {
     
     nav ul li {
         visibility: visible;
+        margin-right: 20px;
     }
-
+    
     nav ul li + li {
-        margin-left: 30px;
     }
-
-    nav ul li:last-child:not(:hidden) {
-        margin-left: 0;
+    
+    nav ul li:last-child {
+        margin-right: 0px;
     }
 
     nav ul li a {
@@ -133,6 +134,7 @@ header button:hover {
 /* -------------------------------- */
 
 footer {
+    min-width: 380px;
     width: 100%;
     padding: 5px 0px;
     background-color: var(--app-theme-blue-2);
@@ -169,6 +171,7 @@ footer {
         width: 100%;
         text-align: center;
         color: var(--app-light-text-color);
+        font-size: 20px;
     }
 
     footer .footer-wrapper .newsletter .feedback {
