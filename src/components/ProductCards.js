@@ -46,10 +46,6 @@ function ProductCards(props) {
     };
 
     useEffect(() => {
-
-    }, []);
-
-    useEffect(() => {
         localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
     }, [addItem]);
 
