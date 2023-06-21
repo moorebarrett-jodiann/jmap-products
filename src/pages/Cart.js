@@ -7,6 +7,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 function Cart() {
+    // Check if logged in
+    
+
     let subTotal = 0;
     let taxAmount = 0;
     let totalWithTax = 0;

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import AddToCartAlert from "./AddToCartAlert";
-import Stars from "./Stars";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
+import Stars from "./Stars";
 import OpenLoginButton from "./OpenLoginButton";
-
 
 function ProductCards(props) {
     const [user, loading, error] = useAuthState(auth);
@@ -18,21 +17,16 @@ function ProductCards(props) {
         };
     };
   
-    // VALAIDATE LOCALSTORAGE
-    if(localStorage.getItem('Cart') === null) 
-        localStorage.setItem('Cart', '[]');
-        
     const [currentItemsInCart, setCurrentItemsInCart] = useState(
-        JSON.parse(localStorage.getItem('Cart')
+        JSON.parse(localStorage.getItem('Cart') || '[]'
     ));
-    const [newItem, setNewItem] = useState({});
     const [alertIsShown, setAlertIsShown] = useState(false);
     
-    const addItem = (event) => {
+    const addItem = (event, item) => {
         event.preventDefault();
         event.stopPropagation();
 
-        if(user) {
+        if(user !== null) {
             // Show Alert
             setAlertIsShown(true);
 
@@ -40,7 +34,16 @@ function ProductCards(props) {
                 setAlertIsShown(false);
             }, 2000);
 
-            // Add item info to users property
+            const newItem = { 
+                id: item.id, 
+                image: item.image, 
+                title: item.title,
+                rating: item.rating.rate,
+                count: item.rating.count,
+                price: formatPrice(item.price).dollars + '.' +
+                formatPrice(item.price).cents
+            };
+
             setCurrentItemsInCart(current => [newItem, ...current]);
         } else {
             // SHOW LOGIN MODAL
@@ -50,7 +53,7 @@ function ProductCards(props) {
 
     useEffect(() => {
         localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
-    }, [addItem]);
+    }, [currentItemsInCart]);
 
     return (
         <>
@@ -81,16 +84,7 @@ function ProductCards(props) {
                             <OpenLoginButton value="Add to Cart" classes={"add-to-cart"} />
                             :
                             <button onClick={(event) => {
-                                addItem(event);
-                                setNewItem({ 
-                                    id: item.id, 
-                                    image: item.image, 
-                                    title: item.title,
-                                    rating: item.rating.rate,
-                                    count: item.rating.count,
-                                    price: formatPrice(item.price).dollars + '.' +
-                                    formatPrice(item.price).cents
-                                });
+                                addItem(event, item);                            
                             }} 
                             className="add-to-cart">Add to Cart</button>
                         }

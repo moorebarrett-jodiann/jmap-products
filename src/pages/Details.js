@@ -2,17 +2,16 @@ import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../config/firebase";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Stars from '../components/Stars';
 
 function Details() {
-    const auth = getAuth();
-    const user = auth.currentUser;
+    const [user, loading, error] = useAuthState(auth);
     const [currentItemsInCart, setCurrentItemsInCart] = useState(
-        JSON.parse(localStorage.getItem('Cart')
+        JSON.parse(localStorage.getItem('Cart') || '[]'
     ));
-    const [newItem, setNewItem] = useState({});
     const [alertIsShown, setAlertIsShown] = useState(false);
     const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
@@ -44,12 +43,12 @@ function Details() {
         window.scrollTo(0,0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-  
-    const addItem = (event) => {
+    
+    const addItem = (event, item) => {
         event.preventDefault();
         event.stopPropagation();
 
-        if(user) {
+        if(user !== null) {
             // Show Alert
             setAlertIsShown(true);
 
@@ -57,7 +56,16 @@ function Details() {
                 setAlertIsShown(false);
             }, 2000);
 
-            // Add item info to users property
+            const newItem = { 
+                id: item.id, 
+                image: item.image, 
+                title: item.title,
+                rating: item.rating.rate,
+                count: item.rating.count,
+                price: formatPrice(item.price).dollars + '.' +
+                formatPrice(item.price).cents
+            };
+
             setCurrentItemsInCart(current => [newItem, ...current]);
         } else {
             // SHOW LOGIN MODAL
@@ -67,7 +75,7 @@ function Details() {
 
     useEffect(() => {
         localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
-    }, [addItem]);
+    }, [currentItemsInCart]);
     
     return (
     <>
@@ -100,15 +108,7 @@ function Details() {
                         <div className='buttons'>
                             <button className="product-buy">Buy Now</button>
                             <button onClick={(event) => {
-                                addItem(event);
-                                setNewItem({ 
-                                    id: selectedProduct.id, 
-                                    image: selectedProduct.image, 
-                                    title: selectedProduct.title,
-                                    rating: selectedProduct.rating.rate,
-                                    count: selectedProduct.rating.count,
-                                    price: selectedProduct.price
-                                });
+                                addItem(event, selectedProduct);
                             }} className="product-add-to-cart">Add to cart</button>
                         </div>
                         <div className='product-description'>
