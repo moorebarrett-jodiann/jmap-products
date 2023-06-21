@@ -17,9 +17,7 @@ function ProductCards(props) {
     // VALAIDATE LOCALSTORAGE
     if(localStorage.getItem('Cart') === null) 
         localStorage.setItem('Cart', '[]');
-  
-    const [alertIsShown, setAlertIsShown] = useState(false);
-    
+        
     const auth = getAuth();
     const user = auth.currentUser;
     const [currentItemsInCart, setCurrentItemsInCart] = useState(

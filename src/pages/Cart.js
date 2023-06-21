@@ -6,100 +6,104 @@ import ProductCheckoutCard from "../components/ProductCheckoutCard";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 function Cart() {
-  let subTotal = 0;
-  let taxAmount = 0;
-  let totalWithTax = 0;
-  const API_URL = 'https://fakestoreapi.com/products?limit=4';
-  const [randomProducts, setRandomProducts] = useState([]);
-  const [currentItemsInCart, setCurrentItemsInCart] = useState(
-    JSON.parse(localStorage.getItem('Cart')
-  ));
-  const navigate = useNavigate();
-  
-  const handleClick = (item) => {
-    navigate(`/product/${item.id}`); 
-  };
+    let subTotal = 0;
+    let taxAmount = 0;
+    let totalWithTax = 0;
+    const API_URL = 'https://fakestoreapi.com/products?limit=4';
+    const [randomProducts, setRandomProducts] = useState([]);
+    const [currentItemsInCart, setCurrentItemsInCart] = useState(JSON.parse(localStorage.getItem('Cart')));
+    const navigate = useNavigate();
+    
+    const handleClick = (item) => {
+        navigate(`/product/${item.id}`); 
+    };
 
-  // Getting 4 random products
-  useEffect(() => {
-    axios
-        .get(API_URL)
-        .then(result => {
-            setRandomProducts(result.data);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-  }, []);    
+    // Getting 4 random products
+    useEffect(() => {
+        axios
+            .get(API_URL)
+            .then(result => {
+                setRandomProducts(result.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);    
 
-  return (
-    <>
-        <HelmetProvider>
-            <Helmet>
-                <title>My Cart</title>
-            </Helmet>
-        </HelmetProvider>
-        <section className="main-container cart-container">
-            <div className="columns-container">
-                <div className="first-col-container">
-                    <div className="membership-container rounded">
+    console.log(currentItemsInCart);
+
+    useEffect(() => {
+        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
+    });
+
+    return (
+        <>
+            <HelmetProvider>
+                <Helmet>
+                    <title>My Cart</title>
+                </Helmet>
+            </HelmetProvider>
+            <section className="main-container cart-container">
+                <div className="columns-container">
+                    <div className="first-col-container">
+                        <div className="membership-container rounded">
+                            <article>
+                                <a href="#!" className="heading-link"><h2>Free Shipping for Members</h2></a>
+                                <p>
+                                    Become a member today and get discounts,
+                                    free shipping and so much more!
+                                </p>
+                            </article>
+                        </div>
+
                         <article>
-                            <a href="#!" className="heading-link"><h2>Free Shipping for Members</h2></a>
+                            <h4>Your item(s)</h4>
+                        </article>
+
+                        {/* ITEMS CONTAINER */}
+                        <div className="item-cards-container">
+                            {/* INDIVIDUAL ITEM CARD */}
+                            {currentItemsInCart.map(item => {
+                                subTotal = (parseFloat(subTotal)
+                                        + parseFloat(item.price)).toFixed(2);
+                                taxAmount = (subTotal * 0.13).toFixed(2);
+                                totalWithTax = (parseFloat(subTotal)
+                                            + parseFloat(taxAmount)).toFixed(2);
+                                return(
+                                    <ProductCheckoutCard
+                                        key={item.id}
+                                        ID={item.id}
+                                        IMAGE={item.image}
+                                        TITLE={item.title}
+                                        RATING={item.rating}
+                                        COUNT={item.count}
+                                        PRICE={item.price}
+                                    />
+                                );
+                            })}
+                        </div>
+
+                        <article>
                             <p>
-                                Become a member today and get discounts,
-                                free shipping and so much more!
+                                If this order contains a gift,
+                                you'll be able to add a message and 
+                                a special gift box during
+                                checkout. <a href="#!" className="blue">Learn more</a>
                             </p>
-                        </article>
-                    </div>
+                        </article>  
 
-                    <article>
-                        <h4>Your item(s)</h4>
-                    </article>
-
-                    {/* ITEMS CONTAINER */}
-                    <div className="item-cards-container">
-                        {/* INDIVIDUAL ITEM CARD */}
-                        {currentItemsInCart.map(item => {
-                            subTotal = (parseFloat(subTotal) 
-                                    + parseFloat(item.price)).toFixed(2);
-                            taxAmount = (subTotal * 0.13).toFixed(2);
-                            totalWithTax = (parseFloat(subTotal) 
-                                        + parseFloat(taxAmount)).toFixed(2);
-                            return(
-                                <ProductCheckoutCard 
-                                    key={item.id}
-                                    ID={item.id}
-                                    IMAGE={item.image}
-                                    TITLE={item.title}
-                                    RATING={item.rating}
-                                    COUNT={item.count}
-                                    PRICE={item.price}
-                                />
-                            );
-                        })}
-                    </div>
-
-                    <article>
-                        <p>
-                            If this order contains a gift,
-                            you'll be able to add a message and 
-                            a special gift box during
-                            checkout. <a href="#!" className="blue">Learn more</a>
-                        </p>
-                    </article>  
-
-                    <div>
-                        <article>
-                            <h4>You may also like</h4>
-                        </article>
-                        <div className="product-grid">
-                            <ProductCards 
-                                items={randomProducts}
-                                onClick={handleClick}
-                            />
                         <div>
+                            <article>
+                                <h4>You may also like</h4>
+                            </article>
+                            <div className="product-grid">
+                                <ProductCards 
+                                    items={randomProducts}
+                                    onClick={handleClick}
+                                />
+                            </div>
+                        </div>
                     </div>
-
                     <div className="second-col-container">
                         {/* SECOND COLUMN */}
                         <div>
@@ -178,32 +182,32 @@ function Cart() {
                         </div>
                     </div>
                 </div>
-            </div>
-                
-            <div className="shipping-features-container">
-                <article>
-                    <i className="fa-solid fa-truck-fast blue"></i>
-                    <h5>Fast Delivery</h5>
-                </article>
+                    
+                <div className="shipping-features-container">
+                    <article>
+                        <i className="fa-solid fa-truck-fast blue"></i>
+                        <h5>Fast Delivery</h5>
+                    </article>
 
-                <article>
-                    <i className="fa-solid fa-truck-ramp-box blue"></i>                
-                    <h5>Free shipping over $35</h5>
-                </article>
+                    <article>
+                        <i className="fa-solid fa-truck-ramp-box blue"></i>                
+                        <h5>Free shipping over $35</h5>
+                    </article>
 
-                <article>
-                    <i className="fa-solid fa-hand-holding-dollar blue"></i>
-                    <h5>Guaranteed low prices</h5>
-                </article>
+                    <article>
+                        <i className="fa-solid fa-hand-holding-dollar blue"></i>
+                        <h5>Guaranteed low prices</h5>
+                    </article>
 
-                <article>
-                    <i className="fa-solid fa-award blue"></i>
-                    <h5>Quality products</h5>
-                </article>
-            </div>
-        </section>
-    </>
-  )
+                    <article>
+                        <i className="fa-solid fa-award blue"></i>
+                        <h5>Quality products</h5>
+                    </article>
+                </div>
+                    
+            </section>
+        </>
+    )
 }
 
 export default Cart;
