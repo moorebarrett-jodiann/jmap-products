@@ -2,17 +2,18 @@ import { useState } from "react";
 import AddToCartAlert from "./AddToCartAlert";
 import Stars from "./Stars";
 
-function formatPrice(price) {
-    const dollars = Math.floor(price);
-    const cents = (price - dollars).toFixed(2).slice(2);
-    return {
-      dollars,
-      cents
-    };
-}
 
 function ProductCards(props) {
     const [alertIsShown, setAlertIsShown] = useState(false);
+    
+    const formatPrice = (price) => {
+        const dollars = Math.floor(price);
+        const cents = (price - dollars).toFixed(2).slice(2);
+        return {
+          dollars,
+          cents
+        };
+    };
 
     const addItem = (event) => {
         event.preventDefault();

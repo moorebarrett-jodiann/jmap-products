@@ -13,6 +13,15 @@ function Details() {
     const navigate = useNavigate();
 
     const url = `https://fakestoreapi.com/products/${id}`;    
+
+    const formatPrice = (price) => {
+        const dollars = Math.floor(price);
+        const cents = (price - dollars).toFixed(2).slice(2);
+        return {
+          dollars,
+          cents
+        };
+    }    
     
     useEffect(() => {
         axios
@@ -63,7 +72,10 @@ function Details() {
                             <Stars rating={selectedProduct.rating.rate} />
                             <div className='product-rating-count'>({selectedProduct.rating.count}) customer reviews</div>
                         </div>
-                        <p className='product-price'>$ {selectedProduct.price}</p>
+                        <p className='product-price'>
+                            ${formatPrice(selectedProduct.price).dollars}.
+                            {formatPrice(selectedProduct.price).cents}
+                        </p>
                         <div className='buttons'>
                             <button onClick={addItem} className="product-buy">Buy Now</button>
                             <button className="product-add-to-cart">Add to cart</button>
