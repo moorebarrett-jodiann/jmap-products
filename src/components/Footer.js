@@ -42,7 +42,6 @@ function Footer(props) {
                             <img src={props.url} alt="logo"/>
                             <h1>JMAP Products</h1>
                         </div>
-                        <p className="copyright">Designed by JMAP &copy; {year} All rights reserved</p>
                     </div>
                     <div className="newsletter">
                         <h3>Join Our Newsletter</h3>
@@ -69,9 +68,13 @@ function Footer(props) {
                                     )}
                                 </div>
                             </div>                            
-                            <input type="submit"/>
+                            <input type="submit" value="submit"/>
                         </form>
                     </div>
+                </div>
+                <div className='footer-copyright'>
+                    <div className='divider'></div>
+                    <p className="copyright">Designed by JMAP &copy; {year} All rights reserved</p>
                 </div>
             </div>
         </footer>

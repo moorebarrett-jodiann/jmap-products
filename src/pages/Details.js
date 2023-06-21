@@ -80,15 +80,15 @@ function Details() {
                             <button onClick={addItem} className="product-buy">Buy Now</button>
                             <button className="product-add-to-cart">Add to cart</button>
                         </div>
-                        <div className='product-delivery'>
-                            <p>
-                            <i className="fa-solid fa-truck-arrow-right"></i> Return policy: Eligible for Return, Refund or Replacement
-                                within 30 days of receipt
-                            </p>
-                        </div>
                         <div className='product-description'>
                             <h3>Description</h3>
                             <p className='product-description-text'>{selectedProduct.description}</p>
+                        </div>
+                        <div className='product-delivery'>
+                            <p>
+                                <i className="fa-solid fa-truck-arrow-right"></i> Return policy: Eligible for Return, Refund or Replacement
+                                within 30 days of receipt
+                            </p>
                         </div>
                     </div>
                 </div>
