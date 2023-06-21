@@ -4,7 +4,7 @@ import { auth, logout } from "../config/firebase";
 
 
 function LoginHeader() {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
     <div className="d-flex">
