@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductCards from "../components/ProductCards";
 import ProductCheckoutCard from "../components/ProductCheckoutCard";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import OrderPlacedModal from "../components/OrderPlacedModal";
+
 
 function Cart() {
     let subTotal = 0;
@@ -18,6 +18,11 @@ function Cart() {
     const handleClick = (item) => {
         navigate(`/product/${item.id}`); 
     };
+
+    const goToOrderConfirmedPage = () => {
+        navigate('/order-confirmed'); 
+    };
+
 
     // Getting 4 random products
     useEffect(() => {
@@ -45,7 +50,6 @@ function Cart() {
                 </Helmet>
             </HelmetProvider>
             <section className="main-container cart-container">
-                <OrderPlacedModal/>
                 <div className="columns-container">
                     <div className="first-col-container">
                         <div className="membership-container rounded">
@@ -163,7 +167,7 @@ function Cart() {
 
                         <div>
                             <p>Ready to order?</p>
-                            <button className="place-order-btn">Place Order</button>
+                            <button className="place-order-btn" onClick={() => goToOrderConfirmedPage()}>Place Order</button>
                         </div>
 
                         <div className="payment-options-container">

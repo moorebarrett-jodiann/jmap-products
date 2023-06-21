@@ -168,14 +168,19 @@ input[type=submit], button {
 }
 
 /* Place Order */
+.order-placed-section {
+    height: calc(100vh - 70px - 200px);
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    padding: 40px 0px;
+}
+
 .order-placed-container {
     display: grid;
     place-items: center;
     margin-inline: auto;
     z-index: 999;
-    top: 50%;
-    left: 50%;
-    position: fixed;
     text-align: center;
     width: 350px;
     height: 450px;
@@ -183,7 +188,6 @@ input[type=submit], button {
     border-radius: var(--app-border-radius);
     background-color: var(--app-theme-light);
     background-image: linear-gradient(126deg, #e2deee, var(--app-theme-light), #e2deee);
-    transform: translate(-50%, -50%);
     transition: all 0.35s ease-in-out;
 }
 
@@ -217,4 +221,8 @@ input[type=submit], button {
 .order-placed-container button.continue-shopping {
     border-radius: var(--app-border-radius);
     font-weight: 400;
+}
+
+.order-placed-container button.continue-shopping:hover {
+    background-color: var(--app-theme-orange-hover);
 }
