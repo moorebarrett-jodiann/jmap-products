@@ -2,10 +2,17 @@ import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Stars from '../components/Stars';
 
 function Details() {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const [currentItemsInCart, setCurrentItemsInCart] = useState(
+        JSON.parse(localStorage.getItem('Cart')
+    ));
+    const [newItem, setNewItem] = useState({});
     const [alertIsShown, setAlertIsShown] = useState(false);
     const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
@@ -41,12 +48,26 @@ function Details() {
     const addItem = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setAlertIsShown(true);
 
-        setTimeout(() => {
-            setAlertIsShown(false);
-        }, 2000);
+        if(user) {
+            // Show Alert
+            setAlertIsShown(true);
+
+            setTimeout(() => {
+                setAlertIsShown(false);
+            }, 2000);
+
+            // Add item info to users property
+            setCurrentItemsInCart(current => [newItem, ...current]);
+        } else {
+            // SHOW LOGIN MODAL
+            console.log('User not logged in')
+        }
     };
+
+    useEffect(() => {
+        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
+    }, [addItem]);
     
     return (
     <>
@@ -77,8 +98,18 @@ function Details() {
                             {formatPrice(selectedProduct.price).cents}
                         </p>
                         <div className='buttons'>
-                            <button onClick={addItem} className="product-buy">Buy Now</button>
-                            <button className="product-add-to-cart">Add to cart</button>
+                            <button className="product-buy">Buy Now</button>
+                            <button onClick={(event) => {
+                                addItem(event);
+                                setNewItem({ 
+                                    id: selectedProduct.id, 
+                                    image: selectedProduct.image, 
+                                    title: selectedProduct.title,
+                                    rating: selectedProduct.rating.rate,
+                                    count: selectedProduct.rating.count,
+                                    price: selectedProduct.price
+                                });
+                            }} className="product-add-to-cart">Add to cart</button>
                         </div>
                         <div className='product-delivery'>
                             <p>

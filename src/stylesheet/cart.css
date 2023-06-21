@@ -101,6 +101,16 @@ input[type=submit], button {
     background-color: #FFF;
 }
 
+.checkoutCardRatingContainer {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.random-items-container {
+    display: flex;
+}
+
 .shipping-features-container {
     display: flex;
     justify-content: center;
