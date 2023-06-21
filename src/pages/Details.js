@@ -2,9 +2,16 @@ import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Stars from '../components/Stars';
 
 function Details() {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const [currentItemsInCart, setCurrentItemsInCart] = useState(
+        JSON.parse(localStorage.getItem('Cart')
+    ));
+    const [newItem, setNewItem] = useState({});
     const [alertIsShown, setAlertIsShown] = useState(false);
 
     const { id } = useParams();
@@ -29,12 +36,26 @@ function Details() {
     const addItem = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setAlertIsShown(true);
 
-        setTimeout(() => {
-            setAlertIsShown(false);
-        }, 2000);
+        if(user) {
+            // Show Alert
+            setAlertIsShown(true);
+
+            setTimeout(() => {
+                setAlertIsShown(false);
+            }, 2000);
+
+            // Add item info to users property
+            setCurrentItemsInCart(current => [newItem, ...current]);
+        } else {
+            // SHOW LOGIN MODAL
+            console.log('User not logged in')
+        }
     };
+
+    useEffect(() => {
+        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
+    }, [addItem]);
     
     return (
     <>
@@ -58,7 +79,17 @@ function Details() {
                         <p className='product-price'>$ {selectedProduct.price}</p>
                         <div className='buttons'>
                             <button className="product-buy">Buy Now</button>
-                            <button className="product-add-to-cart">Add to cart</button>
+                            <button onClick={(event) => {
+                                addItem(event);
+                                setNewItem({ 
+                                    id: selectedProduct.id, 
+                                    image: selectedProduct.image, 
+                                    title: selectedProduct.title,
+                                    rating: selectedProduct.rating.rate,
+                                    count: selectedProduct.rating.count,
+                                    price: selectedProduct.price
+                                });
+                            }} className="product-add-to-cart">Add to cart</button>
                         </div>
                         <div className='product-delivery'>
                             <p>
