@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import AddToCartAlert from "./AddToCartAlert";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Stars from "./Stars";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
@@ -8,7 +7,6 @@ import OpenLoginButton from "./OpenLoginButton";
 
 
 function ProductCards(props) {
-    const [alertIsShown, setAlertIsShown] = useState(false);
     const [user, loading, error] = useAuthState(auth);
   
     const formatPrice = (price) => {
@@ -24,8 +22,6 @@ function ProductCards(props) {
     if(localStorage.getItem('Cart') === null) 
         localStorage.setItem('Cart', '[]');
         
-    const auth = getAuth();
-    const user = auth.currentUser;
     const [currentItemsInCart, setCurrentItemsInCart] = useState(
         JSON.parse(localStorage.getItem('Cart')
     ));
