@@ -2,11 +2,13 @@
 
 @import '../../node_modules/bootstrap/' layer(bootstrap);
 
-@import './header-footer.css' layer(defaults);
+@import './header-footer.css' layer(components);
 @import './banner.css' layer(components);
 @import './product.css' layer(components);
 @import './discount-wrapper.css' layer(components);
-@import './details.css' layer(defaults);
+@import './details.css' layer(components);
+@import './not-found.css' layer(components);
+@import './about.css' layer(components);
 @import './cart.css' layer(components);
 
 @layer defaults {    
@@ -35,6 +37,8 @@
 
     main {
       min-width: 380px;
+      min-height: calc(100vh - 70px - 200px);
+      padding: 10px 0px;
     }
 
     p {
@@ -65,5 +69,15 @@
     .stars svg {
         font-size: 15px;
         color: var(--app-theme-orange);
+    }
+
+    .error-container {
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    input:not([type="submit"]):focus-visible {
+      outline: none;
     }
 }

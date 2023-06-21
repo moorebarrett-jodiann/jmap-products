@@ -2,6 +2,7 @@ header {
     width: 100%;
     padding: 10px 0px;
     height: 70px;
+    min-width: 380px;
 }
 
 header .main-container {
@@ -9,6 +10,7 @@ header .main-container {
 }
 
 header .title {
+    text-decoration: none;
     align-items: center;
     justify-content: center;
 }
@@ -22,6 +24,21 @@ header .title img {
     margin-right: 5px;
 }
 
+header .welcome {
+    margin-left: 0 !important;
+}
+
+header .welcome p {
+    font-size: 14px;
+    color: var(--app-theme-orange);
+    margin: 0;
+}
+
+header .welcome p span {
+    color: var(--app-theme-orange-hover);
+    font-weight: 600;
+}
+
 header .title h1 {
     font-size: 30px;
     font-weight: 500;
@@ -29,6 +46,19 @@ header .title h1 {
     font-family: var(--app-family-highlight);
     letter-spacing: 0.3px;
     margin: 0;
+}
+
+header button {
+    border-radius: var(--app-border-radius) !important;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    width: 90px;
+    transition: var(--app-transition);
+}
+
+header button:hover {
+    background-color: var(--app-theme-orange-hover) !important;
 }
 
 @media only screen and (min-width: 923px) { 
@@ -52,10 +82,14 @@ header .title h1 {
     
     nav ul li {
         visibility: visible;
+        margin-right: 20px;
     }
-
+    
     nav ul li + li {
-        margin-left: 30px;
+    }
+    
+    nav ul li:last-child {
+        margin-right: 0px;
     }
 
     nav ul li a {
@@ -63,13 +97,13 @@ header .title h1 {
         font-weight: 600;
         cursor: pointer;
         text-decoration: none;
-        color: var(--app-theme-blue);
+        color: var(--app-theme-blue) !important;
         position: relative;
         transition: var(--app-transition);
     }
 
     nav ul li a:hover {
-        color: var(--app-theme-blue-2);
+        color: var(--app-theme-blue-2) !important;
     }
 }
 
@@ -100,24 +134,136 @@ header .title h1 {
 /* -------------------------------- */
 
 footer {
-    height: 150px;
+    min-width: 380px;
     width: 100%;
     padding: 5px 0px;
     background-color: var(--app-theme-blue-2);
 }
-  
-footer .title {
-    margin: 10px 0px 10px 0px;
-    width: 100%;
-    text-align: center;
+
+@media only screen and (min-width: 923px) { 
+    footer {
+        height: 150px;
+    }
+
+    footer .footer-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer .footer-wrapper .newsletter {
+        width: 100%;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+    }
+
+    footer .footer-wrapper .newsletter input:not([type="submit"]) {
+        width: 70%;
+        margin-right: 10px;
+    }
+    
+    footer .footer-wrapper .newsletter input[type="submit"] {
+        width: 30%;
+        margin-left: 10px;
+    }
+
+    footer .footer-wrapper .newsletter h3 {
+        width: 100%;
+        text-align: center;
+        color: var(--app-light-text-color);
+        font-size: 20px;
+    }
+
+    footer .footer-wrapper .newsletter .feedback {
+        height: 20px;
+        padding: 10px 0px;
+        width: 100%;
+        text-align: center;
+    }
+
+    footer .footer-wrapper .newsletter p.aria-invalid {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: var(--app-theme-orange);
+    }
+    
+    footer .footer-wrapper .newsletter span.form-submitted {
+        font-size: 14px;
+        text-transform: uppercase;
+        animation: submittedFadeOut 2s ease-in-out;
+        width: 100%;
+        text-align: center;
+    }
 }
 
-footer .title img {
+@media only screen and (max-width: 922px) {
+    footer .footer-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        place-items: center;
+    }
+
+    footer .footer-wrapper .newsletter {
+        width: 50%;
+    }
+    
+    footer .footer-wrapper .newsletter input:not([type="submit"]) {
+        width: 70%;
+        margin-right: 10px;
+    }
+    
+    footer .footer-wrapper .newsletter input[type="submit"] {
+        width: 30%;
+        margin-left: 10px;
+    }
+
+    footer .footer-wrapper .newsletter {
+        border-top: 0.5px solid rgba(255, 255, 255, 0.147);
+        padding: 15px 0px;
+    }
+
+    footer .footer-wrapper .newsletter .feedback {
+        height: 20px;
+        padding: 10px 0px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    footer .footer-wrapper .newsletter h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        color: var(--app-light-text-color);
+    }
+    
+    footer .footer-wrapper .newsletter p.aria-invalid {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: var(--app-theme-orange);
+    }
+    
+    footer .footer-wrapper .newsletter span.form-submitted {
+        font-size: 14px;
+        text-transform: uppercase;
+        animation: submittedFadeOut 2s ease-in-out;
+        width: 100%;
+        text-align: center;
+    }
+}
+  
+footer .footer-wrapper .title {
+    text-align: center;
+    margin-top: 15px;
+}
+
+footer .footer-wrapper .title img {
     width: 50px;
     margin-bottom: 5px;
 }
 
-footer .title h1 {
+footer .footer-wrapper .title h1 {
     font-size: 30px;
     font-weight: 500;
     color: var(--app-theme-orange);
@@ -126,11 +272,78 @@ footer .title h1 {
     margin: 0;
 }
 
-p.copyright {
+footer .footer-wrapper .copyright {
     width: 100%;
     font-size: 14px;
     color:  var(--app-theme-light-2);
     opacity: 0.4;
     font-weight: 400; 
     text-align: center;
+}
+
+footer .footer-wrapper .newsletter input:not([type="submit"]) {
+    width: 100%;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.2px;
+    text-align: left;
+    transition: var(--app-transition);
+}
+
+footer .footer-wrapper .newsletter input[type="submit"] {
+    border-radius: var(--app-border-radius);
+    background-color: var(--app-theme-orange);
+    color: var(--app-light-text-color);
+    text-align: center;
+    border: none;
+    width: var(--app-btn-width);
+    height: var(--app-btn-height);
+    position: relative;
+    z-index: 5;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    transition: var(--app-transition);
+}
+
+footer .footer-wrapper .newsletter input[type="submit"]:hover {
+    background-color: var(--app-theme-orange-hover);
+}
+
+footer .footer-wrapper .newsletter input:not([type="submit"]):focus {
+    border: 0.5px solid rgba(255, 255, 255, .25);
+}
+
+@keyframes submittedFadeOut {
+    0% {
+        color: rgb(13, 189, 101);
+        display: block;
+    }
+    20% {
+        color: rgba(13, 189, 101, 0.815);
+        display: block;
+    }
+    40% {
+        color: rgba(13, 189, 101, 0.559);
+        display: block;
+    }
+    60% {
+        color: rgba(13, 189, 101, 0.232);
+        display: block;
+    }
+    80% {
+        color: rgba(13, 189, 101, 0.068);
+        display: block;
+    }
+    100% {
+        color: transparent;
+        display: none;
+    }
 }

@@ -3,20 +3,23 @@ import AddToCartAlert from "./AddToCartAlert";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Stars from "./Stars";
 
-function formatPrice(price) {
-    const dollars = Math.floor(price);
-    const cents = (price - dollars).toFixed(2).slice(2);
-    return {
-      dollars,
-      cents
-    };
-}
 
 function ProductCards(props) {
+    const formatPrice = (price) => {
+        const dollars = Math.floor(price);
+        const cents = (price - dollars).toFixed(2).slice(2);
+        return {
+          dollars,
+          cents
+        };
+    };
+  
     // VALAIDATE LOCALSTORAGE
     if(localStorage.getItem('Cart') === null) 
         localStorage.setItem('Cart', '[]');
-
+  
+    const [alertIsShown, setAlertIsShown] = useState(false);
+    
     const auth = getAuth();
     const user = auth.currentUser;
     const [currentItemsInCart, setCurrentItemsInCart] = useState(

@@ -1,8 +1,9 @@
 import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Stars from '../components/Stars';
 
 function Details() {
@@ -13,20 +14,31 @@ function Details() {
     ));
     const [newItem, setNewItem] = useState({});
     const [alertIsShown, setAlertIsShown] = useState(false);
-
+    const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
+    const navigate = useNavigate();
 
     const url = `https://fakestoreapi.com/products/${id}`;    
+
+    const formatPrice = (price) => {
+        const dollars = Math.floor(price);
+        const cents = (price - dollars).toFixed(2).slice(2);
+        return {
+          dollars,
+          cents
+        };
+    }    
     
     useEffect(() => {
         axios
         .get(url)
         .then((res) => {
-          setSelectedProduct(res.data);
+            res.data ? setSelectedProduct(res.data) : navigate('*')
         })
         .catch((error) => {
-            console.log(error.message);
+            navigate('*');
+            setMessage('No details found ...');
         }); 
 
         window.scrollTo(0,0);
@@ -61,6 +73,11 @@ function Details() {
     <>
         {selectedProduct? (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <title>{selectedProduct.title}</title>
+                </Helmet>
+            </HelmetProvider>
             <AddToCartAlert 
                 isShown={alertIsShown}
             />
@@ -76,7 +93,10 @@ function Details() {
                             <Stars rating={selectedProduct.rating.rate} />
                             <div className='product-rating-count'>({selectedProduct.rating.count}) customer reviews</div>
                         </div>
-                        <p className='product-price'>$ {selectedProduct.price}</p>
+                        <p className='product-price'>
+                            ${formatPrice(selectedProduct.price).dollars}.
+                            {formatPrice(selectedProduct.price).cents}
+                        </p>
                         <div className='buttons'>
                             <button className="product-buy">Buy Now</button>
                             <button onClick={(event) => {
@@ -105,7 +125,11 @@ function Details() {
                 </div>
             </div>
         </section>
-        </>) : (<></>)
+        </>) : (
+            <div className="error-container">
+                <p className="loading">{message}</p>
+            </div>
+        )
         }
     </>
   )
