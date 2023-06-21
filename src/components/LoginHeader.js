@@ -10,7 +10,8 @@ function LoginHeader() {
 
   useEffect(() => {
     setItems(JSON.parse(localStorage.getItem('Cart')));
-  });
+  }, []);
+  
   return (
     <div className="d-flex">
       {
