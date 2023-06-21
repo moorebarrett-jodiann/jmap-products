@@ -30,7 +30,6 @@ function App() {
 	return (
 		<>
 			{show&&<DiscountBanner />}
-			<LoginModal />
 			{show&&<Header
 				url={logo}
 			/>}

@@ -32,7 +32,8 @@ const googleProvider = new GoogleAuthProvider();
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const credential = await signInWithEmailAndPassword(auth, email, password);
+    return credential;
   } catch (error) {
     console.error(error)
   }
@@ -40,7 +41,8 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const registerWithEmailAndPassword = async ( email, password) => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const credential = await createUserWithEmailAndPassword(auth, email, password);
+    return credential;
   } catch (error) {
     console.error(error);
   }
