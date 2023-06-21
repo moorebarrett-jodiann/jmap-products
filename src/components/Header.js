@@ -11,7 +11,7 @@ function Header(props) {
                 <nav>
                     <ul>
                         <li><a href='/jmap-products'>Products</a></li>
-                        <li><a href='/about-us'>About Us</a></li>
+                        <li><a href='/jmap-products/about-us'>About Us</a></li>
                         <li><LoginHeader/></li>
                     </ul>
                 </nav>

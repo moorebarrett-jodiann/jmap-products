@@ -65,7 +65,7 @@ function Details() {
                         </div>
                         <p className='product-price'>$ {selectedProduct.price}</p>
                         <div className='buttons'>
-                            <button className="product-buy">Buy Now</button>
+                            <button onClick={addItem} className="product-buy">Buy Now</button>
                             <button className="product-add-to-cart">Add to cart</button>
                         </div>
                         <div className='product-delivery'>
