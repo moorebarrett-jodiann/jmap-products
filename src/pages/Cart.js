@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductCards from "../components/ProductCards";
 import ProductCheckoutCard from "../components/ProductCheckoutCard";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import OrderPlacedModal from "../components/OrderPlacedModal";
 
 function Cart() {
     let subTotal = 0;
@@ -44,6 +45,7 @@ function Cart() {
                 </Helmet>
             </HelmetProvider>
             <section className="main-container cart-container">
+                <OrderPlacedModal/>
                 <div className="columns-container">
                     <div className="first-col-container">
                         <div className="membership-container rounded">
