@@ -1,9 +1,6 @@
 .details-page {
     width: 100%;
-    min-height: calc(100vh - 70px - 150px);
-    display: grid;
     padding: 10px 0px;
-    place-items: center;
 }
 
 .product-details {
@@ -25,6 +22,7 @@
     border-radius: 10px;
     border: 1px solid transparent;
     padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.51) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
 }
 
 .product-details img {

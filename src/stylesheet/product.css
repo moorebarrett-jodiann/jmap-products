@@ -222,6 +222,7 @@
     padding: 30px;
     background-color: #fff;
     border-radius: var(--app-border-radius);
+    box-shadow: rgba(0, 0, 0, 0.051) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
 }
 
 .product-grid .product-card figure img {

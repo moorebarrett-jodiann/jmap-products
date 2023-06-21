@@ -1,5 +1,6 @@
 .discount-wrapper {
     width: 100%;
+    height: 40px;
     background-color: var(--app-theme-blue-2);
     color: var(--app-light-text-color);
     padding: 10px 0px;
