@@ -1,11 +1,16 @@
 import OpenLoginButton from "./OpenLoginButton";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, logout } from "../config/firebase";
+import { useEffect, useState } from "react";
 
 
 function LoginHeader() {
   const [user, loading, error] = useAuthState(auth);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Cart')));
 
+  useEffect(() => {
+    setItems(JSON.parse(localStorage.getItem('Cart')));
+  });
   return (
     <div className="d-flex">
       {
@@ -15,6 +20,10 @@ function LoginHeader() {
         <div className="d-flex h-100 align-items-center">
           <div className="welcome text-muted mx-3">
             <p>Welcome <span>{user.email}</span></p>
+          </div>
+          <div>
+            <i className="fa-solid fa-cart-shopping mx-3"></i>
+            <span>{items.length}</span>
           </div>
           <button onClick={logout}>Logout</button>
         </div>
