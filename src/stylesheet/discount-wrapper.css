@@ -4,6 +4,7 @@
     color: var(--app-light-text-color);
     padding: 10px 0px;
     font-size: 12px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (min-width: 1080px) {   
