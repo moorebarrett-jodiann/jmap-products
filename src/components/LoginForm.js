@@ -6,23 +6,56 @@ import {
 import { useState } from 'react'; 
 
 
-function LoginForm() {
+function LoginForm({formType, onToggleForm}) {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  const handleLogin = () => {
-    logInWithEmailAndPassword(emailInput, passwordInput);
+  const clearForm = () => {
+    setEmailInput('');
+    setPasswordInput('');
   }
 
-  const handleRegister = () => {
-    registerWithEmailAndPassword(emailInput, passwordInput);
+  
+  const handleLogin = async () => {
+    try {
+      const res = await logInWithEmailAndPassword(emailInput, passwordInput);
+      if(res) {
+        clearForm();
+      }
+      // close and clear form
+    } catch(error) {
+      console.error(error);
+    }
+  }
+
+  const handleRegister = async () => {
+    try {
+      const res = await registerWithEmailAndPassword(emailInput, passwordInput);
+      if(res) {
+      clearForm();
+      }
+    } catch(error) {
+      console.error(error);
+    }
+
   }
 
   const handleGoogleLogin = () => {
     logInWithGoogle();
-
+    clearForm();
   }
 
+  const handleSubmit = () => {
+    switch(formType) {
+      case "Sign in":
+        handleLogin();
+        break;
+
+      case "Register":
+        handleRegister();
+        break;
+    }
+  }
 
   return (
     <div className="container p-2">
@@ -50,26 +83,28 @@ function LoginForm() {
             />
             <label htmlFor="password" > Password</label>
           </div>
+          
           <input
             type="button"
-            value="Sign In"
+            value={formType}
             className="btn btn-warning mb-3"
-            onClick={handleLogin}
+            onClick={handleSubmit}
           />
           <input
             type="button"
             value="Register"
             className="btn btn-link"
-            onClick={handleRegister}
+            onClick={onToggleForm}
+            hidden={formType === "Register"}
           />
           <input
             type="button"
             value="Login with Google"
             className="btn btn-link"
             onClick={handleGoogleLogin}
+            data-bs-dismiss="modal"
           />
         </div>
-
       </form>
     </div>
   )

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import AddToCartAlert from "./AddToCartAlert";
 import Stars from "./Stars";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../config/firebase";
+import OpenLoginButton from "./OpenLoginButton";
 
 
 function ProductCards(props) {
     const [alertIsShown, setAlertIsShown] = useState(false);
+    const [user, loading, error] = useAuthState(auth);
     
     const formatPrice = (price) => {
         const dollars = Math.floor(price);
@@ -49,7 +53,12 @@ function ProductCards(props) {
                             <Stars rating={item.rating.rate} />
                             <p className="count">({item.rating.count})</p>
                         </div>
-                        <button onClick={addItem} className="add-to-cart">Add to Cart</button>
+                        {
+                            user === null ?
+                            <OpenLoginButton value="Add to Cart" classes={"add-to-cart"} />
+                            :
+                            <button onClick={addItem} className="add-to-cart">Add to Cart</button>
+                        }
                     </div>      
                 </div>
             ))}
