@@ -1,22 +1,21 @@
 import AddToCartAlert from "../components/AddToCartAlert";
 import  axios  from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Stars from '../components/Stars';
+import { CartContext } from '../context/CartContext';
 
 function Details() {
     const [user, loading, error] = useAuthState(auth);
-    const [currentItemsInCart, setCurrentItemsInCart] = useState(
-        JSON.parse(localStorage.getItem('Cart') || '[]'
-    ));
     const [alertIsShown, setAlertIsShown] = useState(false);
     const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
     const navigate = useNavigate();
+    const { state, dispatch } = useContext(CartContext);
 
     const url = `https://fakestoreapi.com/products/${id}`;    
 
@@ -66,17 +65,15 @@ function Details() {
                 formatPrice(item.price).cents
             };
 
-            setCurrentItemsInCart(current => [newItem, ...current]);
+            // Dispatch the ADD_ITEM action to add the item to the cart
+            dispatch({ type: "ADD_ITEM", item: newItem });
+
         } else {
             // SHOW LOGIN MODAL
             console.log('User not logged in')
         }
     };
 
-    useEffect(() => {
-        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
-    }, [currentItemsInCart]);
-    
     return (
     <>
         {selectedProduct? (
