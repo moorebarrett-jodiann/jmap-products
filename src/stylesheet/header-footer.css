@@ -55,7 +55,7 @@ header .cart-header span {
     font-size: 12px;
     font-weight: 500;
     color: var(--app-light-text-color);
-    padding: 1px 7px;
+    padding: 1px 6px;
     position: relative;
     top: -18px;
     right: 10px;
