@@ -4,18 +4,18 @@ import { CartContext } from "../context/CartContext";
 import { useState, useEffect } from "react";
 
 function ProductCheckoutCard(props) {
-    const { dispatch } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
   
-    const handleRemove = () => {
-        dispatch({ type: "REMOVE_ITEM", item: props.ID });
-    };
-
-    return (
+  const handleRemove = () => {
+      dispatch({ type: "REMOVE_ITEM", item: props.ID });
+  };
+  
+  return (
         <div className="item-card rounded" key={props.ID}>
             <div className="item-card-info">
                 <figure>
-                    <img src={props.IMAGE}
-                    alt="Product img goes here"/>
+                    <img onClick={props.RedirectFunction} 
+                    src={props.IMAGE} alt="Product img goes here"/>
                 </figure>
 
                 <article className="product-info-details">

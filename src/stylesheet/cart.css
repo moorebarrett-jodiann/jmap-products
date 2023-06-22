@@ -80,6 +80,7 @@
     max-height: 100%;
     object-fit: contain;
     height: 200px;
+    cursor: pointer;
 }
 
 .item-card h4.product-title {

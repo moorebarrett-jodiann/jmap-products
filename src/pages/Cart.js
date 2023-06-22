@@ -97,6 +97,7 @@ function Cart() {
                                                 RATING={item.rating}
                                                 COUNT={item.count}
                                                 PRICE={item.price}
+                                                RedirectFunction={() => handleClick(item)}
                                                 dispatch={dispatch} // Pass the dispatch function to the component
                                             />
                                         );
