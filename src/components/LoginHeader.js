@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 
 
 function LoginHeader() {
-	const [items, setItems] = useState(JSON.parse(localStorage.getItem('Cart')));
-	const [user] = useAuthState(auth);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Cart') || '[]'));
+  const [user] = useAuthState(auth);
 
-	useEffect(() => {
-		setItems(JSON.parse(localStorage.getItem('Cart')));
-	}, []);
+  useEffect(() => {
+    setItems(JSON.parse(localStorage.getItem('Cart')));
+  }, []);
 	
 	return (
 	<div className="d-flex">
@@ -25,7 +25,7 @@ function LoginHeader() {
 				</div>
 				<a href="/jmap-products/my-cart" className="cart-header">
 					<i className="fa-solid fa-cart-shopping"></i>
-					<span>{items.length}</span>
+					{(items) ? <span>{items.length}</span> : <span>0</span>}
 				</a>
 				<button className="login-logout" onClick={logout}>Logout</button>
 			</>			
