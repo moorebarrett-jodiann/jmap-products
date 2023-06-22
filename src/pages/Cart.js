@@ -93,7 +93,7 @@ function Cart() {
                         </div>
 
                         <article>
-                            <p>
+                            <p className="gift-text">
                                 If this order contains a gift,
                                 you'll be able to add a message and 
                                 a special gift box during
@@ -123,8 +123,8 @@ function Cart() {
                             </article>
                         </div>
                         
-                        <form>
-                            <input type="text" placeholder="POSTAL CODE"/>
+                        <form className="first-form">
+                            <input type="text" placeholder="Postal Code"/>
                             <input type="submit" value="SEARCH"/>
                         </form>
 
@@ -152,7 +152,7 @@ function Cart() {
                             </article>
 
                             <form className="">
-                                <input type="text" placeholder="ENTER PROMO CODE"/>
+                                <input type="text" placeholder="Enter Promo Code"/>
                                 <input type="submit" value="SUBMIT"/>
                             </form>
                         </div>
