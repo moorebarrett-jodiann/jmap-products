@@ -195,10 +195,13 @@ footer .footer-wrapper .title h1 {
     margin-top: 20px;
 }
 
-footer .footer-wrapper .newsletter input:not([type="submit"]) {
-    padding: 0 15px;
+footer .footer-wrapper .newsletter form {
+    width: 330px;
+}
+
+footer .footer-wrapper .newsletter input[name="email"] {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(134, 23, 23, 0.08);
     border-radius: var(--app-border-radius);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
     font-size: 16px;
@@ -206,19 +209,23 @@ footer .footer-wrapper .newsletter input:not([type="submit"]) {
     color: var(--app-light-text-color);
     letter-spacing: 0.2px;
     text-align: left;
+    padding: 0px 20px;
     transition: var(--app-transition);
 }
 
 footer .footer-wrapper .newsletter input[type="submit"] {
+    padding: 0 15px;
     border-radius: var(--app-border-radius);
     background-color: var(--app-theme-orange);
     color: var(--app-light-text-color);
     text-align: center;
-    width: var(--app-btn-width);
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     transition: var(--app-transition);
+    border: none;
+    width: 150px;
+    height: 43px;
 }
 
 

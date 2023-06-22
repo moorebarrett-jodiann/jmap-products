@@ -11,6 +11,7 @@ import Cart from './pages/Cart';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import { useState } from 'react';
+import { CartProvider } from './context/CartContext';
 
 
 function App() {
@@ -28,25 +29,27 @@ function App() {
   
 
 	return (
-		<>
-			{show&&<DiscountBanner />}
-			{show&&<Header
-				url={logo}
-			/>}
-			<main>
-				<Routes >
-					<Route path="/" element={<Product />} />
-					<Route path="/product/:id" element={<Details />} />
-					<Route path="/my-cart" element={<Cart />} />
-					<Route path="/about-us" element={<About />} />
-					<Route path="/order-confirmed" element={<OrderPlaced />} />
-					<Route path="/*" element={<NotFound hideHeader={hideHeader} showHeader={showHeader} />} />
-				</Routes>
-			</main>
-			{show&&<Footer
-				url={logo}
-			/>}
-		</>
+		<CartProvider> {/* Wrap the components with CartProvider */}
+			<>
+				{show&&<DiscountBanner />}
+				{show&&<Header
+					url={logo}
+				/>}
+				<main>
+					<Routes >
+						<Route path="/" element={<Product />} />
+						<Route path="/product/:id" element={<Details />} />
+						<Route path="/my-cart" element={<Cart />} />
+						<Route path="/about-us" element={<About />} />
+						<Route path="/order-confirmed" element={<OrderPlaced />} />
+						<Route path="/*" element={<NotFound hideHeader={hideHeader} showHeader={showHeader} />} />
+					</Routes>
+				</main>
+				{show&&<Footer
+					url={logo}
+				/>}
+			</>
+		</CartProvider>
 	);
 }
 

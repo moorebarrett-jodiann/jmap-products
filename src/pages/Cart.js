@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from 'axios';
 import { useNavigate, Navigate } from 'react-router-dom';
 import ProductCards from "../components/ProductCards";
@@ -6,18 +6,18 @@ import ProductCheckoutCard from "../components/ProductCheckoutCard";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
+import { CartContext } from "../context/CartContext";
 
 
 function Cart() {
-    // Check if logged in
-    
 
     let subTotal = 0;
     let taxAmount = 0;
     let totalWithTax = 0;
     const API_URL = 'https://fakestoreapi.com/products?limit=4';
+    const { state, dispatch } = useContext(CartContext);
+    const currentItemsInCart = state.cartItems;
     const [randomProducts, setRandomProducts] = useState([]);
-    const [currentItemsInCart, setCurrentItemsInCart] = useState(JSON.parse(localStorage.getItem('Cart')));
     const navigate = useNavigate();
     const [user, loading, error] = useAuthState(auth);
     
@@ -26,21 +26,13 @@ function Cart() {
     };
 
     const goToOrderConfirmedPage = () => {
-        navigate('/order-confirmed'); 
+        // Dispatch action to clear the entire cart after purchase
+        dispatch({ type: "CLEAR_CART" }); 
+        navigate("/order-confirmed");
     };
 
     const goToHome = () => {
         navigate('/')
-    };
-
-    const removeItem = (id) => {
-        let index = currentItemsInCart.findIndex(item => {
-            return item.id === id;
-        });
-        
-        setCurrentItemsInCart(currentItemsInCart.splice(index, 1))
-        setCurrentItemsInCart(currentItemsInCart.filter(item => item.id !== id));
-        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
     };
 
     // Getting 4 random products
@@ -64,13 +56,13 @@ function Cart() {
                 </Helmet>
             </HelmetProvider>
             <>
-                {(currentItemsInCart.length === 0 ? 
+                {currentItemsInCart.length === 0 ? (
                     <article className="empty-cart-container">
                         <h2>Your cart is empty</h2>
                         <button onClick={goToHome}>START SHOPPING</button>
                     </article>   
                     
-                    :
+                ):(
                     
                     <section className="main-container cart-container">
                         <div className="columns-container">
@@ -93,11 +85,9 @@ function Cart() {
                                 <div className="item-cards-container">
                                     {/* INDIVIDUAL ITEM CARD */}
                                     {currentItemsInCart.map(item => {
-                                        subTotal = (parseFloat(subTotal)
-                                                + parseFloat(item.price)).toFixed(2);
+                                        subTotal = (parseFloat(subTotal) + parseFloat(item.price)).toFixed(2);
                                         taxAmount = (subTotal * 0.13).toFixed(2);
-                                        totalWithTax = (parseFloat(subTotal)
-                                                    + parseFloat(taxAmount)).toFixed(2);
+                                        totalWithTax = (parseFloat(subTotal) + parseFloat(taxAmount)).toFixed(2);
                                         return(
                                             <ProductCheckoutCard
                                                 key={item.id}
@@ -107,8 +97,8 @@ function Cart() {
                                                 RATING={item.rating}
                                                 COUNT={item.count}
                                                 PRICE={item.price}
-                                                RemoveFunction={removeItem}
                                                 RedirectFunction={() => handleClick(item)}
+                                                dispatch={dispatch} // Pass the dispatch function to the component
                                             />
                                         );
                                     })}

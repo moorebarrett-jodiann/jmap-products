@@ -1,25 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import AddToCartAlert from "./AddToCartAlert";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import Stars from "./Stars";
-import OpenLoginButton from "./OpenLoginButton";
+import { CartContext } from '../context/CartContext';
 
 function ProductCards(props) {
-    const [user, loading, error] = useAuthState(auth);
-  
+    const [user] = useAuthState(auth);
+    const { state, dispatch } = useContext(CartContext);
+
     const formatPrice = (price) => {
         const dollars = Math.floor(price);
         const cents = (price - dollars).toFixed(2).slice(2);
         return {
-          dollars,
-          cents
+            dollars,
+            cents
         };
     };
-  
-    const [currentItemsInCart, setCurrentItemsInCart] = useState(
-        JSON.parse(localStorage.getItem('Cart') || '[]'
-    ));
+    
     const [alertIsShown, setAlertIsShown] = useState(false);
     
     const addItem = (event, item) => {
@@ -44,16 +42,14 @@ function ProductCards(props) {
                 formatPrice(item.price).cents
             };
 
-            setCurrentItemsInCart(current => [newItem, ...current]);
+            // Dispatch the ADD_ITEM action to add the item to the cart
+            dispatch({ type: "ADD_ITEM", item: newItem });
+
         } else {
             // SHOW LOGIN MODAL
             console.log('User not logged in')
         }
     };
-
-    useEffect(() => {
-        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
-    }, [currentItemsInCart]);
 
     return (
         <>
