@@ -112,7 +112,7 @@ function Cart() {
                                     </p>
                                 </article>    
 
-                                <div>
+                                <div className="product-suggestions">
                                     <article>
                                         <h4>You may also like</h4>
                                     </article>

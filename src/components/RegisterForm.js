@@ -33,12 +33,12 @@ function LoginForm() {
 
   return (
     <>
-      <div className="container p-2">
+      <div className="container p-2 register-form-container">
         <form onSubmit={() => {
           setWasValidated(true);
           handleSubmit(handleRegister)}} noValidate>
           <div className="container d-flex flex-column">
-            <div className="form-floating mb-3 has-validation">
+            <div className="form-floating mb-3 has-validation register-form-input-box-1">
               <input 
                 type="email" 
                 id="email" 
@@ -55,14 +55,16 @@ function LoginForm() {
                 aria-invalid={errors.email ? "true" : "false"} 
               />
               <label className="form-label" htmlFor="email" >Email</label>
-              <div className="invalid-feedback">{errors.email ? errors.email.message : ""}</div>
+              <div className='email-error-message '>
+                <div className="invalid-feedback">{errors.email ? errors.email.message : ""} error</div>
+              </div>
             </div>
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 register-form-input-box-2">
               <input 
                 type="password" 
                 id="password" 
                 placeholder="Password"
-                className={"form-control " + (wasValidated ? errors.password ? "is-invalid" : "is-valid" : "")} 
+                className={"form-control" + (wasValidated ? errors.password ? "is-invalid" : "is-valid" : "")} 
                 required
                 aria-invalid={errors.password ? "true" : "false"}
                 {...register("password", {
@@ -72,21 +74,24 @@ function LoginForm() {
 
               />
               <label className="form-label" htmlFor="password">Password</label>
-              <div className="px-2 invalid-feedback">{errors.password ? errors.password.message : ""}</div>
+              <div className='password-error-message'>
+                <div className="px-2 invalid-feedback">{errors.password ? errors.password.message : ""}</div>
+              </div>
             </div>
             <input
               type="button"
               value="Register"
-              className="btn btn-warning mb-3"
+              className="btn btn-warning mb-3 register-button"
               onClick={() => {
                 setWasValidated(true);
                 handleSubmit(handleRegister)
               }}
             />
+            <p className='sign-in-option'>- or -</p>
             <input
               type="button"
-              value="Login with Google"
-              className="btn btn-link"
+              value="Sign In with Google"
+              className="btn btn-link sign-in-google"
               onClick={handleGoogleLogin}
               data-bs-dismiss="modal"
             />
