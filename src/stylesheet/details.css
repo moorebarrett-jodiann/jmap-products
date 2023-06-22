@@ -102,6 +102,7 @@
 }
 
 .product-details button.product-add-to-cart {
+    width: 140px;
     border: 1px solid var(--app-theme-orange);
     background-color: transparent;
     color: var(--app-theme-orange)
