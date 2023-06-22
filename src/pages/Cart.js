@@ -108,6 +108,7 @@ function Cart() {
                                                 COUNT={item.count}
                                                 PRICE={item.price}
                                                 RemoveFunction={removeItem}
+                                                RedirectFunction={() => handleClick(item)}
                                             />
                                         );
                                     })}

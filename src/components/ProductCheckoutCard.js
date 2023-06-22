@@ -7,8 +7,8 @@ function ProductCheckoutCard(props) {
     <div className="item-card rounded" key={props.ID}>
         <div className="item-card-info">
             <figure>
-                <img src={props.IMAGE}
-                alt="Product img goes here"/>
+                <img onClick={props.RedirectFunction} 
+                src={props.IMAGE} alt="Product img goes here"/>
             </figure>
 
             <article className="product-info-details">
