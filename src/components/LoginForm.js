@@ -1,19 +1,15 @@
 import { 
   logInWithEmailAndPassword,
-  registerWithEmailAndPassword,
   logInWithGoogle,
 } from '../config/firebase'
 import { useState } from 'react'; 
-import Modal from 'react-bootstrap/Modal'
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
 
-const forms = ["Sign In", "Register"];
-
-function LoginForm() {
+function LoginForm({handleToggleForm}) {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
-  const [formType, setFormType] = useState(forms[0]);
+  const [wasValidated, setWasValidated] = useState(false);
 
   const modal = useModal(LoginModal);
   const googleLogo = <i className="fa-brands fa-google"></i>;
@@ -25,58 +21,25 @@ function LoginForm() {
       if(res) {
         modal.remove()
       }
+
+      setWasValidated(true);
+      
     } catch(error) {
       console.error(error);
     }
   }
 
-  const handleRegister = async () => {
-    try {
-      const res = await registerWithEmailAndPassword(emailInput, passwordInput);
-      if(res) {
-      modal.remove()
-      }
-    } catch(error) {
-      console.error(error);
-    }
-  }
 
   const handleGoogleLogin = () => {
     logInWithGoogle();
     modal.remove();
   }
 
-  const handleSubmit = () => {
-    switch(formType) {
-      case "Sign In":
-        handleLogin();
-        break;
-
-      case "Register":
-        handleRegister();
-        break;
-    }
-  }
-
-    const handleToggleForm = () => {
-    if(formType === forms[0]) {
-      setFormType(forms[1]);
-    } else {
-      setFormType(forms[0]);
-    }
-  }
-
   return (
-    <div className='form-container'>
-      <Modal.Header closeButton>
-        <Modal.Title>
-          <h3>{formType}</h3>
-        </Modal.Title>
-      </Modal.Header>
-      <div className="py-4 px-2">
-        <form>
+      <div className="container p-2">
+        <form className="needs-validation" noValidate>
           <div className="container d-flex flex-column">
-            <div className="form-floating mb-3 form-input-box1">
+            <div className="form-floating mb-3 has-validation">
               <input 
                 type="email" 
                 id="email" 
@@ -84,9 +47,9 @@ function LoginForm() {
                 className="form-control" 
                 value={emailInput} 
                 onChange={(e) => {setEmailInput(e.target.value)}}
+                required
               />
-              <label htmlFor="email" >Email</label>
-              {/* <p className='form-error-message'>This field is required</p> */}
+              <label className="form-label" htmlFor="email" >Email</label>
             </div>
             <div className="form-floating mb-3 form-input-box2">
               <input 
@@ -96,16 +59,16 @@ function LoginForm() {
                 className="form-control" 
                 value={passwordInput} 
                 onChange={(e) => {setPasswordInput(e.target.value)}} 
+                required
               />
-              <label htmlFor="password" > Password</label>
-              {/* <p className='form-error-message'>This field is required</p> */}
+              <label className="form-label" htmlFor="password" > Password</label>
             </div>
-            
+            {wasValidated ? <small className='text-danger font-sm'>Username or password incorrect</small> : <></>}
             <input
               type="button"
-              value={formType}
-              className="btn btn-warning mb-3 submit-button"
-              onClick={handleSubmit}
+              value="Sign in"
+              className="btn btn-warning my-3"
+              onClick={handleLogin}
             />
             <p className='sign-in-option'>- or -</p>
             <input
