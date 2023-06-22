@@ -192,7 +192,7 @@
 }
 
 .product-grid .product-card {
-    height: 450px;
+    /* height: 450px; */
     overflow: hidden;
     position: relative;
 }
@@ -228,11 +228,6 @@
     height: 100%;
 }
 
-.product-grid .product-card .info-wrapper {
-    height: 30%;
-    background-color: var(--app-theme-light);
-}
-
 .product-grid .product-card:hover {
     cursor: pointer;
 }
@@ -254,7 +249,7 @@
 }
 
 .product-grid .product-card .title-price .price {
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 600;
     display: flex;
     line-height: 15px;
@@ -262,21 +257,20 @@
 
 .product-grid .product-card .title-price .price .dollar-sign,
 .product-grid .product-card .title-price .price .cents {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
-    line-height: 10px;
+    line-height: 5px;
 }
 
 .product-grid .product-card .reviews {
     width: 100%;
-    line-height: 15px;
-    align-items:start;
+    line-height: 1px;
 }
 
 .product-grid .product-card .reviews .count {
     font-size: 15px;
     align-items: start;
-    line-height: 23px;
+    line-height: 16px;
     opacity: 0.5;
 }
 

@@ -75,8 +75,9 @@ header .title h1 {
 header button.login-logout {
     border-radius: var(--app-border-radius) !important;
     text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 600;    transition: var(--app-transition);
+    font-size: 14px;
+    font-weight: 600;    
+    transition: var(--app-transition);
 }
 
 header button.login-logout:hover {
@@ -195,13 +196,12 @@ footer .footer-wrapper .title h1 {
 }
 
 footer .footer-wrapper .newsletter input:not([type="submit"]) {
-    height: 45px;
     padding: 0 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.08);
     border-radius: var(--app-border-radius);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--app-light-text-color);
     letter-spacing: 0.2px;
@@ -215,9 +215,8 @@ footer .footer-wrapper .newsletter input[type="submit"] {
     color: var(--app-light-text-color);
     text-align: center;
     width: var(--app-btn-width);
-    height: var(--app-btn-height);
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     transition: var(--app-transition);
 }

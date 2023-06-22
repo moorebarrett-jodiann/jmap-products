@@ -13,12 +13,13 @@ function LoginHeader() {
 	}, []);
 	
 	return (
-		<div className="d-flex">
+	<div className="d-flex">
+		<div className="d-flex h-100 align-items-center">
 		{
 			user === null ? 
 			<OpenLoginButton classes="login-logout" value="Login" />
 			: 
-			<div className="d-flex h-100 align-items-center">
+			<>
 				<div className="welcome text-muted">
 					<p>Welcome <span>{user.email}</span></p>
 				</div>
@@ -27,9 +28,10 @@ function LoginHeader() {
 					<span>{items.length}</span>
 				</a>
 				<button className="login-logout" onClick={logout}>Logout</button>
-			</div>
+			</>			
 		}
 		</div>
+	</div>
 	)
 }
 
