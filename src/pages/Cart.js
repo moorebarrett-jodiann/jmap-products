@@ -53,12 +53,9 @@ function Cart() {
                     <title>My Cart</title>
                 </Helmet>
             </HelmetProvider>
-            
-            {loading === false && user === null ? 
-                <Navigate to="/" />
-                :
-                <></>
-            }
+
+            {loading === false && user === null ? <Navigate to="/" /> : <></> }
+
             <section className="main-container cart-container">
                 <div className="columns-container">
                     <div className="first-col-container">
