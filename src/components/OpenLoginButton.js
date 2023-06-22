@@ -4,15 +4,17 @@ import LoginModal from "./LoginModal";
 function OpenLoginButton({value, classes}) {
   const modal = useModal(LoginModal);
   return (
-    <button 
-      className={classes} 
-  
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        modal.show();
-        }}
-      >{value}</button>
+    <div className="d-flex h-100 align-items-center">
+      <button 
+        className={classes} 
+    
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          modal.show();
+          }}
+        >{value}</button>
+    </div>
   )
 }
 

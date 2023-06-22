@@ -167,9 +167,9 @@ input[type=submit], button {
     width: 70px;
 }
 
-/* Place Order */
+/* =============================== ORDER PLACED ============================================ */
+
 .order-placed-section {
-    height: calc(100vh - 70px - 200px);
     display: grid;
     place-items: center;
     justify-content: center;
@@ -187,7 +187,7 @@ input[type=submit], button {
     padding: 25px 20px;
     border-radius: var(--app-border-radius);
     background-color: var(--app-theme-light);
-    background-image: linear-gradient(126deg, #e2deee, var(--app-theme-light), #e2deee);
+    background-image: linear-gradient(126deg, rgba(153, 176, 207, 0.219), var(--app-theme-light), rgba(153, 176, 207, 0.219));
     transition: all 0.35s ease-in-out;
 }
 
@@ -214,15 +214,22 @@ input[type=submit], button {
 }
 
 .order-placed-container .order-id {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.25px;
+}
+
+.order-placed-container .order-id span {
+    font-weight: 600;
+    color: var(--app-theme-blue-2);
 }
 
 .order-placed-container button.continue-shopping {
     border-radius: var(--app-border-radius);
     font-weight: 400;
+    transition: var(--app-transition);
 }
 
 .order-placed-container button.continue-shopping:hover {
     background-color: var(--app-theme-orange-hover);
+    cursor: pointer;
 }

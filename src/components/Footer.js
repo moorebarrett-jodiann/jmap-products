@@ -45,8 +45,8 @@ function Footer(props) {
                     </div>
                     <div className="newsletter">
                         <h3>Join Our Newsletter</h3>
-                        <form onSubmit={handleSubmit(submitForm)} autoComplete="off" className="flexbox">
-                            <div>
+                        <form onSubmit={handleSubmit(submitForm)} autoComplete="off">
+                            <div className="footer-form-group">
                                 <input {...register("email", {
                                         required: "Email Address is required.", 
                                         pattern: {
@@ -58,22 +58,21 @@ function Footer(props) {
                                     autoComplete="off"
                                     aria-invalid={errors.email ? "true" : "false"} 
                                     className={errors.email ? 'invalid' : watch("email") ? 'valid' : ''}
-                                />
-                                <div className="feedback">
-                                    {errors.email && <p className="aria-invalid">{errors.email.message}</p>}  
-                                    {showSubmittedMessage && (
-                                        <span className="form-submitted" onAnimationEnd={handleAnimationEnd}>
-                                        Form Submitted!
-                                        </span>
-                                    )}
-                                </div>
-                            </div>                            
-                            <input type="submit" value="submit"/>
+                                />                                
+                                <input type="submit" value="submit"/>
+                            </div>   
+                            <div className="feedback">
+                                {errors.email && <p className="aria-invalid">{errors.email.message}</p>}  
+                                {showSubmittedMessage && (
+                                    <span className="form-submitted" onAnimationEnd={handleAnimationEnd}>
+                                    Form Submitted!
+                                    </span>
+                                )}
+                            </div>                         
                         </form>
                     </div>
                 </div>
                 <div className='footer-copyright'>
-                    <div className='divider'></div>
                     <p className="copyright">Designed by JMAP &copy; {year} All rights reserved</p>
                 </div>
             </div>
