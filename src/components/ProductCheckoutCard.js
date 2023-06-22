@@ -11,14 +11,14 @@ function ProductCheckoutCard(props) {
                 alt="Product img goes here"/>
             </figure>
 
-            <article>
-                <h4>{props.TITLE}</h4>
+            <article className="product-info-details">
+                <h4 className="product-title">{props.TITLE}</h4>
                 <div className="checkoutCardRatingContainer">
                     <Stars rating={props.RATING} />
                     <span className="count">({props.COUNT})</span>
                 </div>
-                <div>
-                    <p className="dead-link">
+                <div className="dead-links">
+                    <p className="dead-link-1">
                         <i className="fa-solid fa-heart"></i> Add to Favorites 
                     </p>
                     <p onClick={() => props.RemoveFunction(props.ID)} className="dead-link">
@@ -28,7 +28,7 @@ function ProductCheckoutCard(props) {
             </article>
         </div>
         
-        <article>
+        <article className="product-price">
             <h3>${props.PRICE}</h3>
         </article>
     </div>
