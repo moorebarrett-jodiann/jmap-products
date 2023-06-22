@@ -10,6 +10,7 @@
 @import './not-found.css' layer(components);
 @import './about.css' layer(components);
 @import './cart.css' layer(components);
+@import './login.css' layer(components);
 
 @layer defaults {    
     :root {
@@ -19,6 +20,7 @@
         --app-theme-light-blue: #99b0cf;
         --app-theme-blue: #4F709C;
         --app-theme-blue-2: #213555;
+        --app-theme-blue-hover: #1b2d49;
         --app-theme-orange: #db9806;
         --app-theme-orange-hover: #d19108; 
 

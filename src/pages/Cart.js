@@ -107,14 +107,14 @@ function Cart() {
                                     })}
                                 </div>
 
-                                <article>
-                                    <p>
+                                 <article>
+                                    <p className="gift-text">
                                         If this order contains a gift,
                                         you'll be able to add a message and 
                                         a special gift box during
                                         checkout. <a href="#!" className="blue">Learn more</a>
                                     </p>
-                                </article>  
+                                </article>    
 
                                 <div>
                                     <article>
@@ -138,8 +138,8 @@ function Cart() {
                                     </article>
                                 </div>
                                 
-                                <form>
-                                    <input type="text" placeholder="POSTAL CODE"/>
+                                <form className="first-form">
+                                    <input type="text" placeholder="Postal Code"/>
                                     <input type="submit" value="SEARCH"/>
                                 </form>
 
@@ -166,8 +166,8 @@ function Cart() {
                                         <p>${taxAmount}</p>
                                     </article>
 
-                                    <form className="">
-                                        <input type="text" placeholder="ENTER PROMO CODE"/>
+                                    <form>
+                                        <input type="text" placeholder="Enter Promo Code"/>
                                         <input type="submit" value="SUBMIT"/>
                                     </form>
                                 </div>
@@ -227,7 +227,7 @@ function Cart() {
                                 <i className="fa-solid fa-award blue"></i>
                                 <h5>Quality products</h5>
                             </article>
-                        </div>       
+                        </div>    
                     </section>
                 )}
             </>
