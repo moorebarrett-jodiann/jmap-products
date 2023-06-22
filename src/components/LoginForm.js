@@ -6,14 +6,13 @@ import { useState } from 'react';
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
 
-
-
 function LoginForm({handleToggleForm}) {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [wasValidated, setWasValidated] = useState(false);
 
   const modal = useModal(LoginModal);
+  const googleLogo = <i className="fa-brands fa-google"></i>;
 
   
   const handleLogin = async () => {
@@ -36,7 +35,6 @@ function LoginForm({handleToggleForm}) {
     modal.remove();
   }
 
-
   return (
       <div className="container p-2">
         <form className="needs-validation" noValidate>
@@ -53,7 +51,7 @@ function LoginForm({handleToggleForm}) {
               />
               <label className="form-label" htmlFor="email" >Email</label>
             </div>
-            <div className="form-floating has-validation">
+            <div className="form-floating mb-3 form-input-box2">
               <input 
                 type="password" 
                 id="password" 
@@ -72,25 +70,28 @@ function LoginForm({handleToggleForm}) {
               className="btn btn-warning my-3"
               onClick={handleLogin}
             />
+            <p className='sign-in-option'>- or -</p>
             <input
               type="button"
-              value="Register"
-              className="btn btn-link"
-              onClick={handleToggleForm}
-              
-            />
-            <input
-              type="button"
-              value="Login with Google"
-              className="btn btn-link"
+              value="Sign In with Google"
+              className="btn btn-link sign-in-google"
               onClick={handleGoogleLogin}
               data-bs-dismiss="modal"
             />
-            
+            <div className='register-option'>
+              <p>Don't have an account?</p>
+              <input
+                type="button"
+                value="Register"
+                className="btn btn-link"
+                onClick={handleToggleForm}
+                hidden={formType === "Register"}
+              />
+            </div>
           </div>
         </form>
       </div>
-    
+    </div>
   )
 }
 

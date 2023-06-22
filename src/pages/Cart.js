@@ -33,6 +33,15 @@ function Cart() {
         navigate('/')
     };
 
+    const removeItem = (id) => {
+        let index = currentItemsInCart.findIndex(item => {
+            return item.id === id;
+        });
+        
+        setCurrentItemsInCart(currentItemsInCart.splice(index, 1))
+        setCurrentItemsInCart(currentItemsInCart.filter(item => item.id !== id));
+        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
+    };
 
     // Getting 4 random products
     useEffect(() => {
@@ -45,10 +54,6 @@ function Cart() {
                 console.log(error);
             });
     }, []);    
-
-    useEffect(() => {
-        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
-    });
 
     return (
         <>
@@ -102,19 +107,20 @@ function Cart() {
                                                 RATING={item.rating}
                                                 COUNT={item.count}
                                                 PRICE={item.price}
+                                                RemoveFunction={removeItem}
                                             />
                                         );
                                     })}
                                 </div>
 
-                                <article>
-                                    <p>
+                                 <article>
+                                    <p className="gift-text">
                                         If this order contains a gift,
                                         you'll be able to add a message and 
                                         a special gift box during
                                         checkout. <a href="#!" className="blue">Learn more</a>
                                     </p>
-                                </article>  
+                                </article>    
 
                                 <div>
                                     <article>
@@ -138,8 +144,8 @@ function Cart() {
                                     </article>
                                 </div>
                                 
-                                <form>
-                                    <input type="text" placeholder="POSTAL CODE"/>
+                                <form className="first-form">
+                                    <input type="text" placeholder="Postal Code"/>
                                     <input type="submit" value="SEARCH"/>
                                 </form>
 
@@ -166,8 +172,8 @@ function Cart() {
                                         <p>${taxAmount}</p>
                                     </article>
 
-                                    <form className="">
-                                        <input type="text" placeholder="ENTER PROMO CODE"/>
+                                    <form>
+                                        <input type="text" placeholder="Enter Promo Code"/>
                                         <input type="submit" value="SUBMIT"/>
                                     </form>
                                 </div>
@@ -227,7 +233,7 @@ function Cart() {
                                 <i className="fa-solid fa-award blue"></i>
                                 <h5>Quality products</h5>
                             </article>
-                        </div>       
+                        </div>    
                     </section>
                 )}
             </>
