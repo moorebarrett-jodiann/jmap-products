@@ -28,9 +28,7 @@ function RegisterForm() {
   return (
     <>
       <div className="container p-2 register-form-container">
-        <form onSubmit={() => {
-          setWasValidated(true);
-          handleSubmit(handleRegister)}} noValidate>
+        <form onSubmit={handleSubmit(handleRegister)} noValidate>
           <div className="container d-flex flex-column">
             <div className="form-floating mb-3 has-validation register-form-input-box-1">
               <input 
@@ -49,8 +47,8 @@ function RegisterForm() {
                 aria-invalid={errors.email ? "true" : "false"} 
               />
               <label className="form-label" htmlFor="email" >Email</label>
-              <div className='email-error-message '>
-                <div className="invalid-feedback">{errors.email ? errors.email.message : ""}</div>
+              <div className='email-error-message'>
+                {errors.email ? <div className="invalid-feedback">errors.email.message</div> : ""}
               </div>
             </div>
             <div className="form-floating mb-3 has-validation register-form-input-box-2">
@@ -58,7 +56,7 @@ function RegisterForm() {
                 type="password" 
                 id="password" 
                 placeholder="Password"
-                className={"form-control" + (wasValidated ? errors.password ? "is-invalid" : "is-valid" : "")} 
+                className={"form-control " + (wasValidated ? errors.password ? "is-invalid" : "is-valid" : "")} 
                 required
                 aria-invalid={errors.password ? "true" : "false"}
                 {...register("password", {
@@ -73,7 +71,7 @@ function RegisterForm() {
               </div>
             </div>
             <input
-              type="button"
+              type="submit"
               value="Register"
               className="btn btn-warning mb-3 register-button"
               onClick={() => {
