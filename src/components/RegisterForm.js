@@ -11,25 +11,23 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-function LoginForm({handleToggleForm}) {
+function LoginForm() {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [wasValidated, setWasValidated] = useState(false);
 
   const modal = useModal(LoginModal);
 
-  
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const res = await logInWithEmailAndPassword(emailInput, passwordInput);
+      const res = await registerWithEmailAndPassword(emailInput, passwordInput);
       if(res) {
-        modal.remove()
+      modal.remove()
       }
     } catch(error) {
       console.error(error);
     }
   }
-
 
   const handleGoogleLogin = () => {
     logInWithGoogle();
@@ -38,7 +36,7 @@ function LoginForm({handleToggleForm}) {
 
 
   return (
-    
+    <>
       <div className="container p-2">
         <form className="needs-validation" noValidate>
           <div className="container d-flex flex-column">
@@ -69,16 +67,9 @@ function LoginForm({handleToggleForm}) {
             </div>
             <input
               type="button"
-              value="Sign in"
-              className="btn btn-warning mb-3"
-              onClick={handleLogin}
-            />
-            <input
-              type="button"
               value="Register"
-              className="btn btn-link"
-              onClick={handleToggleForm}
-              
+              className="btn btn-warning mb-3"
+              onClick={handleRegister}
             />
             <input
               type="button"
@@ -90,7 +81,7 @@ function LoginForm({handleToggleForm}) {
           </div>
         </form>
       </div>
-    
+    </>
   )
 }
 
