@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 function LoginHeader() {
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Cart')));
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Cart') || '[]'));
   const [user] = useAuthState(auth);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function LoginHeader() {
           </div>
           <div>
             <i className="fa-solid fa-cart-shopping mx-3"></i>
-            <span>{items.length}</span>
+            {(items) ? <span>{items.length}</span> : <span>0</span>}
           </div>
           <button onClick={logout}>Logout</button>
         </div>
