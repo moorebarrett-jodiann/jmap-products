@@ -106,12 +106,18 @@ function Details() {
                             ${formatPrice(selectedProduct.price).dollars}.
                             {formatPrice(selectedProduct.price).cents}
                         </p>
-                        <div className='buttons'>
-                            <button className="product-buy">Buy Now</button>
-                            <button onClick={(event) => {
-                                addItem(event, selectedProduct);
-                            }} className="product-add-to-cart">Add to cart</button>
-                        </div>
+                        {
+                            user === null ?
+                            <></>
+                            :
+                            <div className='buttons'>
+                                <button className="product-buy">Buy Now</button>
+                                <button onClick={(event) => {
+                                    addItem(event, selectedProduct);
+                                }} className="product-add-to-cart">Add to cart</button>
+                            </div>
+                        }
+                        
                         <div className='product-description'>
                             <h3>Description</h3>
                             <p className='product-description-text'>{selectedProduct.description}</p>
