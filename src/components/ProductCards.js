@@ -32,7 +32,10 @@ function ProductCards(props) {
                 setAlertIsShown(false);
             }, 2000);
 
+            let guid = crypto.randomUUID().substring(0, 8);
+
             const newItem = { 
+                guid: guid,
                 id: item.id, 
                 image: item.image, 
                 title: item.title,

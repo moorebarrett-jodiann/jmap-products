@@ -7,11 +7,11 @@ function ProductCheckoutCard(props) {
   const { dispatch } = useContext(CartContext);
   
   const handleRemove = () => {
-      dispatch({ type: "REMOVE_ITEM", item: props.ID });
+      dispatch({ type: "REMOVE_ITEM", item: props.GUID });
   };
   
   return (
-        <div className="item-card rounded" key={props.ID}>
+        <div className="item-card rounded" key={props.GUID}>
             <div className="item-card-info">
                 <figure>
                     <img onClick={props.RedirectFunction} 

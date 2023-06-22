@@ -90,7 +90,8 @@ function Cart() {
                                         totalWithTax = (parseFloat(subTotal) + parseFloat(taxAmount)).toFixed(2);
                                         return(
                                             <ProductCheckoutCard
-                                                key={item.id}
+                                                key={item.guid}
+                                                GUID={item.guid}
                                                 ID={item.id}
                                                 IMAGE={item.image}
                                                 TITLE={item.title}
