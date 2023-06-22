@@ -5,7 +5,7 @@ import { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
 
 
-function LoginForm() {
+function RegisterForm() {
   const [wasValidated, setWasValidated] = useState(false);
   const {register, handleSubmit, formState: {errors}} = useForm();
   const modal = useModal(LoginModal);
@@ -73,7 +73,7 @@ function LoginForm() {
               </div>
             </div>
             <input
-              type="submit"
+              type="button"
               value="Register"
               className="btn btn-warning mb-3 register-button"
               onClick={() => {
@@ -95,4 +95,4 @@ function LoginForm() {
   )
 }
 
-export default LoginForm
+export default RegisterForm
