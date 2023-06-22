@@ -1,11 +1,6 @@
 
 import { createContext, useReducer, useEffect } from "react";
 
-// Create the initial state of the local storage which is either a Cart of items or, if null, an empty array
-const initialState = {
-    cartItems: JSON.parse(localStorage.getItem("Cart")) || [],
-};
-  
 // Initialize reducer
 const cartReducer = (state, action) => {
     switch (action.type) {
@@ -14,7 +9,16 @@ const cartReducer = (state, action) => {
                 ...state,
                 cartItems: [action.item, ...state.cartItems]
             };
-        // additional cases go here
+        case "REMOVE_ITEM":
+            return {
+                ...state,
+                cartItems: state.cartItems.filter((item) => item.id !== action.item),
+            };
+        case "CLEAR_CART":
+            return {
+                ...state,
+                cartItems: [],
+            };
         default:
             return state;
     }

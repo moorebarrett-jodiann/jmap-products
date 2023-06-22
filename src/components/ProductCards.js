@@ -4,10 +4,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import Stars from "./Stars";
 import { CartContext } from '../context/CartContext';
-import OpenLoginButton from "./OpenLoginButton";
 
 function ProductCards(props) {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const { state, dispatch } = useContext(CartContext);
 
     const formatPrice = (price) => {

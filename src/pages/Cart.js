@@ -16,7 +16,6 @@ function Cart() {
     let totalWithTax = 0;
     const API_URL = 'https://fakestoreapi.com/products?limit=4';
     const { state, dispatch } = useContext(CartContext);
-    console.log(state);
     const currentItemsInCart = state.cartItems;
     const [randomProducts, setRandomProducts] = useState([]);
     const navigate = useNavigate();

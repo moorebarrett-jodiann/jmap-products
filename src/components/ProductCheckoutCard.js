@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { CartContext } from '../context/CartContext';
 import Stars from "./Stars";
+import { CartContext } from "../context/CartContext";
 
 function ProductCheckoutCard(props) {
     const { dispatch } = useContext(CartContext);
 
-    // handle a single remove on an item in the cart
     const handleRemove = () => {
         dispatch({ type: "REMOVE_ITEM", item: props.ID });
     };
@@ -25,10 +24,10 @@ function ProductCheckoutCard(props) {
                         <span className="count">({props.COUNT})</span>
                     </div>
                     <div>
-                        <p className="dead-link"  onClick={handleRemove}>
+                        <p className="dead-link">
                             <i className="fa-solid fa-heart"></i> Add to Favorites 
                         </p>
-                        <p className="dead-link">
+                        <p className="dead-link" onClick={handleRemove}>
                             <i className="fa-solid fa-trash-can"></i> Remove 
                         </p>
                     </div>
