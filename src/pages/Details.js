@@ -10,6 +10,7 @@ import { CartContext } from '../context/CartContext';
 
 function Details() {
     const [user, loading, error] = useAuthState(auth);
+    const[transactionId] = useState(crypto.randomUUID().substring(0, 8));
     const [alertIsShown, setAlertIsShown] = useState(false);
     const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
@@ -55,7 +56,10 @@ function Details() {
                 setAlertIsShown(false);
             }, 2000);
 
+            let guid = crypto.randomUUID().substring(0, 8);
+
             const newItem = { 
+                guid: guid,
                 id: item.id, 
                 image: item.image, 
                 title: item.title,

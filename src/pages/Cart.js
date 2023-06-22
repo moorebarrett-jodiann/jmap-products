@@ -59,7 +59,7 @@ function Cart() {
                 {currentItemsInCart.length === 0 ? (
                     <article className="empty-cart-container">
                         <h2>Your cart is empty</h2>
-                        <button onClick={goToHome}>START SHOPPING</button>
+                        <button className="start-shopping" onClick={goToHome}>START SHOPPING</button>
                     </article>   
                     
                 ):(
@@ -90,13 +90,15 @@ function Cart() {
                                         totalWithTax = (parseFloat(subTotal) + parseFloat(taxAmount)).toFixed(2);
                                         return(
                                             <ProductCheckoutCard
-                                                key={item.id}
+                                                key={item.guid}
+                                                GUID={item.guid}
                                                 ID={item.id}
                                                 IMAGE={item.image}
                                                 TITLE={item.title}
                                                 RATING={item.rating}
                                                 COUNT={item.count}
                                                 PRICE={item.price}
+                                                RedirectFunction={() => handleClick(item)}
                                                 dispatch={dispatch} // Pass the dispatch function to the component
                                             />
                                         );

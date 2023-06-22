@@ -1,9 +1,6 @@
-import { 
-  registerWithEmailAndPassword,
-  logInWithGoogle,
-} from '../config/firebase'
+import { registerWithEmailAndPassword, logInWithGoogle} from '../config/firebase';
 import { useState } from 'react'; 
-import { useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
 
@@ -11,11 +8,8 @@ import LoginModal from "./LoginModal";
 function LoginForm() {
   const [wasValidated, setWasValidated] = useState(false);
   const {register, handleSubmit, formState: {errors}} = useForm();
-
   const modal = useModal(LoginModal);
-
   const handleRegister = async (data) => {
-    setWasValidated(true);
     try {
       const res = await registerWithEmailAndPassword(data.email, data.password);
       if(res) {
@@ -51,15 +45,15 @@ function LoginForm() {
                       value: /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/,
                       message: "Invalid email address",
                   },
-              })}
+                })}
                 aria-invalid={errors.email ? "true" : "false"} 
               />
               <label className="form-label" htmlFor="email" >Email</label>
               <div className='email-error-message '>
-                <div className="invalid-feedback">{errors.email ? errors.email.message : ""} error</div>
+                <div className="invalid-feedback">{errors.email ? errors.email.message : ""}</div>
               </div>
             </div>
-            <div className="form-floating mb-3 register-form-input-box-2">
+            <div className="form-floating mb-3 has-validation register-form-input-box-2">
               <input 
                 type="password" 
                 id="password" 
@@ -79,12 +73,12 @@ function LoginForm() {
               </div>
             </div>
             <input
-              type="button"
+              type="submit"
               value="Register"
               className="btn btn-warning mb-3 register-button"
               onClick={() => {
                 setWasValidated(true);
-                handleSubmit(handleRegister)
+                handleSubmit(handleRegister);
               }}
             />
             <p className='sign-in-option'>- or -</p>
@@ -93,7 +87,6 @@ function LoginForm() {
               value="Sign In with Google"
               className="btn btn-link sign-in-google"
               onClick={handleGoogleLogin}
-              data-bs-dismiss="modal"
             />
           </div>
         </form>

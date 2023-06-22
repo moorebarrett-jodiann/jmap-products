@@ -213,7 +213,7 @@ footer .footer-wrapper .newsletter input[name="email"] {
 }
 
 footer .footer-wrapper .newsletter input[type="submit"] {
-    padding: 0 15px;
+    padding: var(--app-btn-padding);
     border-radius: var(--app-border-radius);
     background-color: var(--app-theme-orange);
     color: var(--app-light-text-color);
@@ -224,7 +224,6 @@ footer .footer-wrapper .newsletter input[type="submit"] {
     transition: var(--app-transition);
     border: none;
     width: 150px;
-    height: 43px;
 }
 
 

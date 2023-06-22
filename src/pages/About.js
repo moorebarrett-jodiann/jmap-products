@@ -10,17 +10,29 @@ function About() {
                             <p><span>JMAP</span> is a simple e-commerce web application, built using the following 
                                 technologies:
                             </p>
-                            <ul>
-                                <li>React.js</li>
-                                <li>Node.js</li>
-                                <li>Bootstrap 5</li>
-                                <li>Firebase</li>
-                            </ul>
-                            <p>The website features functionalities of user authentication, page routing, a mocked checkout
-                                system and an email confirmation for order placements.
-                            </p>
-                            <p>Other features include the ability to filter products on the main page by various categories
-                                and explore form validation in the footer.
+                            <div className="flexbox">
+                                <ul>
+                                    <li>React Pages</li>
+                                    <li>User Authentication with Firebase</li>
+                                    <li>useState, useEffect, useContext, useReducer Hooks</li>
+                                    <li>Mock Email Confirmation</li>
+                                    <li>Bootstrap 5</li>
+                                    <li>CSS Layers</li>
+                                    <li>React Icons</li>
+                                </ul>
+                                <ul>
+                                    <li>Nice Modal (ebay)</li>
+                                    <li>Context API</li>
+                                    <li>Helmet</li>
+                                    <li>BrowserRouter</li>
+                                    <li>React Form Hooks</li>
+                                    <li>Local Storage</li>
+                                    <li>React Axios</li>
+                                </ul>
+                            </div>
+                            <p>The shoping cart CRUD functionalities is handled with a React Context Provider API that 
+                                provisions all children components with the current state of the cart, no matter
+                                which child modifies it.
                             </p>
                             <p>
                             </p>

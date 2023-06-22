@@ -76,9 +76,9 @@
 
 .product-details button {
     margin: 0px 0px 0px auto;
-    width: 130px;
-    height: 46px;
-    color: #fff;
+    width: 120px;
+    padding: var(--app-btn-padding);
+    color: var(--app-light-text-color);
     font-size:15px;
     font-weight: 600;
     text-transform: uppercase;
