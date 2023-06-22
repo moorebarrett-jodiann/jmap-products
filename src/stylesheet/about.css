@@ -31,13 +31,12 @@
 }
 
 .about-container .details-wrapper .flexbox {
-    width: 92%;
-    justify-content: space-between;
     margin: 20px 0px 10px 0px;
 }
 
 .about-container .details-wrapper article ul {
     list-style-type: none;
+    margin-right: 10px;
 }
 
 .about-container .details-wrapper article ul li {
@@ -51,6 +50,6 @@
     font-weight: bold;
     display: inline-block;
     width: 1em;
-    margin-left: -1em; 
+    margin-left: -1.9em; 
     margin-right: 10px;
 }
