@@ -1,13 +1,10 @@
 import { 
   logInWithEmailAndPassword,
-  registerWithEmailAndPassword,
   logInWithGoogle,
 } from '../config/firebase'
 import { useState } from 'react'; 
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 
 
 
@@ -25,6 +22,9 @@ function LoginForm({handleToggleForm}) {
       if(res) {
         modal.remove()
       }
+
+      setWasValidated(true);
+      
     } catch(error) {
       console.error(error);
     }
@@ -38,12 +38,10 @@ function LoginForm({handleToggleForm}) {
 
 
   return (
-    
       <div className="container p-2">
         <form className="needs-validation" noValidate>
           <div className="container d-flex flex-column">
-
-            <div className="form-floating mb-3 input-group has-validation">
+            <div className="form-floating mb-3 has-validation">
               <input 
                 type="email" 
                 id="email" 
@@ -55,7 +53,7 @@ function LoginForm({handleToggleForm}) {
               />
               <label className="form-label" htmlFor="email" >Email</label>
             </div>
-            <div className="form-floating mb-3 input-group has-validation">
+            <div className="form-floating has-validation">
               <input 
                 type="password" 
                 id="password" 
@@ -67,10 +65,11 @@ function LoginForm({handleToggleForm}) {
               />
               <label className="form-label" htmlFor="password" > Password</label>
             </div>
+            {wasValidated ? <small className='text-danger font-sm'>Username or password incorrect</small> : <></>}
             <input
               type="button"
               value="Sign in"
-              className="btn btn-warning mb-3"
+              className="btn btn-warning my-3"
               onClick={handleLogin}
             />
             <input
@@ -87,6 +86,7 @@ function LoginForm({handleToggleForm}) {
               onClick={handleGoogleLogin}
               data-bs-dismiss="modal"
             />
+            
           </div>
         </form>
       </div>

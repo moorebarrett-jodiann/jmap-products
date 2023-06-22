@@ -1,26 +1,23 @@
 import { 
-  logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   logInWithGoogle,
 } from '../config/firebase'
 import { useState } from 'react'; 
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
+import { useForm} from 'react-hook-form';
+import { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-
 
 
 function LoginForm() {
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
   const [wasValidated, setWasValidated] = useState(false);
+  const {register, handleSubmit, formState: {errors}} = useForm();
 
   const modal = useModal(LoginModal);
 
-  const handleRegister = async () => {
+  const handleRegister = async (data) => {
+    setWasValidated(true);
     try {
-      const res = await registerWithEmailAndPassword(emailInput, passwordInput);
+      const res = await registerWithEmailAndPassword(data.email, data.password);
       if(res) {
       modal.remove()
       }
@@ -34,42 +31,57 @@ function LoginForm() {
     modal.remove();
   }
 
-
   return (
     <>
       <div className="container p-2">
-        <form className="needs-validation" noValidate>
+        <form onSubmit={() => {
+          setWasValidated(true);
+          handleSubmit(handleRegister)}} noValidate>
           <div className="container d-flex flex-column">
-
-            <div className="form-floating mb-3 input-group has-validation">
+            <div className="form-floating mb-3 has-validation">
               <input 
                 type="email" 
                 id="email" 
                 placeholder="Email"
-                className="form-control" 
-                value={emailInput} 
-                onChange={(e) => {setEmailInput(e.target.value)}}
+                className={"form-control " + (wasValidated ? errors.email ? "is-invalid" : "is-valid" : "")}  
                 required
+                {...register("email", {
+                  required: "Email Address is required.", 
+                  pattern: {
+                      value: /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/,
+                      message: "Invalid email address",
+                  },
+              })}
+                aria-invalid={errors.email ? "true" : "false"} 
               />
               <label className="form-label" htmlFor="email" >Email</label>
+              <div className="invalid-feedback">{errors.email ? errors.email.message : ""}</div>
             </div>
-            <div className="form-floating mb-3 input-group has-validation">
+            <div className="form-floating mb-3">
               <input 
                 type="password" 
                 id="password" 
                 placeholder="Password"
-                className="form-control" 
-                value={passwordInput} 
-                onChange={(e) => {setPasswordInput(e.target.value)}} 
+                className={"form-control " + (wasValidated ? errors.password ? "is-invalid" : "is-valid" : "")} 
                 required
+                aria-invalid={errors.password ? "true" : "false"}
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {value: 8, message: "Minimum 8 characters."}
+                })}
+
               />
-              <label className="form-label" htmlFor="password" > Password</label>
+              <label className="form-label" htmlFor="password">Password</label>
+              <div className="px-2 invalid-feedback">{errors.password ? errors.password.message : ""}</div>
             </div>
             <input
               type="button"
               value="Register"
               className="btn btn-warning mb-3"
-              onClick={handleRegister}
+              onClick={() => {
+                setWasValidated(true);
+                handleSubmit(handleRegister)
+              }}
             />
             <input
               type="button"
