@@ -18,9 +18,9 @@ export default NiceModal.create(() => {
       size="sm"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton className="form-header">
         <Modal.Title>
-          {isNewUser ? "Register" : "Sign in"}
+          {isNewUser ? "Register" : "Sign In"}
         </Modal.Title>
       </Modal.Header>
       {isNewUser ? 

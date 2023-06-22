@@ -1,8 +1,24 @@
-.form-container {
-    width: 380px;
-    height: 500px;
+.form-header {
+    min-width: 300px;
+    max-width: 380px;
     background-color: #fff;
-    border-radius: var(--app-border-radius);
+}
+
+.form-header h3 {
+    font-size: 28px;
+}
+
+.form-header button.btn-close {
+    background-color: #fff;
+}
+
+.form-container {
+    min-width: 300px;
+    max-width: 380px;
+    height: 430px;
+    background-color: #fff;
+    border-bottom-left-radius: var(--app-border-radius);
+    border-bottom-right-radius: var(--app-border-radius);
     border: none;
 }
 
@@ -10,35 +26,39 @@
     color: rgb(0, 0, 0, 0.7);
 }
 
+.form-container .form-input-box-1 {
+    margin-top: 15px;
+}
+
 .form-container label {
     color: rgb(0, 0, 0, 0.7);
 }
 
-.form-container h3 {
-    font-size: 28px;
+.form-container .error-message {
+    margin-top: 2px;
+    padding: 0px 3px;
+    font-size: 12.5px;
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    border: 1px solid transparent;
 }
 
-.form-container p.form-error-message {
-    font-size: 13px;
-    color:#e43b2b;
-    /* visibility: hidden;
-    opacity: 0; */
+.register-form-container .email-error-message, .register-form-container .password-error-message {
+    margin-top: 2px;
+    padding: 0px 3px;
+    font-size: 12.5px;
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    border: 1px solid transparent;
 }
 
-/* .form-container .form-input-box1 , .form-container .form-input-box2 {
-    height: 80px;
-}
 
-.form-container .form-input-box2 {
-    margin-bottom: 1%;
-} */
-
-.form-container button.btn-close {
-    background-color: #fff;
-    margin-bottom: 1px;
-}
-
-.form-container .submit-button, .form-container input[type="button"].sign-in-google  {
+.form-container .submit-button, .form-container input[type="button"].sign-in-google
+, .register-form-container input[type="button"].sign-in-google, .register-form-container .register-button  {
     height: var(--app-btn-height);
     transition: var(--app-transition);
     color: var(--app-light-text-color);
@@ -50,12 +70,16 @@
     letter-spacing: 0.35px;
 }
 
-.form-container .submit-button:hover {
+.register-form-container .register-button {
+    margin-top: 10px;
+}
+
+.form-container .submit-button:hover, .register-form-container .register-button:hover {
     background-color: var(--app-theme-orange-hover);
 }
 
-.form-container .sign-in-option {
-    margin-top: 10px;
+.form-container .sign-in-option, .register-form-container .sign-in-option {
+    margin-top: 0px;
     text-align: center;
     font-size: 14px;
 }
@@ -69,13 +93,14 @@
     height: 40px;
 }
 
-.form-container input[type="button"].sign-in-google {
-    margin-top: 5px;
+.form-container input[type="button"].sign-in-google, .register-form-container input[type="button"].sign-in-google {
+    margin-top: 0px;
     background-color: var(--app-theme-blue-2);
     text-decoration: none;
 }
 
-.form-container input[type="button"].sign-in-google:hover {
+.form-container input[type="button"].sign-in-google:hover, 
+.register-form-container input[type="button"].sign-in-google:hover {
     background-color: var(--app-theme-blue-hover);
     text-decoration: none;
 }
@@ -96,4 +121,26 @@
 
 .form-container .register-option input[type="button"]:hover {
     text-decoration: underline;
+}
+
+/* --------------------------------- */
+/* ----------- Register Modal ------*/
+/* -------------------------------- */
+
+.register-form-container {
+    min-width: 300px;
+    max-width: 380px;
+    height: 380px;
+    background-color: #fff;
+    border-bottom-left-radius: var(--app-border-radius);
+    border-bottom-right-radius: var(--app-border-radius);
+    border: none;
+}
+
+.register-form-container .register-form-input-box-1 {
+    margin-top: 15px;
+}
+
+.register-form-container .register-form-input-box-2 {
+    margin-top: 10px;
 }

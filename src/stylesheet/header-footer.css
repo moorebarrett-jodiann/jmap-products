@@ -201,9 +201,8 @@ footer .footer-wrapper .newsletter form {
 
 footer .footer-wrapper .newsletter input[name="email"] {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(134, 23, 23, 0.08);
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: var(--app-border-radius);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
     font-size: 16px;
     font-weight: 400;
     color: var(--app-light-text-color);

@@ -31,10 +31,10 @@ function LoginForm({handleToggleForm}) {
 	}
 
 	return (
-		<div className="container p-2">
+		<div className="container p-2 form-container">
 			<form className="needs-validation" noValidate>
 				<div className="container d-flex flex-column">
-				<div className="form-floating mb-3 has-validation">
+				<div className="form-floating mb-3 has-validation form-input-box-1">
 					<input 
 						type="email" 
 						id="email" 
@@ -46,7 +46,7 @@ function LoginForm({handleToggleForm}) {
 					/>
 					<label className="form-label" htmlFor="email" >Email</label>
 				</div>
-				<div className="form-floating mb-3 form-input-box2">
+				<div className="form-floating mb-3 form-input-box-2">
 					<input 
 						type="password" 
 						id="password" 
@@ -58,11 +58,13 @@ function LoginForm({handleToggleForm}) {
 					/>
 					<label className="form-label" htmlFor="password" > Password</label>
 				</div>
-				{wasValidated ? <small className='text-danger font-sm'>Username or password incorrect</small> : <></>}
+				<div className="error-message">
+					{wasValidated ? <p className='text-danger font-sm'>Username or password incorrect</p> : <></>}
+				</div>
 				<input
 					type="button"
 					value="Sign in"
-					className="btn btn-warning my-3"
+					className="btn btn-warning my-3 submit-button"
 					onClick={handleLogin}
 				/>
 				<p className='sign-in-option'>- or -</p>
@@ -89,4 +91,4 @@ function LoginForm({handleToggleForm}) {
 
 }
 
-export default LoginForm
+export default LoginForm;
