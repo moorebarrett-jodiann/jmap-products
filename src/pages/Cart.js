@@ -35,16 +35,6 @@ function Cart() {
         navigate('/')
     };
 
-    const removeItem = (id) => {
-        let index = currentItemsInCart.findIndex(item => {
-            return item.id === id;
-        });
-        
-        setCurrentItemsInCart(currentItemsInCart.splice(index, 1))
-        setCurrentItemsInCart(currentItemsInCart.filter(item => item.id !== id));
-        localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
-    };
-
     // Getting 4 random products
     useEffect(() => {
         axios
