@@ -1,8 +1,5 @@
-import { 
-  registerWithEmailAndPassword,
-  logInWithGoogle,
-} from '../config/firebase'
-import { useState, useEffect } from 'react'; 
+import { registerWithEmailAndPassword, logInWithGoogle} from '../config/firebase';
+import { useState } from 'react'; 
 import { useForm } from 'react-hook-form';
 import { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
@@ -11,11 +8,8 @@ import LoginModal from "./LoginModal";
 function LoginForm() {
   const [wasValidated, setWasValidated] = useState(false);
   const {register, handleSubmit, formState: {errors}} = useForm();
-
   const modal = useModal(LoginModal);
-
   const handleRegister = async (data) => {
-    
     try {
       const res = await registerWithEmailAndPassword(data.email, data.password);
       if(res) {
@@ -30,7 +24,6 @@ function LoginForm() {
     logInWithGoogle();
     modal.remove();
   }
-
 
   return (
     <>
@@ -50,7 +43,7 @@ function LoginForm() {
                       value: /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/,
                       message: "Invalid email address",
                   },
-              })}
+                })}
                 aria-invalid={errors.email ? "true" : "false"} 
               />
               <label className="form-label" htmlFor="email" >Email</label>
@@ -87,9 +80,7 @@ function LoginForm() {
               value="Login with Google"
               className="btn btn-link"
               onClick={handleGoogleLogin}
-              
             />
-            
           </div>
         </form>
       </div>
