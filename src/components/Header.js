@@ -12,9 +12,9 @@ function Header(props) {
                     <ul>
                         <li><a href='/jmap-products'>Products</a></li>
                         <li><a href='/jmap-products/about-us'>About Us</a></li>
-                        <li><LoginHeader/></li>
                     </ul>
                 </nav>
+                <LoginHeader/>
                 <div className="burger-menu"><i className="fa-solid fa-bars"></i></div>
             </div>
         </header>

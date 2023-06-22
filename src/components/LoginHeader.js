@@ -11,26 +11,28 @@ function LoginHeader() {
   useEffect(() => {
     setItems(JSON.parse(localStorage.getItem('Cart')));
   }, []);
-  
-  return (
-    <div className="d-flex">
-      {
-        user === null ? 
-        <OpenLoginButton classes="btn" value="Login" />
-        : 
-        <div className="d-flex h-100 align-items-center">
-          <div className="welcome text-muted mx-3">
-            <p>Welcome <span>{user.email}</span></p>
-          </div>
-          <div>
-            <i className="fa-solid fa-cart-shopping mx-3"></i>
-            {(items) ? <span>{items.length}</span> : <span>0</span>}
-          </div>
-          <button onClick={logout}>Logout</button>
-        </div>
-      }
-    </div>
-  )
+	
+	return (
+	<div className="d-flex">
+		<div className="d-flex h-100 align-items-center">
+		{
+			user === null ? 
+			<OpenLoginButton classes="login-logout" value="Login" />
+			: 
+			<>
+				<div className="welcome text-muted">
+					<p>Welcome <span>{user.email}</span></p>
+				</div>
+				<a href="/jmap-products/my-cart" className="cart-header">
+					<i className="fa-solid fa-cart-shopping"></i>
+					{(items) ? <span>{items.length}</span> : <span>0</span>}
+				</a>
+				<button className="login-logout" onClick={logout}>Logout</button>
+			</>			
+		}
+		</div>
+	</div>
+	)
 }
 
 export default LoginHeader;

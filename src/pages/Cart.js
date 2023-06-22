@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import ProductCards from "../components/ProductCards";
 import ProductCheckoutCard from "../components/ProductCheckoutCard";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../config/firebase";
 
 
 function Cart() {
@@ -17,6 +19,7 @@ function Cart() {
     const [randomProducts, setRandomProducts] = useState([]);
     const [currentItemsInCart, setCurrentItemsInCart] = useState(JSON.parse(localStorage.getItem('Cart')));
     const navigate = useNavigate();
+    const [user, loading, error] = useAuthState(auth);
     
     const handleClick = (item) => {
         navigate(`/product/${item.id}`); 
@@ -49,6 +52,7 @@ function Cart() {
 
     return (
         <>
+            {loading === false && user === null ? <Navigate to="/" /> : <></> }
             <HelmetProvider>
                 <Helmet>
                     <title>My Cart</title>
@@ -62,7 +66,7 @@ function Cart() {
                     </article>   
                     
                     :
-
+                    
                     <section className="main-container cart-container">
                         <div className="columns-container">
                             <div className="first-col-container">
