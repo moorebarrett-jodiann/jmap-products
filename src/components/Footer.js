@@ -64,9 +64,9 @@ function Footer(props) {
                             <div className="feedback">
                                 {errors.email && <p className="aria-invalid">{errors.email.message}</p>}  
                                 {showSubmittedMessage && (
-                                    <span className="form-submitted" onAnimationEnd={handleAnimationEnd}>
+                                    <p className="form-submitted" onAnimationEnd={handleAnimationEnd}>
                                     Form Submitted!
-                                    </span>
+                                    </p>
                                 )}
                             </div>                         
                         </form>

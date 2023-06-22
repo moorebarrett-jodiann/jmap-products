@@ -282,7 +282,7 @@ footer .footer-copyright .copyright {
         color: var(--app-theme-orange);
     }
     
-    footer .footer-wrapper .newsletter span.form-submitted {
+    footer .footer-wrapper .newsletter p.form-submitted {
         font-size: 14px;
         text-transform: uppercase;
         animation: submittedFadeOut 2s ease-in-out;
@@ -349,12 +349,13 @@ footer .footer-copyright .copyright {
         color: var(--app-theme-orange);
     }
     
-    footer .footer-wrapper .newsletter span.form-submitted {
+    footer .footer-wrapper .newsletter p.form-submitted {
         font-size: 14px;
         text-transform: uppercase;
         animation: submittedFadeOut 2s ease-in-out;
         width: 100%;
         text-align: center;
+        margin-left: 28%;
     }
 
     footer .footer-copyright {
