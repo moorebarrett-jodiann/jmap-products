@@ -3,7 +3,7 @@
 }
 
 .product-wrapper .heading {
-    /* margin-bottom: 30px; */
+    margin-bottom: 40px;
 }
 
 .product-wrapper .heading .flexbox {
@@ -114,7 +114,6 @@
         grid-template-columns: repeat(1, 1fr);
         align-items: center;
         justify-items: center;
-        margin-bottom: 40px;
     }
 
     .product-wrapper .heading h2 {
@@ -135,7 +134,6 @@
         grid-template-columns: repeat(1, 1fr);
         align-items: center;
         justify-items: center;
-        margin-bottom: 40px;
     }
 
     .product-wrapper .heading h2 {
@@ -159,7 +157,6 @@
         grid-template-columns: repeat(1, 1fr);
         align-items: center;
         justify-items: center;
-        margin-bottom: 40px;
     }
 
     .product-wrapper .heading h2 {
@@ -183,7 +180,6 @@
         grid-template-columns: repeat(1, 1fr);
         align-items: center;
         justify-items: center;
-        margin-bottom: 40px;
     }
 
     .product-wrapper .heading h2 {
@@ -196,7 +192,7 @@
 }
 
 .product-grid .product-card {
-    height: 450px;
+    height: 390px;
     overflow: hidden;
     position: relative;
 }
@@ -222,7 +218,6 @@
     padding: 30px;
     background-color: #fff;
     border-radius: var(--app-border-radius);
-    /* box-shadow: rgba(0, 0, 0, 0.051) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px; */
 }
 
 .product-grid .product-card figure img {
@@ -258,7 +253,7 @@
 }
 
 .product-grid .product-card .title-price .price {
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 600;
     display: flex;
     line-height: 15px;
@@ -266,21 +261,20 @@
 
 .product-grid .product-card .title-price .price .dollar-sign,
 .product-grid .product-card .title-price .price .cents {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
-    line-height: 10px;
+    line-height: 5px;
 }
 
 .product-grid .product-card .reviews {
     width: 100%;
-    line-height: 15px;
-    align-items:start;
+    line-height: 1px;
 }
 
 .product-grid .product-card .reviews .count {
     font-size: 15px;
     align-items: start;
-    line-height: 23px;
+    line-height: 16px;
     opacity: 0.5;
 }
 
@@ -290,13 +284,11 @@
     color: var(--app-light-text-color);
     text-align: center;
     border: none;
-    width: var(--app-btn-width);
-    height: var(--app-btn-height);
     transition: var(--app-transition);
     position: relative;
     z-index: 5;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
 }
 
