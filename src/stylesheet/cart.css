@@ -7,6 +7,17 @@
     gap: 15px;
 }
 
+.empty-cart-container .start-shopping {
+    font-size: 15px;
+    letter-spacing: 0.30px;
+    padding: var(--app-btn-padding);
+    border: none;
+    border-radius: var(--app-border-radius);
+    font-weight: 500;
+    color: var(--app-light-text-color);
+    background-color: var(--app-theme-orange);
+}
+
 .cart-container {
     display: flex;
     flex-direction: column;
@@ -197,7 +208,7 @@
     border-top-right-radius: var(--app-border-radius);
     border-bottom-right-radius: var(--app-border-radius);
     font-weight: 500;
-    color: #fff;
+    color: var(--app-light-text-color);
     background-color: var(--app-theme-orange);
 }
 

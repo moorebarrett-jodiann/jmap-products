@@ -59,7 +59,7 @@ function Cart() {
                 {currentItemsInCart.length === 0 ? (
                     <article className="empty-cart-container">
                         <h2>Your cart is empty</h2>
-                        <button onClick={goToHome}>START SHOPPING</button>
+                        <button className="start-shopping" onClick={goToHome}>START SHOPPING</button>
                     </article>   
                     
                 ):(
