@@ -76,10 +76,10 @@ function LoginForm({handleToggleForm}) {
 				<div className='register-option'>
 					<p>Don't have an account?</p>
 					<input
-					type="button"
-					value="Register"
-					className="btn btn-link"
-					onClick={handleToggleForm}
+						type="button"
+						value="Register"
+						className="btn btn-link"
+						onClick={handleToggleForm}
 					/>
 				</div>
 				</div>
