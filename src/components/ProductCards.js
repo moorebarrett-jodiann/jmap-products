@@ -81,7 +81,7 @@ function ProductCards(props) {
                         </div>
                         {
                             user === null ?
-                            <OpenLoginButton value="Add to Cart" classes={"add-to-cart"} />
+                            <></>
                             :
                             <button onClick={(event) => {
                                 addItem(event, item);                            

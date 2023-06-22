@@ -4,6 +4,7 @@
     margin: 0 auto;
     overflow: hidden;
     margin-bottom: 20px;
+    border-radius: var(--app-border-radius);
 }
   
 .banner-wrapper {

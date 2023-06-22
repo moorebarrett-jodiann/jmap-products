@@ -39,8 +39,6 @@ function Cart() {
             });
     }, []);    
 
-    console.log(currentItemsInCart);
-
     useEffect(() => {
         localStorage.setItem('Cart', JSON.stringify(currentItemsInCart));
     });

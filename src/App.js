@@ -2,7 +2,6 @@ import './stylesheet/index.css';
 import companyLogo from './images/companyLogo.png';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import LoginModal from './components/LoginModal';
 import Details from './pages/Details';
 import Product from './pages/Product';
 import About from './pages/About';
