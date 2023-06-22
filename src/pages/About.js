@@ -15,15 +15,17 @@ function About() {
                                     <li>React Pages</li>
                                     <li>User Authentication with Firebase</li>
                                     <li>useState, useEffect, useContext, useReducer Hooks</li>
-                                    <li>Context API</li>
+                                    <li>Mock Email Confirmation</li>
                                     <li>Bootstrap 5</li>
                                     <li>CSS Layers</li>
+                                    <li>React Icons</li>
                                 </ul>
                                 <ul>
                                     <li>Nice Modal (ebay)</li>
+                                    <li>Context API</li>
                                     <li>Helmet</li>
                                     <li>BrowserRouter</li>
-                                    <li>React Form Hook</li>
+                                    <li>React Form Hooks</li>
                                     <li>Local Storage</li>
                                     <li>React Axios</li>
                                 </ul>
