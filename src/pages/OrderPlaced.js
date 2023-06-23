@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { auth } from "../config/firebase";
+import emailjs from '@emailjs/browser';
 
 function OrderPlaced() {
     const[transactionId] = useState(crypto.randomUUID().substring(0, 8));
@@ -19,18 +20,19 @@ function OrderPlaced() {
         if (user) {
             // Get the user's email address
             const userEmail = user.email; 
-
-            const emailContent = {
-                to: userEmail,
-                subject: `Your JMAP Order ${transactionId} has been confirmed!`,
-                body: "Thank you for your order!",
-            };
-
-            const emailUrl = `mailto:${emailContent.to}?subject=${encodeURIComponent(emailContent.subject)}&body=${encodeURIComponent(emailContent.body)}`;
             
-            // trigger mailto after 2 seconds
             setTimeout(() => {
-                window.open(emailUrl);
+                var templateParams = {
+                    to_name: userEmail,
+                    transactionId: transactionId
+                };
+                 
+                emailjs.send('service_7htp166', 'template_b6nvrn8', templateParams, 'Dl0k835aaHSwkYA5u')
+                    .then(function(response) {
+                       console.log('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                       console.log('FAILED...', error);
+                    });
             }, 2000);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
