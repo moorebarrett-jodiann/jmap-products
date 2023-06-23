@@ -1,7 +1,14 @@
 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 function About() {
     return (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <title>About Us</title>
+                </Helmet>
+            </HelmetProvider>
             <section className="main-container">
                 <div className="about-container">
                     <div>
