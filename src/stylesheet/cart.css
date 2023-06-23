@@ -1,3 +1,7 @@
+.add-to-cart-alert i {
+    margin-right: 10px;
+}
+
 .empty-cart-container {
     height: 50vh;
     display: flex;
