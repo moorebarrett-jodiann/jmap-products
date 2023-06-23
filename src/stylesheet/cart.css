@@ -38,6 +38,7 @@
     text-decoration: none;
     pointer-events: none;
     color: var(--app-theme-orange);
+    font-size: 26px;
 }
 
 
@@ -235,6 +236,8 @@
     height: var(--app-btn-height);
     border-radius: var(--app-border-radius);
     transition: var(--app-transition);
+    text-transform: uppercase;
+    font-size: 16px;
 }
 
 .place-order-btn:hover {
