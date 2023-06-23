@@ -30,7 +30,7 @@ function About() {
                                     <li>React Axios</li>
                                 </ul>
                             </div>
-                            <p>The shoping cart CRUD functionalities is handled with a React Context Provider API that 
+                            <p>The shoping cart CRUD functionalities are handled with a React Context Provider API that 
                                 provisions all children components with the current state of the cart, no matter
                                 which child modifies it.
                             </p>
