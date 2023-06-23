@@ -1,4 +1,4 @@
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
+import { useModal } from "@ebay/nice-modal-react";
 import LoginModal from "./LoginModal";
 
 function OpenLoginButton({value, classes}) {

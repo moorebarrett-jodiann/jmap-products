@@ -19,7 +19,7 @@ function Cart() {
     const currentItemsInCart = state.cartItems;
     const [randomProducts, setRandomProducts] = useState([]);
     const navigate = useNavigate();
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     
     const handleClick = (item) => {
         navigate(`/product/${item.id}`); 
@@ -69,7 +69,7 @@ function Cart() {
                             <div className="first-col-container">
                                 <div className="membership-container rounded">
                                     <article>
-                                        <a href="#!" className="heading-link"><h2>Free Shipping for Members</h2></a>
+                                        <h2 className="heading-link">Free Shipping for Members</h2>
                                         <p>
                                             Become a member today and get discounts,
                                             free shipping and so much more!

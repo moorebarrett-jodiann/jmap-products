@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import AddToCartAlert from "./AddToCartAlert";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
@@ -7,7 +7,7 @@ import { CartContext } from '../context/CartContext';
 
 function ProductCards(props) {
     const [user] = useAuthState(auth);
-    const { state, dispatch } = useContext(CartContext);
+    const {dispatch } = useContext(CartContext);
 
     const formatPrice = (price) => {
         const dollars = Math.floor(price);

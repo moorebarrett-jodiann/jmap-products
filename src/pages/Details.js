@@ -9,14 +9,13 @@ import Stars from '../components/Stars';
 import { CartContext } from '../context/CartContext';
 
 function Details() {
-    const [user, loading, error] = useAuthState(auth);
-    const[transactionId] = useState(crypto.randomUUID().substring(0, 8));
+    const [user] = useAuthState(auth);
     const [alertIsShown, setAlertIsShown] = useState(false);
     const [message, setMessage] = useState("Loading product details ...");
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null)
     const navigate = useNavigate();
-    const { state, dispatch } = useContext(CartContext);
+    const { dispatch } = useContext(CartContext);
 
     const url = `https://fakestoreapi.com/products/${id}`;    
 

@@ -1,6 +1,6 @@
 .form-header {
-    min-width: 300px;
-    max-width: 380px;
+    width: 400px;
+    /* max-width: 380px; */
     background-color: #fff;
 }
 
@@ -13,8 +13,8 @@
 }
 
 .form-container {
-    min-width: 300px;
-    max-width: 380px;
+    width: 400px;
+    /* max-width: 380px; */
     height: 430px;
     background-color: #fff;
     border-bottom-left-radius: var(--app-border-radius);
@@ -128,8 +128,8 @@
 /* -------------------------------- */
 
 .register-form-container {
-    min-width: 300px;
-    max-width: 380px;
+    width: 400px;
+    /* max-width: 380px; */
     height: 380px;
     background-color: #fff;
     border-bottom-left-radius: var(--app-border-radius);

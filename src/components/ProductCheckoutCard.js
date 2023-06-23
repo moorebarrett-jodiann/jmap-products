@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import Stars from "./Stars";
 import { CartContext } from "../context/CartContext";
-import { useState, useEffect } from "react";
 
 function ProductCheckoutCard(props) {
   const { dispatch } = useContext(CartContext);
