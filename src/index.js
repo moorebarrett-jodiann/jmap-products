@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<NiceModal.Provider>
-			<Router>
+			<Router basename="/jmap-products">
 				<App />
 			</Router>
 		</NiceModal.Provider>

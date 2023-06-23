@@ -19,7 +19,7 @@ function Cart() {
     const currentItemsInCart = state.cartItems;
     const [randomProducts, setRandomProducts] = useState([]);
     const navigate = useNavigate();
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     
     const handleClick = (item) => {
         navigate(`/product/${item.id}`); 
