@@ -4,7 +4,7 @@ function About() {
         <>
             <section className="main-container">
                 <div className="about-container">
-                    {/* <div>
+                    <div>
                         <h2 className="about-us-heading">About Us</h2>
                         <div className="details-wrapper">
                             <article>
@@ -39,7 +39,7 @@ function About() {
                                 </p>
                             </article>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </section>
         </>
