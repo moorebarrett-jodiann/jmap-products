@@ -1,18 +1,7 @@
 .about-container {
+    height: calc(100vh - 70px - 200px);
     display: grid;
     place-items: center;
-}
-
-@media only screen and (min-width: 923px) { 
-    .about-container {
-        height: calc(100vh - 70px - 270px);
-    }
-}    
-
-@media only screen and (max-width: 922px) {
-    .about-container {
-        height: calc(100vh - 70px);
-    }
 }
 
 .about-container .about-us-heading {

@@ -39,7 +39,7 @@
 
     main {
       min-width: 360px;
-      min-height: calc(100vh - 70px - 250px);
+      min-height: calc(100vh - 70px - 200px);
       padding: 10px 0px;
     }
 
