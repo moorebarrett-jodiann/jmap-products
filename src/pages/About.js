@@ -81,7 +81,7 @@ function About() {
                     <div>
                         <h2 className="about-us-heading">About Us</h2>
 
-                        {(paulUserProfile) ? 
+                        {(paulUserProfile && thelmaUserProfile && matthewUserProfile && jodiUserProfile) ? 
                             (
                                 <div className="collaborators">
                                     <a className="collaborators-card"
