@@ -1,73 +1,73 @@
 
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 
 function About() {
-    const paul_GITHUB = `https://api.github.com/users/Paul-Funston`;
-    const thelma_GITHUB = `https://api.github.com/users/Thelma-Dev`;
-    const matthew_GITHUB = `https://api.github.com/users/MattBanuag`;
-    const jodi_GITHUB = `https://api.github.com/users/moorebarrett-jodiann`;
-    const token = process.env.REACT_APP_GITHUB_TOKEN;
-    const navigate = useNavigate();
-    const options = {
-        headers: { Authorization: `"Bearer ${token}"`}
-    };
+    // const paul_GITHUB = `https://api.github.com/users/Paul-Funston`;
+    // const thelma_GITHUB = `https://api.github.com/users/Thelma-Dev`;
+    // const matthew_GITHUB = `https://api.github.com/users/MattBanuag`;
+    // const jodi_GITHUB = `https://api.github.com/users/moorebarrett-jodiann`;
+    // const token = process.env.REACT_APP_GITHUB_TOKEN;
+    // const navigate = useNavigate();
+    // const options = {
+    //     headers: { Authorization: `"Bearer ${token}"`}
+    // };
 
-    const [paulUserProfile, setPaulUserProfile] = useState(null);
-    const [matthewUserProfile, setMatthewUserProfile] = useState(null);
-    const [thelmaUserProfile, setThelmaUserProfile] = useState(null);
-    const [jodiUserProfile, setJodiUserProfile] = useState(null);
-    const [message, setMessage] = useState("");
+    // const [paulUserProfile, setPaulUserProfile] = useState(null);
+    // const [matthewUserProfile, setMatthewUserProfile] = useState(null);
+    // const [thelmaUserProfile, setThelmaUserProfile] = useState(null);
+    // const [jodiUserProfile, setJodiUserProfile] = useState(null);
+    // const [message, setMessage] = useState("");
 
-    useEffect(() => {
-        axios.get(`${paul_GITHUB}`, options)
-            .then(result => {
-                console.log(result.data);
-                setPaulUserProfile(result.data)
-            })
-            .catch(function (error) {
-                setMessage('Profile not found');
-            });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`${paul_GITHUB}`, options)
+    //         .then(result => {
+    //             console.log(result.data);
+    //             setPaulUserProfile(result.data)
+    //         })
+    //         .catch(function (error) {
+    //             setMessage('Profile not found');
+    //         });
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
     
-    useEffect(() => {
-        axios.get(`${thelma_GITHUB}`, options)
-            .then(result => {
-                console.log(result.data);
-                setThelmaUserProfile(result.data)
-            })
-            .catch(function (error) {
-                setMessage('Profile not found');
-            });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`${thelma_GITHUB}`, options)
+    //         .then(result => {
+    //             console.log(result.data);
+    //             setThelmaUserProfile(result.data)
+    //         })
+    //         .catch(function (error) {
+    //             setMessage('Profile not found');
+    //         });
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
     
-    useEffect(() => {
-        axios.get(`${matthew_GITHUB}`, options)
-            .then(result => {
-                console.log(result.data);
-                setMatthewUserProfile(result.data)
-            })
-            .catch(function (error) {
-                setMessage('Profile not found');
-            });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`${matthew_GITHUB}`, options)
+    //         .then(result => {
+    //             console.log(result.data);
+    //             setMatthewUserProfile(result.data)
+    //         })
+    //         .catch(function (error) {
+    //             setMessage('Profile not found');
+    //         });
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
     
-    useEffect(() => {
-        axios.get(`${jodi_GITHUB}`, options)
-            .then(result => {
-                console.log(result.data);
-                setJodiUserProfile(result.data)
-            })
-            .catch(function (error) {
-                setMessage('Profile not found');
-            });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`${jodi_GITHUB}`, options)
+    //         .then(result => {
+    //             console.log(result.data);
+    //             setJodiUserProfile(result.data)
+    //         })
+    //         .catch(function (error) {
+    //             setMessage('Profile not found');
+    //         });
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     return (
         <>
@@ -81,7 +81,7 @@ function About() {
                     <div>
                         <h2 className="about-us-heading">About Us</h2>
 
-                        {(paulUserProfile && thelmaUserProfile && matthewUserProfile && jodiUserProfile) ? 
+                        {/* {(paulUserProfile && thelmaUserProfile && matthewUserProfile && jodiUserProfile) ? 
                             (
                                 <div className="collaborators">
                                     <a className="collaborators-card"
@@ -132,7 +132,7 @@ function About() {
                             ) : (
                                 <></>
                             )
-                        }
+                        } */}
                         <div className="details-wrapper">
                             <article>
                                 <p><span>JMAP</span> is a simple e-commerce web application, built using the following 
