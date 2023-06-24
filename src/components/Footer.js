@@ -1,6 +1,7 @@
 
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Footer(props) {
     const year = new Date().getFullYear();
@@ -14,6 +15,19 @@ function Footer(props) {
     
     // method to show data on submit
     const submitForm = (data) => {
+        // Get the user's email address
+        const userEmail = data.email; 
+        let templateParams = {
+            to_name: userEmail
+        };
+            
+        emailjs.send('service_7htp166', 'template_wl4rg2j', templateParams, 'Dl0k835aaHSwkYA5u')
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+
         console.log("Form Successfully Submitted");
         setShowSubmittedMessage(true);
         setSubmitted(true);
