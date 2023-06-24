@@ -1,5 +1,5 @@
 .about-container {
-    height: calc(100vh - 70px - 200px);
+    padding: 40px 0px;
     display: grid;
     place-items: center;
 }
@@ -7,7 +7,8 @@
 .about-container .about-us-heading {
     text-align: center;
     color: var(--app-theme-blue);
-    font-size: 35px;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 .about-container .details-wrapper {
@@ -25,21 +26,91 @@
     font-weight: 600;
 }
 
-.about-container .details-wrapper .flexbox {
-    margin: 20px 0px 10px 0px;
-}
-
 .about-container .details-wrapper article .lists {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .about-container .details-wrapper article .lists ul {
     list-style-type: none;
     width: 100%;
+    margin: 0;
+}
+
+.about-container .details-wrapper article ul li::before {
+    content: '➢'; 
+    color: var(--app-theme-orange);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -2rem;
+    margin-right: 10px;
+}
+
+.about-container .details-wrapper article ul li {
+    font-weight: 500;
+    color: var(--app-theme-blue-2);
+    line-height: 30px;
+}
+
+.about-container .collaborators {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.about-container .collaborators .collaborators-card {
+    width: 150px;
+    height: 150px;
+    text-decoration: none;
+    display: grid;
+    justify-items: center;
+    transition: var(--app-transition);
+}
+
+.about-container .collaborators .collaborators-card figure {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(199, 197, 197);
+    border: 1px solid var(--app-orange);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.about-container .collaborators .collaborators-card figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-container .collaborators .collaborators-card figure .name {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(27, 45, 73, 0.397);
+    transition: var(--app-transition);
+    display: grid;
+    place-items: center;
+}
+
+.about-container .collaborators .collaborators-card figure:hover .name {
+    height: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--app-light-text-color);
+}
+
+.about-container .collaborators .collaborators-card figure:hover .name p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--app-light-text-color);
 }
 
 @media only screen and (min-width: 923px) { 
+
     .about-container .details-wrapper {
         width: 700px;
     }
@@ -51,67 +122,19 @@
     
     .about-container .details-wrapper article .lists ul {
         text-align: left;
-    }
-    
+    }   
+
     .about-container .details-wrapper article .lists ul:first-child {
-        margin-left: 15%;
-    }
-    
-    .about-container .details-wrapper article .lists ul:last-child {
-        margin-left: 25%;
+        margin-left: 10%;
     }
 
-    .about-container .details-wrapper article ul li::before {
-        content: '➢'; 
-        color: var(--app-theme-orange);
-        font-weight: bold;
-        display: inline-block;
-        width: 1em;
-        margin-left: -1.9em; 
-        margin-right: 10px;
+    .about-container .collaborators {
+        margin: 40px 0px;
     }
 }
 
 @media only screen and (max-width: 922px) {
-    .about-container .details-wrapper article .lists {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        text-align: center;
-    }
-
-    .about-container .details-wrapper article ul li:hover {
-        font-weight: 500;
-        color: var(--app-theme-blue-2);
-        transition: var(--app-transition);
-    }
-    
-    .about-container .details-wrapper article ul li:hover {
-        cursor: pointer;
-        color: var(--app-theme-blue);
+    .about-container .collaborators {
+        margin-bottom: 20px;
     }
 }
-
-@media only screen and (max-width: 850px) {
-    .about-container .details-wrapper article .lists {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .about-container .details-wrapper article ul li:hover {
-        font-weight: 500;
-        color: var(--app-theme-blue-2);
-        transition: var(--app-transition);
-    }
-    
-    .about-container .details-wrapper article ul li:hover {
-        cursor: pointer;
-        color: var(--app-theme-blue);
-    }
-}
-
-.about-container .details-wrapper article ul li {
-    font-weight: 500;
-    color: var(--app-theme-blue-2);
-    line-height: 30px;
-}
-
