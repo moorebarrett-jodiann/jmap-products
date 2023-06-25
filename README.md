@@ -45,9 +45,9 @@ As a guest, a user will only be able to perform the following activities:
 
 ##### :label: As a Logged in User
 
-A 'logged-in user' is a user who has registered for the website using their email and password, logged into the website using an existing account registered with an email/password combination, or lodded into the website using the "Login with Gmail" feature.
+A 'logged-in user' is a user who has registered for the website using their email and password, logged into the website using an existing account registered with an email/password combination, or logged into the website using the "Login with Gmail" feature.
 
-A logged-in user will be able to carry out the same features as a guest user, in addition the the following activties:
+A logged-in user will be able to carry out the same features as a guest user, in addition the the following activities:
 
 - Add items from the homepage to their shopping cart
 - Add items from the item details page to their shopping cart
