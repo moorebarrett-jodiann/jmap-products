@@ -7,6 +7,7 @@
 - [Description](#description)
 - [Functionalities](#functionalities)
 - [Key Technologies](#key-technologies)
+- [Known Bugs](#known-bugs)
 
 ### Description
 
@@ -228,6 +229,10 @@ export const CartProvider = ({ children }) => {
     );
 };
 ````
+### Known Bugs
+[(Back to top)](#table-of-contents)
+
+Login with Google is currently under maintenance.
 
 #### References
 
