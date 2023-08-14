@@ -20,6 +20,11 @@
     color: var(--app-dark-text-color);
 }
 
+.about-container .details-wrapper article p a {
+    text-decoration: none;
+    color: var(--app-theme-blue);
+}
+
 .about-container .details-wrapper article p span {
     color: var(--app-theme-orange);
     font-size: 18px;
