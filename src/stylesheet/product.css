@@ -17,10 +17,10 @@
 .product-wrapper .heading .filter-container .sort-options {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .product-wrapper .heading .filter-container .sort-options > * {
-    margin-left: 10px;
     text-transform: uppercase;
     font-size: 11px;
     font-weight: 700;

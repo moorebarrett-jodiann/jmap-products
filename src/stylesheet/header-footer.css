@@ -2,7 +2,7 @@ header {
     width: 100%;
     padding: 10px 0px;
     height: 70px;
-    min-width: 360px;
+    min-width: 340px;
 }
 
 header .main-container {
@@ -86,17 +86,12 @@ header button.login-logout:hover {
 
 @media only screen and (min-width: 923px) { 
 
-    .burger-menu {
+    nav.vertical {
         visibility: hidden;
-        display: none
-    }
-    
-    .burger-menu i {
-        visibility: hidden;
-        display: none
+        display: none;
     }
 
-    nav ul {
+    nav.horizontal ul {
         visibility: visible;
         list-style: none;
         display: flex;
@@ -104,11 +99,11 @@ header button.login-logout:hover {
         height: 100%;
     }
     
-    nav ul li:first-child {
+    nav.horizontal ul li:first-child {
         margin-right: 20px;
     }
     
-    nav ul li a {
+    nav.horizontal ul li a {
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
@@ -118,34 +113,117 @@ header button.login-logout:hover {
         transition: var(--app-transition);
     }
 
-    nav ul li a:hover {
+    nav.horizontal ul li a:hover {
         color: var(--app-theme-blue-2) !important;
     }
 }
 
 @media only screen and (max-width: 922px) {
-    nav {
+    nav.horizontal {
         visibility: hidden;
         display: none;
-    }
-    
-    .burger-menu {
-        visibility: visible;
-        display: inline;
-        color: var(--app-theme-blue);
-        font-size: 20px;
-        transition: var(--app-transition);
-        margin: auto 0;
-    }
-
-    .burger-menu:hover {
-        color: var(--app-theme-blue-2);
-        cursor: pointer;
     }
 
     header .welcome, header button.login-logout {
         visibility: hidden;
         display: none;
+    }
+
+    nav.vertical {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        z-index: 4;
+    }
+    
+    nav.vertical .menu-toggle {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        cursor: pointer;
+        z-index: 1;
+    }
+    
+    nav.vertical .menu-icon {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50px, -50%);
+        width: 25px;
+        height: 4px;
+        background-color: var(--app-theme-blue);
+        border-radius: var(--app-border-radius);
+        transition: transform 0.3s, opacity 0.3s;
+    }
+    
+    nav.vertical .menu-icon:before,
+    nav.vertical .menu-icon:after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 4px;
+        background-color: var(--app-theme-blue);
+        border-radius: var(--app-border-radius);
+        transition: transform 0.3s, opacity 0.3s;
+    }
+    
+    nav.vertical .menu-icon:before {
+        top: -6px;
+    }
+    
+    nav.vertical .menu-icon:after {
+        top: 6px;
+    }
+    
+    nav.vertical .menu-toggle.active .menu-icon {
+        background-color: transparent;
+    }
+    
+    nav.vertical .menu-toggle.active .menu-icon:before {
+        transform: translateY(6px) rotate(45deg);
+    }
+    
+    nav.vertical .menu-toggle.active .menu-icon:after {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+    
+    nav.vertical .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(248, 245, 241, 0.911);
+        padding: 20px;
+        list-style: none;
+        margin: 0;
+        padding-top: 60px;
+        width: 250px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        height: 100%;
+    }
+
+    nav.vertical .menu.open {
+        transform: translateX(0); 
+    }
+    
+    nav.vertical .menu.open li {
+        margin-bottom: 10px;
+    }
+    
+    nav.vertical .menu.open li a {
+        font-family: var(--app-family-highlight);
+        font-size: 23px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--app-theme-blue) !important;
+        position: relative;
+        transition: var(--app-transition);
+    }
+
+    nav.vertical .menu.open li a:hover {
+        color: var(--app-theme-blue-2) !important;
     }
 }
 
@@ -155,7 +233,7 @@ header button.login-logout:hover {
 /* -------------------------------- */
 
 footer {
-    min-width: 360px;
+    min-width: 340px;
     width: 100%;
     padding: 20px 0px;
     background-color: var(--app-theme-blue-2);
