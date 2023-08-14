@@ -98,6 +98,7 @@ function About() {
                                     provisions all children components with the current state of the cart, no matter
                                     which child modifies it.
                                 </p>
+                                <p>Learn more about this <a href="https://github.com/moorebarrett-jodiann/jmap-products" target="_blank" rel="noreferrer"> Project</a></p>
                                 <p>
                                 </p>
                             </article>
