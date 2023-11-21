@@ -3,7 +3,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import paul from '../images/collaborators/paul.jpg';
 import matthew from '../images/collaborators/matthew.jpg';
-import thelma from '../images/collaborators/thelma.jpg';
+import thelma from '../images/collaborators/thelma.png';
 import jodi from '../images/collaborators/jodi.jpg';
 
 function About() {
