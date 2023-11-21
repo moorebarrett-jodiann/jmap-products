@@ -4,7 +4,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import paul from '../images/collaborators/paul.jpg';
 import matthew from '../images/collaborators/matthew.jpg';
 import thelma from '../images/collaborators/thelma.jpg';
-import jodi from '../images/collaborators/jodi.jpeg';
+import jodi from '../images/collaborators/jodi.jpg';
 
 function About() {
     const paul_GITHUB = `https://github.com/Paul-Funston`;
